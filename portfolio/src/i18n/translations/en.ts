@@ -48,7 +48,7 @@ export const en = {
     selectCharacter: 'Select a character to learn more.',
   },
   scene: {
-    level: 'LVL MAX',
+    level: 'LVL 33',
   },
   /** Keys must match SceneObject.tooltipKey in characters.ts */
   sceneTooltips: {

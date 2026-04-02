@@ -50,7 +50,7 @@ export const es: Translations = {
     selectCharacter: 'Selecciona un personaje para saber más.',
   },
   scene: {
-    level: 'NVL MÁX',
+    level: 'NVL 33',
   },
   sceneTooltips: {
     basic_cube1: 'Abierto a nuevas oportunidades',

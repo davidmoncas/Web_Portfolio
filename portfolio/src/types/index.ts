@@ -21,6 +21,8 @@ export interface SceneObject {
   size: [number, number, number];
   /** Key into translations.sceneTooltips */
   tooltipKey: string;
+  /** Optional image shown in the scene info panel */
+  imageUrl?: string;
 }
 
 export interface Character {

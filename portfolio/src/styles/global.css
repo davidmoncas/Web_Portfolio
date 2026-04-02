@@ -11,7 +11,14 @@ html, body {
 }
 
 body {
-  background: var(--bg-root);
+  background-color: var(--bg-root);
+  /* Subtle dot grid — gives depth behind the floating panels */
+  background-image: radial-gradient(
+    circle,
+    rgba(40, 120, 176, 0.14) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 24px 24px;
   color: var(--text-primary);
   font-family: var(--font-sans);
   font-size: 15px;

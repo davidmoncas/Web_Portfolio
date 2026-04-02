@@ -1,4 +1,4 @@
-/* ── Character Selection Page — 3-column layout ───────────────────────────── */
+/* ── Character Selection Page — 3-column floating layout ──────────────────── */
 
 .char-selection {
   flex: 1;
@@ -6,25 +6,38 @@
   grid-template-columns: var(--sidebar-width) 1fr var(--info-width);
   grid-template-rows: 1fr;
   grid-template-areas: "sidebar scene info";
-  min-height: 0; /* allow grid to shrink inside flex parent */
+  min-height: 0;
+  padding: 20px;
+  gap: 16px;
+  background: transparent; /* dot texture comes from body */
+  align-items: start; /* let each column control its own vertical alignment */
 }
 
-/* ── Sidebar — character list ─────────────────────────────────────────────── */
+/* ── Sidebar — character list (floating card, vertically centered) ─────────── */
 
 .char-list {
   grid-area: sidebar;
+  align-self: center;
+  height: 80%;                  /* taller: most of the content area height */
+  max-height: calc(100% - 24px);
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding: 20px 12px;
+  padding: 16px;
   overflow-y: auto;
+  /* Floating card */
   background: var(--bg-panel);
-  border-right: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  border: var(--panel-border);
+  box-shadow: var(--panel-shadow);
 }
 
 .char-list::-webkit-scrollbar { width: 4px; }
 .char-list::-webkit-scrollbar-track { background: transparent; }
-.char-list::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 2px; }
+.char-list::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 2px;
+}
 
 /* ── Character card ───────────────────────────────────────────────────────── */
 
@@ -34,7 +47,7 @@
   gap: 12px;
   padding: 10px 10px 10px 12px;
   border-radius: var(--radius-md);
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   text-align: left;
   background: transparent;
   width: 100%;
@@ -46,16 +59,15 @@
     box-shadow var(--transition);
 }
 
-/* Subtle left accent bar */
 .char-card::before {
   content: '';
   position: absolute;
   left: 0;
   top: 20%;
   bottom: 20%;
-  width: 2px;
+  width: 3px;
   background: var(--char-color, var(--accent));
-  border-radius: 0 1px 1px 0;
+  border-radius: 0 2px 2px 0;
   opacity: 0;
   transition: opacity var(--transition);
 }
@@ -65,19 +77,15 @@
   border-color: var(--border-strong);
 }
 
-.char-card:hover::before {
-  opacity: 0.5;
-}
+.char-card:hover::before { opacity: 0.4; }
 
 .char-card--selected {
   background: var(--bg-selected);
-  border-color: color-mix(in srgb, var(--char-color, var(--accent)) 50%, transparent);
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+  border-color: color-mix(in srgb, var(--char-color, var(--accent)) 45%, transparent);
+  box-shadow: 0 2px 10px rgba(20, 50, 80, 0.08);
 }
 
-.char-card--selected::before {
-  opacity: 1;
-}
+.char-card--selected::before { opacity: 1; }
 
 /* ── Portrait ─────────────────────────────────────────────────────────────── */
 
@@ -88,36 +96,32 @@
   border-radius: var(--radius-md);
   overflow: hidden;
   flex-shrink: 0;
-  border: 1px solid var(--border-strong);
+  border: 2px solid var(--border-strong);
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 
 .char-card__portrait-inner {
   width: 100%;
   height: 100%;
-  opacity: 0.8;
+  opacity: 0.85;
   transition: opacity var(--transition);
 }
 
-/* Shine overlay on portrait */
 .char-card__portrait::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 55%);
   pointer-events: none;
 }
 
 .char-card--selected .char-card__portrait {
   border-color: var(--char-color, var(--accent));
-  box-shadow: 0 0 10px color-mix(in srgb, var(--char-color, var(--accent)) 50%, transparent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--char-color, var(--accent)) 40%, transparent);
 }
 
-.char-card--selected .char-card__portrait-inner {
-  opacity: 1;
-}
+.char-card--selected .char-card__portrait-inner { opacity: 1; }
 
-/* Index number badge on portrait corner */
 .char-card__index {
   position: absolute;
   bottom: 3px;
@@ -125,7 +129,7 @@
   font-size: 9px;
   font-family: var(--font-mono);
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1;
   letter-spacing: 0.05em;
 }
@@ -141,8 +145,9 @@
 }
 
 .char-card__name {
-  font-size: 14px;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
   color: var(--text-secondary);
   transition: color var(--transition);
   white-space: nowrap;
@@ -151,26 +156,23 @@
 }
 
 .char-card:hover .char-card__name,
-.char-card--selected .char-card__name {
-  color: var(--text-primary);
-}
+.char-card--selected .char-card__name { color: var(--text-primary); }
 
-/* Role badge pill */
 .char-card__role {
   display: inline-block;
   font-size: 9px;
+  font-family: var(--font-mono);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 2px 6px;
-  border-radius: 3px;
-  background: color-mix(in srgb, var(--char-color, var(--accent)) 15%, transparent);
-  color: var(--char-color, var(--accent-light));
-  border: 1px solid color-mix(in srgb, var(--char-color, var(--accent)) 30%, transparent);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--char-color, var(--accent)) 10%, transparent);
+  color: var(--char-color, var(--accent));
+  border: 1.5px solid color-mix(in srgb, var(--char-color, var(--accent)) 30%, transparent);
   align-self: flex-start;
 }
 
-/* Power bar */
 .char-card__power {
   display: flex;
   align-items: center;
@@ -195,12 +197,11 @@
 
 .char-card__power-fill {
   height: 100%;
-  background: color-mix(in srgb, var(--char-color, var(--accent)) 70%, white);
+  background: var(--char-color, var(--accent));
   border-radius: 2px;
+  opacity: 0.7;
   transition: width 400ms ease;
 }
-
-/* ── Selection chevron ────────────────────────────────────────────────────── */
 
 .char-card__chevron {
   font-size: 16px;
@@ -217,22 +218,22 @@
   transform: translateX(0);
 }
 
-/* ── 3D scene area ────────────────────────────────────────────────────────── */
+/* ── 3D scene area (floating card) ───────────────────────────────────────── */
 
 .char-selection__scene-area {
   grid-area: scene;
-  position: relative; /* anchor for .char-scene absolute positioning */
-  background: var(--bg-primary);
-  border-right: 1px solid var(--border);
+  position: relative;
+  align-self: stretch; /* fill the full grid row height */
+  border-radius: var(--radius-lg);
+  border: var(--panel-border);
+  box-shadow: var(--panel-shadow);
+  overflow: hidden; /* clips canvas + overlays to card corners */
 }
 
 /*
- * Canvas sizing strategy:
- *   .char-scene is absolutely positioned so it fills the grid cell without
- *   participating in layout. We do NOT override <canvas> dimensions with CSS —
- *   r3f manages those directly via ResizeObserver. Overriding with CSS causes
- *   the drawing-buffer size and display size to diverge when DevTools opens and
- *   triggers a layout reflow, making the canvas appear stretched or enlarged.
+ * Canvas sizing: .char-scene fills the grid cell via position:absolute; inset:0.
+ * Do NOT apply CSS width/height to the <canvas> element —
+ * r3f manages those via ResizeObserver.
  */
 .char-scene {
   position: absolute;
@@ -242,91 +243,180 @@
 
 /* ── Scene HTML overlays ──────────────────────────────────────────────────── */
 
-/* Base: absolutely positioned over the canvas, text is selectable */
 .scene-overlay {
   position: absolute;
   left: 0;
   right: 0;
   z-index: 10;
-  /* pointer-events: auto (default) so text can be selected */
+  display: flex;
+  justify-content: center;
 }
 
 .scene-overlay--title {
   top: 0;
-  padding: 20px 24px 0;
-  text-align: center;
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-primary);
-  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  padding: 16px 24px 0;
+  align-items: center;
 }
 
 .scene-overlay--subtitle {
   bottom: 0;
-  padding: 0 24px 20px;
-  text-align: center;
-  font-size: 12px;
-  font-style: italic;
-  letter-spacing: 0.08em;
-  color: var(--text-secondary);
-  text-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
+  padding: 0 24px 16px;
+  align-items: center;
 }
 
 .scene-overlay--level {
   bottom: 0;
-  right: auto;       /* override the base right: 0 */
-  left: 0;
-  width: fit-content;
-  padding: 0 0 16px 16px;
-  font-size: 11px;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
-  /* Level badge doesn't need GSAP animation — keep it static */
+  justify-content: flex-start;
+  padding: 0 0 14px 14px;
   pointer-events: none;
 }
 
-/* ── Interactive object tooltip (rendered via drei Html) ──────────────────── */
+/* ── Overlay badges — solid white containers, high contrast ──────────────── */
 
-.scene-tooltip {
-  background: rgba(8, 8, 18, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 6px;
-  padding: 6px 10px;
+.scene-overlay__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: var(--radius-md); /* less pill, more label */
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border: 3px solid rgba(255, 255, 255, 0.70);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.scene-overlay__badge--title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  /* color is character.color, set via inline style — readable on white bg */
+}
+
+.scene-overlay__badge--subtitle {
   font-size: 11px;
-  font-family: var(--font-sans, system-ui);
-  color: #e8e8f0;
-  white-space: nowrap;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
-  animation: tooltip-in 120ms ease;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);  /* dark — readable on white background */
 }
 
-@keyframes tooltip-in {
-  from { opacity: 0; transform: translateY(4px) scale(0.96); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
+.scene-overlay__badge--level {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.80);
 }
 
-/* ── Info panel — right column ────────────────────────────────────────────── */
+/* ── Scene info panel (top-right, appears on object click) ───────────────── */
+
+.scene-info-panel {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 220px;
+  z-index: 20;
+  background: var(--bg-panel);
+  border-radius: var(--radius-lg);
+  border: var(--panel-border);
+  box-shadow: var(--panel-shadow);
+  overflow: hidden;
+  animation: panel-in 200ms ease;
+}
+
+@keyframes panel-in {
+  from { opacity: 0; transform: scale(0.92) translateY(-6px); transform-origin: top right; }
+  to   { opacity: 1; transform: scale(1)    translateY(0);    transform-origin: top right; }
+}
+
+.scene-info-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px 10px 14px;
+  border-bottom: 2px solid var(--border);
+  background: var(--bg-panel-hover);
+}
+
+.scene-info-panel__title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.scene-info-panel__close {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--border-strong);
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition), color var(--transition);
+  flex-shrink: 0;
+}
+
+.scene-info-panel__close:hover {
+  background: var(--accent-border);
+  color: var(--accent);
+}
+
+.scene-info-panel__body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.scene-info-panel__text {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.scene-info-panel__image {
+  width: 100%;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-strong);
+  display: block;
+}
+
+/* ── Info column — transparent container, two floating cards inside ────────── */
 
 .info-panel {
   grid-area: info;
+  align-self: stretch;
   display: flex;
   flex-direction: column;
-  gap: 0;
-  background: var(--bg-panel);
+  gap: 20px; /* enough room so the 3D bottom-edge shadow of card 1 clears card 2 */
   overflow-y: auto;
   overflow-x: hidden;
+  background: transparent;
+  /* bottom padding keeps the last card's shadow from hitting the page edge */
+  padding-bottom: 8px;
 }
 
 .info-panel::-webkit-scrollbar { width: 4px; }
 .info-panel::-webkit-scrollbar-track { background: transparent; }
-.info-panel::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 2px; }
+.info-panel::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 2px;
+}
 
 .info-panel--empty {
+  background: var(--bg-panel);
+  border-radius: var(--radius-lg);
+  border: var(--panel-border);
+  box-shadow: var(--panel-shadow);
+  flex: 1;
   align-items: center;
   justify-content: center;
 }
@@ -338,49 +428,58 @@
   text-align: center;
 }
 
-/* Header section */
+/* ── Card 1: character description ────────────────────────────────────────── */
+
 .info-panel__header {
-  padding: 24px 20px 16px;
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
+  flex-shrink: 0;
+  padding: 24px 22px 20px;
+  min-height: 140px;
   background: var(--bg-panel);
-  z-index: 1;
+  border-radius: var(--radius-lg);
+  border: var(--panel-border);
+  box-shadow: var(--panel-shadow);
 }
 
 .info-panel__title {
-  font-size: 10px;
+  font-family: var(--font-display);
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--char-color, var(--accent-light));
+  color: var(--char-color, var(--accent));
   margin-bottom: 10px;
 }
 
 .info-panel__desc {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-secondary);
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
-/* Categories stacked vertically */
+/* ── Card 2: skill bars ────────────────────────────────────────────────────── */
+
 .info-panel__categories {
   display: flex;
   flex-direction: column;
-  padding: 12px 0;
+  flex: 1;
+  min-height: 0;
+  background: var(--bg-panel);
+  border-radius: var(--radius-lg);
+  border: var(--panel-border);
+  box-shadow: var(--panel-shadow);
+  overflow: hidden;
 }
 
 .info-panel__category {
-  padding: 12px 20px;
-  border-bottom: 1px solid var(--border);
+  padding: 14px 22px;
+  border-bottom: 2px solid var(--border);
 }
 
-.info-panel__category:last-child {
-  border-bottom: none;
-}
+.info-panel__category:last-child { border-bottom: none; }
 
 .info-panel__category-title {
   font-size: 10px;
+  font-family: var(--font-mono);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -391,7 +490,7 @@
 .info-panel__skills {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 9px;
 }
 
 /* ── Skill bar ────────────────────────────────────────────────────────────── */
@@ -420,22 +519,17 @@
 }
 
 .skill-bar__track {
-  height: 4px;
-  background: var(--border-strong);
-  border-radius: 2px;
+  height: 6px;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-strong);
+  border-radius: 3px;
   overflow: hidden;
 }
 
 .skill-bar__fill {
   height: 100%;
-  background: var(--char-color, var(--accent));
+  background: color-mix(in srgb, var(--char-color, var(--accent)) 80%, var(--accent-green));
   border-radius: 2px;
-  /*
-   * Clip-path animation: the inline `width` sets the final fill amount.
-   * clip-path sweeps from fully clipped (right 100%) to fully visible (right 0%).
-   * Each bar uses --bar-duration and --bar-delay set from JS for stagger effect.
-   * This triggers fresh on every remount (i.e. character change).
-   */
   animation: bar-sweep var(--bar-duration, 500ms) var(--bar-delay, 0ms) ease forwards;
 }
 
