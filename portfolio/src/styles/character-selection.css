@@ -28,7 +28,7 @@
   /* Floating card */
   background: var(--bg-panel);
   border-radius: var(--radius-lg);
-  border: var(--panel-border);
+  border: var(--panel-border); /* thin 1.5px — see variables.css */
   box-shadow: var(--panel-shadow);
 }
 
@@ -225,7 +225,7 @@
   position: relative;
   align-self: stretch; /* fill the full grid row height */
   border-radius: var(--radius-lg);
-  border: var(--panel-border);
+  border: var(--panel-border); /* thin 1.5px — see variables.css */
   box-shadow: var(--panel-shadow);
   overflow: hidden; /* clips canvas + overlays to card corners */
 }
@@ -320,7 +320,7 @@
   z-index: 20;
   background: var(--bg-panel);
   border-radius: var(--radius-lg);
-  border: var(--panel-border);
+  border: var(--panel-border); /* thin 1.5px — see variables.css */
   box-shadow: var(--panel-shadow);
   overflow: hidden;
   animation: panel-in 200ms ease;
@@ -336,7 +336,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 12px 10px 14px;
-  border-bottom: 2px solid var(--border);
+  border-bottom: 1px solid var(--border);
   background: var(--bg-panel-hover);
 }
 
@@ -414,7 +414,7 @@
 .info-panel--empty {
   background: var(--bg-panel);
   border-radius: var(--radius-lg);
-  border: var(--panel-border);
+  border: var(--panel-border); /* thin 1.5px — see variables.css */
   box-shadow: var(--panel-shadow);
   flex: 1;
   align-items: center;
@@ -436,7 +436,7 @@
   min-height: 140px;
   background: var(--bg-panel);
   border-radius: var(--radius-lg);
-  border: var(--panel-border);
+  border: var(--panel-border); /* thin 1.5px — see variables.css */
   box-shadow: var(--panel-shadow);
 }
 
@@ -465,14 +465,14 @@
   min-height: 0;
   background: var(--bg-panel);
   border-radius: var(--radius-lg);
-  border: var(--panel-border);
+  border: var(--panel-border); /* thin 1.5px — see variables.css */
   box-shadow: var(--panel-shadow);
   overflow: hidden;
 }
 
 .info-panel__category {
   padding: 14px 22px;
-  border-bottom: 2px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .info-panel__category:last-child { border-bottom: none; }

@@ -11,14 +11,19 @@ html, body {
 }
 
 body {
+  /*
+   * Three-layer background:
+   *   1. Soft radial glow — top-left lighter
+   *   2. Soft radial glow — bottom-right deeper
+   *   3. Dot grid — 5px dots at 36px spacing for depth
+   */
   background-color: var(--bg-root);
-  /* Subtle dot grid — gives depth behind the floating panels */
-  background-image: radial-gradient(
-    circle,
-    rgba(40, 120, 176, 0.14) 1.5px,
-    transparent 1.5px
-  );
-  background-size: 24px 24px;
+  background-image:
+    radial-gradient(ellipse at 18% 12%, rgba(200, 230, 252, 0.55) 0%, transparent 52%),
+    radial-gradient(ellipse at 82% 88%, rgba(70, 120, 175, 0.35) 0%, transparent 50%),
+    radial-gradient(circle, rgba(30, 90, 150, 0.15) 5px, transparent 5px);
+  background-size: 100% 100%, 100% 100%, 36px 36px;
+
   color: var(--text-primary);
   font-family: var(--font-sans);
   font-size: 15px;

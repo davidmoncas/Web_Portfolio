@@ -5,14 +5,14 @@
  */
 
 :root {
-  /* --- Page background (deeper blue-grey so white panels pop) --- */
-  --bg-root:        #C8D9E8;
-  --bg-primary:     #D8E8F2;
+  /* --- Page background (set on body, used as gradient base) --- */
+  --bg-root:        #C2D5E8;
+  --bg-primary:     #D4E5F2;
 
   /* --- Panel / card surface --- */
   --bg-panel:       #FFFFFF;
   --bg-panel-hover: #EEF5FB;
-  --bg-selected:    #C4DDF2;
+  --bg-selected:    #C8DEEF;
 
   /* --- Text --- */
   --text-primary:   #0F2030;
@@ -20,38 +20,35 @@
   --text-muted:     #6A8CA8;
   --text-accent:    #0E60A8;
 
-  /* --- Accent — more saturated blue --- */
+  /* --- Accent --- */
   --accent:         #0E60A8;
   --accent-light:   #2E82CC;
-  --accent-glow:    rgba(14, 96, 168, 0.14);
-  --accent-border:  rgba(14, 96, 168, 0.40);
+  --accent-glow:    rgba(14, 96, 168, 0.12);
+  --accent-border:  rgba(14, 96, 168, 0.35);
 
   /* --- Green complement --- */
   --accent-green:   #1A8A68;
 
-  /* --- Borders --- */
-  --border:         rgba(14, 96, 168, 0.14);
-  --border-strong:  rgba(14, 96, 168, 0.28);
+  /* --- Borders (subtle — panels rely on shadow for definition) --- */
+  --border:              rgba(14, 96, 168, 0.10);
+  --border-strong:       rgba(14, 96, 168, 0.22);
+  --panel-border-color:  rgba(14, 96, 168, 0.22);
 
-  /* --- Panel border: thick + saturated --- */
-  --panel-border-color:   #2878B8;
-  --panel-border:         8px solid var(--panel-border-color);
+  /* --- Panel border: thin, not aggressive --- */
+  --panel-border: 1.5px solid var(--panel-border-color);
 
-  /* --- 3D lift shadow ---
-   *  Keep the bottom-edge shadow modest (4px) so stacked panels don't bleed
-   *  into each other. Rely on the diffuse layer for the floating feel.
-   */
+  /* --- Panel shadow: soft lift, modest bottom edge --- */
   --panel-shadow:
-    0 4px 0 rgba(14, 72, 130, 0.30),
-    0 14px 32px rgba(10, 40, 75, 0.18),
-    0 3px  8px  rgba(10, 40, 75, 0.10);
+    0 3px 0 rgba(14, 72, 130, 0.18),
+    0 12px 28px rgba(10, 40, 75, 0.14),
+    0 3px  8px  rgba(10, 40, 75, 0.08);
 
-  --shadow-sm:  0 2px 8px  rgba(10, 40, 75, 0.08);
-  --shadow-md:  0 4px 16px rgba(10, 40, 75, 0.12), 0 1px 4px rgba(10, 40, 75, 0.06);
+  --shadow-sm:  0 2px 8px  rgba(10, 40, 75, 0.07);
+  --shadow-md:  0 4px 16px rgba(10, 40, 75, 0.10), 0 1px 4px rgba(10, 40, 75, 0.05);
 
   /* --- Layout sizing --- */
   --topbar-height:  56px;
-  --tab-height:     48px;
+  --tab-height:     46px;
   --sidebar-width:  260px;
   --info-width:     380px;
 
@@ -62,15 +59,15 @@
   --radius-xl:  24px;
 
   /* --- Typography ---
-   *  Raleway      — geometric, elegant uppercase weight, great for titles
-   *  Source Sans 3 — clean, highly legible, professional body text (Adobe)
-   *  JetBrains Mono — precise monospace for numbers, badges, code
+   *  Raleway       — geometric, elegant in uppercase, confident display weight
+   *  Source Sans 3 — clean, professional, highly legible body text
+   *  JetBrains Mono — precise monospace for badges and numbers
    */
   --font-display: 'Raleway',       system-ui, sans-serif;
   --font-sans:    'Source Sans 3', system-ui, 'Segoe UI', sans-serif;
   --font-mono:    'JetBrains Mono', ui-monospace, Consolas, monospace;
 
-  /* --- Scene overlay text (over the dark Three.js canvas) --- */
+  /* --- Scene overlay text (over dark Three.js canvas) --- */
   --scene-text-primary:   rgba(235, 248, 255, 0.96);
   --scene-text-secondary: rgba(190, 222, 242, 0.88);
   --scene-text-muted:     rgba(150, 195, 225, 0.70);
