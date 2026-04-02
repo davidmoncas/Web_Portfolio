@@ -2,7 +2,7 @@ import type { Translations } from './en';
 
 export const es: Translations = {
   topBar: {
-    name: 'David',
+    name: 'David Montoya Castano',
   },
   nav: {
     characters: 'Seleccionar Personaje',
