@@ -1,0 +1,104 @@
+/* ── Top Bar ──────────────────────────────────────────────────────────────── */
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--topbar-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+
+.topbar__name {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+}
+
+.topbar__lang {
+  display: flex;
+  gap: 4px;
+}
+
+.topbar__lang-btn {
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  transition: color var(--transition), background var(--transition);
+}
+
+.topbar__lang-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-panel-hover);
+}
+
+.topbar__lang-btn--active {
+  color: var(--accent-light);
+  background: var(--accent-glow);
+}
+
+/* ── Tab Navigation ───────────────────────────────────────────────────────── */
+
+.tab-nav {
+  position: fixed;
+  top: var(--topbar-height);
+  left: 0;
+  right: 0;
+  z-index: 90;
+  height: var(--tab-height);
+  display: flex;
+  align-items: stretch;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border);
+  padding: 0 16px;
+}
+
+.tab-nav__tab {
+  padding: 0 20px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  position: relative;
+  transition: color var(--transition);
+}
+
+.tab-nav__tab:hover {
+  color: var(--text-primary);
+}
+
+.tab-nav__tab--active {
+  color: var(--text-accent);
+}
+
+.tab-nav__tab--active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px 1px 0 0;
+}
+
+/* ── Page content wrapper ────────────────────────────────────────────────── */
+
+.page-content {
+  margin-top: calc(var(--topbar-height) + var(--tab-height));
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,445 @@
+/* ── Character Selection Page — 3-column layout ───────────────────────────── */
+
+.char-selection {
+  flex: 1;
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr var(--info-width);
+  grid-template-rows: 1fr;
+  grid-template-areas: "sidebar scene info";
+  min-height: 0; /* allow grid to shrink inside flex parent */
+}
+
+/* ── Sidebar — character list ─────────────────────────────────────────────── */
+
+.char-list {
+  grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 12px;
+  overflow-y: auto;
+  background: var(--bg-panel);
+  border-right: 1px solid var(--border);
+}
+
+.char-list::-webkit-scrollbar { width: 4px; }
+.char-list::-webkit-scrollbar-track { background: transparent; }
+.char-list::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 2px; }
+
+/* ── Character card ───────────────────────────────────────────────────────── */
+
+.char-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 10px 10px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  text-align: left;
+  background: transparent;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+/* Subtle left accent bar */
+.char-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  bottom: 20%;
+  width: 2px;
+  background: var(--char-color, var(--accent));
+  border-radius: 0 1px 1px 0;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.char-card:hover {
+  background: var(--bg-panel-hover);
+  border-color: var(--border-strong);
+}
+
+.char-card:hover::before {
+  opacity: 0.5;
+}
+
+.char-card--selected {
+  background: var(--bg-selected);
+  border-color: color-mix(in srgb, var(--char-color, var(--accent)) 50%, transparent);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.char-card--selected::before {
+  opacity: 1;
+}
+
+/* ── Portrait ─────────────────────────────────────────────────────────────── */
+
+.char-card__portrait {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--border-strong);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.char-card__portrait-inner {
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  transition: opacity var(--transition);
+}
+
+/* Shine overlay on portrait */
+.char-card__portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.char-card--selected .char-card__portrait {
+  border-color: var(--char-color, var(--accent));
+  box-shadow: 0 0 10px color-mix(in srgb, var(--char-color, var(--accent)) 50%, transparent);
+}
+
+.char-card--selected .char-card__portrait-inner {
+  opacity: 1;
+}
+
+/* Index number badge on portrait corner */
+.char-card__index {
+  position: absolute;
+  bottom: 3px;
+  right: 4px;
+  font-size: 9px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+/* ── Card body ────────────────────────────────────────────────────────────── */
+
+.char-card__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.char-card__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color var(--transition);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.char-card:hover .char-card__name,
+.char-card--selected .char-card__name {
+  color: var(--text-primary);
+}
+
+/* Role badge pill */
+.char-card__role {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--char-color, var(--accent)) 15%, transparent);
+  color: var(--char-color, var(--accent-light));
+  border: 1px solid color-mix(in srgb, var(--char-color, var(--accent)) 30%, transparent);
+  align-self: flex-start;
+}
+
+/* Power bar */
+.char-card__power {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.char-card__power-label {
+  font-size: 9px;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+
+.char-card__power-track {
+  flex: 1;
+  height: 3px;
+  background: var(--border-strong);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.char-card__power-fill {
+  height: 100%;
+  background: color-mix(in srgb, var(--char-color, var(--accent)) 70%, white);
+  border-radius: 2px;
+  transition: width 400ms ease;
+}
+
+/* ── Selection chevron ────────────────────────────────────────────────────── */
+
+.char-card__chevron {
+  font-size: 16px;
+  color: var(--char-color, var(--accent));
+  opacity: 0;
+  flex-shrink: 0;
+  transition: opacity var(--transition), transform var(--transition);
+  transform: translateX(-4px);
+}
+
+.char-card:hover .char-card__chevron,
+.char-card--selected .char-card__chevron {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── 3D scene area ────────────────────────────────────────────────────────── */
+
+.char-selection__scene-area {
+  grid-area: scene;
+  position: relative; /* anchor for .char-scene absolute positioning */
+  background: var(--bg-primary);
+  border-right: 1px solid var(--border);
+}
+
+/*
+ * Canvas sizing strategy:
+ *   .char-scene is absolutely positioned so it fills the grid cell without
+ *   participating in layout. We do NOT override <canvas> dimensions with CSS —
+ *   r3f manages those directly via ResizeObserver. Overriding with CSS causes
+ *   the drawing-buffer size and display size to diverge when DevTools opens and
+ *   triggers a layout reflow, making the canvas appear stretched or enlarged.
+ */
+.char-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* ── Scene HTML overlays ──────────────────────────────────────────────────── */
+
+/* Base: absolutely positioned over the canvas, text is selectable */
+.scene-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  /* pointer-events: auto (default) so text can be selected */
+}
+
+.scene-overlay--title {
+  top: 0;
+  padding: 20px 24px 0;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.scene-overlay--subtitle {
+  bottom: 0;
+  padding: 0 24px 20px;
+  text-align: center;
+  font-size: 12px;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
+}
+
+.scene-overlay--level {
+  bottom: 0;
+  right: auto;       /* override the base right: 0 */
+  left: 0;
+  width: fit-content;
+  padding: 0 0 16px 16px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+  /* Level badge doesn't need GSAP animation — keep it static */
+  pointer-events: none;
+}
+
+/* ── Interactive object tooltip (rendered via drei Html) ──────────────────── */
+
+.scene-tooltip {
+  background: rgba(8, 8, 18, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-family: var(--font-sans, system-ui);
+  color: #e8e8f0;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  animation: tooltip-in 120ms ease;
+}
+
+@keyframes tooltip-in {
+  from { opacity: 0; transform: translateY(4px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Info panel — right column ────────────────────────────────────────────── */
+
+.info-panel {
+  grid-area: info;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--bg-panel);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.info-panel::-webkit-scrollbar { width: 4px; }
+.info-panel::-webkit-scrollbar-track { background: transparent; }
+.info-panel::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 2px; }
+
+.info-panel--empty {
+  align-items: center;
+  justify-content: center;
+}
+
+.info-panel--empty p {
+  color: var(--text-muted);
+  font-size: 14px;
+  padding: 24px;
+  text-align: center;
+}
+
+/* Header section */
+.info-panel__header {
+  padding: 24px 20px 16px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg-panel);
+  z-index: 1;
+}
+
+.info-panel__title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--char-color, var(--accent-light));
+  margin-bottom: 10px;
+}
+
+.info-panel__desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* Categories stacked vertically */
+.info-panel__categories {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 0;
+}
+
+.info-panel__category {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.info-panel__category:last-child {
+  border-bottom: none;
+}
+
+.info-panel__category-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.info-panel__skills {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Skill bar ────────────────────────────────────────────────────────────── */
+
+.skill-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.skill-bar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.skill-bar__name {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.skill-bar__level {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.skill-bar__track {
+  height: 4px;
+  background: var(--border-strong);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.skill-bar__fill {
+  height: 100%;
+  background: var(--char-color, var(--accent));
+  border-radius: 2px;
+  /*
+   * Clip-path animation: the inline `width` sets the final fill amount.
+   * clip-path sweeps from fully clipped (right 100%) to fully visible (right 0%).
+   * Each bar uses --bar-duration and --bar-delay set from JS for stagger effect.
+   * This triggers fresh on every remount (i.e. character change).
+   */
+  animation: bar-sweep var(--bar-duration, 500ms) var(--bar-delay, 0ms) ease forwards;
+}
+
+@keyframes bar-sweep {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
