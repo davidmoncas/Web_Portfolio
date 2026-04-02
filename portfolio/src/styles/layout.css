@@ -10,49 +10,48 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 28px;
   background: var(--bg-panel);
   border-bottom: 1px solid var(--panel-border-color);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
 }
 
 .topbar__name {
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-primary);
 }
 
 .topbar__lang {
   display: flex;
-  gap: 4px;
+  gap: 2px;
 }
 
 .topbar__lang-btn {
-  padding: 5px 11px;
-  border-radius: var(--radius-sm);
-  font-family: var(--font-mono);
+  padding: 5px 12px;
+  font-family: var(--font-sans);
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.08em;
-  color: var(--text-secondary);
+  text-transform: uppercase;
+  color: var(--text-muted);
   border: 1px solid transparent;
-  transition: color var(--transition), background var(--transition), border-color var(--transition);
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
 }
 
 .topbar__lang-btn:hover {
   color: var(--text-primary);
+  border-color: var(--border);
   background: var(--bg-panel-hover);
-  border-color: var(--border-strong);
 }
 
 .topbar__lang-btn--active {
-  color: var(--accent);
-  background: var(--accent-glow);
-  border-color: var(--accent-border);
-  font-weight: 700;
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+  background: var(--bg-selected);
 }
 
 /* ── Tab Navigation — browser-style tabs ─────────────────────────────────── */
@@ -65,45 +64,42 @@
   z-index: 90;
   height: var(--tab-height);
   display: flex;
-  align-items: flex-end; /* tabs sit at the bottom edge */
-  background: var(--bg-primary);
+  align-items: flex-end;
+  background: var(--bg-root);
   border-bottom: 1px solid var(--panel-border-color);
   padding: 0 20px;
   gap: 2px;
 }
 
 .tab-nav__tab {
-  /* Sit on the bottom border — margin-bottom cancels the border thickness */
-  height: 38px;
+  height: 36px;
   margin-bottom: -1px;
   padding: 0 24px;
-  font-size: 12px;
+  font-family: var(--font-sans);
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
   display: flex;
   align-items: center;
-  /* Top corners only — browser tab shape */
-  border-top-left-radius: var(--radius-sm);
-  border-top-right-radius: var(--radius-sm);
   border: 1px solid transparent;
   border-bottom: none;
   transition: color var(--transition), background var(--transition), border-color var(--transition);
 }
 
 .tab-nav__tab:hover {
-  color: var(--text-primary);
-  background: color-mix(in srgb, var(--bg-panel) 60%, transparent);
+  color: var(--text-secondary);
+  background: rgba(44, 62, 58, 0.04);
   border-color: var(--border);
 }
 
-/* Active tab: white fill, top/side borders visible, bottom opens into content */
+/* Active: white fill, border on top+sides, bottom matches panel bg to "break" the nav line */
 .tab-nav__tab--active {
-  color: var(--accent);
+  color: var(--text-primary);
+  font-weight: 700;
   background: var(--bg-panel);
   border-color: var(--panel-border-color);
-  /* Bottom border matches panel background — "breaks" the nav border-bottom */
   border-bottom: 1px solid var(--bg-panel);
 }
 
@@ -112,8 +108,29 @@
 .page-content {
   margin-top: calc(var(--topbar-height) + var(--tab-height));
   flex: 1;
+  min-height: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: transparent; /* body dot-gradient shows through */
+  background: transparent;
+}
+
+/* ── Bottom bar ───────────────────────────────────────────────────────────── */
+
+.bottombar {
+  flex-shrink: 0;
+  height: var(--bottombar-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-panel);
+  border-top: 1px solid var(--panel-border-color);
+}
+
+.bottombar__copy {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
 }

@@ -35,7 +35,33 @@ export const characters: Character[] = [
         tooltipKey: 'basic_cube1',
       },
     ],
+    skillCards: [
+      {
+        id: 'cross-discipline',
+        icon: '🔗',
+        title: 'Cross-discipline',
+        description: 'Bridging engineering rigour with software creativity to solve real-world problems.',
+      },
+      {
+        id: 'open-source',
+        icon: '💻',
+        title: 'Open Source',
+        description: 'Contributing to and learning from open source projects in game dev and tooling.',
+      },
+      {
+        id: 'lifelong-learner',
+        icon: '📚',
+        title: 'Lifelong Learner',
+        description: 'Always exploring new tools, paradigms and technologies across disciplines.',
+      },
+    ],
+    items: [
+      { id: 'macbook', icon: '💻', name: 'MacBook Pro', description: 'Primary development machine' },
+      { id: 'notion', icon: '📓', name: 'Notion', description: 'Project management and notes' },
+      { id: 'headphones', icon: '🎧', name: 'Headphones', description: 'Deep focus mode' },
+    ],
   },
+
   {
     id: 'developer',
     nameKey: 'characters.developer.name',
@@ -80,7 +106,34 @@ export const characters: Character[] = [
         tooltipKey: 'developer_cube1',
       },
     ],
+    skillCards: [
+      {
+        id: 'game-design',
+        icon: '🎮',
+        title: 'Game Design',
+        description: 'Designing mechanics, levels, and player experiences with a focus on feel and flow.',
+      },
+      {
+        id: 'simulation',
+        icon: '⚙️',
+        title: 'Simulation',
+        description: 'Building physics-based and procedural simulations, from traffic to fluid dynamics.',
+      },
+      {
+        id: 'ui-ux',
+        icon: '🖥️',
+        title: 'UI / UX',
+        description: 'Crafting interfaces for both games and web applications that feel intuitive.',
+      },
+    ],
+    items: [
+      { id: 'unity', icon: '🎮', name: 'Unity', description: 'Primary engine for 3D projects' },
+      { id: 'godot', icon: '🟣', name: 'Godot', description: 'Go-to for 2D and rapid prototyping' },
+      { id: 'github', icon: '🐙', name: 'GitHub', description: 'Version control and collaboration' },
+      { id: 'vscode', icon: '🔵', name: 'VS Code', description: 'Daily driver editor' },
+    ],
   },
+
   {
     id: 'engineer',
     nameKey: 'characters.engineer.name',
@@ -116,7 +169,34 @@ export const characters: Character[] = [
         tooltipKey: 'engineer_cube1',
       },
     ],
+    skillCards: [
+      {
+        id: 'structural-design',
+        icon: '🏗️',
+        title: 'Structural Design',
+        description: 'Analysis and design of reinforced concrete and steel structures under various loads.',
+      },
+      {
+        id: 'site-management',
+        icon: '📋',
+        title: 'Site Management',
+        description: 'Coordinating contractors, schedules, and quality control on construction sites.',
+      },
+      {
+        id: 'bim',
+        icon: '📐',
+        title: 'BIM Modeling',
+        description: '3D building information modeling for coordination, clash detection, and documentation.',
+      },
+    ],
+    items: [
+      { id: 'autocad', icon: '📐', name: 'AutoCAD', description: 'Technical drafting and 2D layout' },
+      { id: 'sap2000', icon: '🏗️', name: 'SAP2000', description: 'Structural analysis software' },
+      { id: 'revit', icon: '📊', name: 'Revit', description: 'BIM modeling and documentation' },
+      { id: 'msproject', icon: '📋', name: 'MS Project', description: 'Construction planning and scheduling' },
+    ],
   },
+
   {
     id: 'hobbyist',
     nameKey: 'characters.hobbyist.name',
@@ -143,6 +223,32 @@ export const characters: Character[] = [
         size: [0.6, 0.6, 0.6],
         tooltipKey: 'hobbyist_cube1',
       },
+    ],
+    skillCards: [
+      {
+        id: '3d-art',
+        icon: '🎨',
+        title: '3D Art',
+        description: 'Creating game assets, environments, and characters in Blender for personal projects.',
+      },
+      {
+        id: 'tabletop',
+        icon: '🎲',
+        title: 'Tabletop Games',
+        description: 'Designing and playing strategy, Euro-style, and role-playing games with friends.',
+      },
+      {
+        id: 'music',
+        icon: '🎵',
+        title: 'Music Production',
+        description: 'Composing ambient and chiptune tracks using a DAW for game jams and fun.',
+      },
+    ],
+    items: [
+      { id: 'blender', icon: '🔵', name: 'Blender', description: '3D modeling and rendering' },
+      { id: 'flstudio', icon: '🎵', name: 'FL Studio', description: 'Music production and composition' },
+      { id: 'camera', icon: '📷', name: 'Camera', description: 'Urban and nature photography' },
+      { id: 'boardgames', icon: '🎲', name: 'Board Games', description: 'Collection of 30+ strategy games' },
     ],
   },
 ];

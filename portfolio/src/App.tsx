@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { TopBar } from './components/layout/TopBar';
 import { TabNavigation } from './components/layout/TabNavigation';
+import { BottomBar } from './components/layout/BottomBar';
 import { CharacterSelectionPage } from './components/character-selection/CharacterSelectionPage';
 import { InventoryPage } from './components/inventory/InventoryPage';
 import { ContactPage } from './components/contact/ContactPage';
@@ -18,6 +19,7 @@ function App() {
         {activeTab === 'inventory' && <InventoryPage />}
         {activeTab === 'contact' && <ContactPage />}
       </main>
+      <BottomBar />
     </>
   );
 }

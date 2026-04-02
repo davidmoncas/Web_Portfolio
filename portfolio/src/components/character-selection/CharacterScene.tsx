@@ -1,18 +1,17 @@
 import { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Grid } from '@react-three/drei';
-import { gsap } from 'gsap';
 import type { ThreeEvent } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useI18n } from '../../i18n/I18nContext';
 import type { Character, SceneObject } from '../../types';
 
-// ── Scene setup — background colour ───────────────────────────────────────
+// ── Scene background colour ────────────────────────────────────────────────
 
 function SceneSetup() {
   const { scene } = useThree();
   useEffect(() => {
-    scene.background = new THREE.Color('#0C1E34');
+    scene.background = new THREE.Color('#1a2620');
   }, [scene]);
   return null;
 }
@@ -31,13 +30,12 @@ function CameraController() {
   return null;
 }
 
-// ── Main character mesh ────────────────────────────────────────────────────
+// ── Main character mesh (bobs, no individual rotation) ────────────────────
 
 function CharacterMesh({ color }: { color: string }) {
   const meshRef = useRef<THREE.Mesh>(null);
   useFrame((state) => {
     if (!meshRef.current) return;
-    meshRef.current.rotation.y += 0.008;
     meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.8) * 0.18;
   });
   return (
@@ -48,7 +46,7 @@ function CharacterMesh({ color }: { color: string }) {
   );
 }
 
-// ── Interactive scene object ───────────────────────────────────────────────
+// ── Interactive scene object (no individual rotation) ─────────────────────
 //
 // To add a new interactive object:
 //   1. Add a SceneObject to characters.ts (position, color, size, tooltipKey)
@@ -62,18 +60,12 @@ interface InteractiveObjectProps {
 }
 
 function InteractiveObject({ sceneObject, isActive, onActivate }: InteractiveObjectProps) {
-  const meshRef = useRef<THREE.Mesh>(null);
-  useFrame((state) => {
-    if (!meshRef.current) return;
-    meshRef.current.rotation.y += 0.015;
-    meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.6) * 0.2;
-  });
   const handleClick = (e: ThreeEvent<MouseEvent>) => {
     e.stopPropagation();
     onActivate(sceneObject.id);
   };
   return (
-    <mesh ref={meshRef} position={sceneObject.position} onClick={handleClick}>
+    <mesh position={sceneObject.position} onClick={handleClick}>
       <boxGeometry args={sceneObject.size} />
       <meshStandardMaterial
         color={sceneObject.color}
@@ -86,7 +78,19 @@ function InteractiveObject({ sceneObject, isActive, onActivate }: InteractiveObj
   );
 }
 
-// ── Scene info panel ───────────────────────────────────────────────────────
+// ── Slowly rotating group — wraps all scene objects ───────────────────────
+// Speed is 0.0015/frame ≈ 20% of the original 0.008, i.e. ~80% slower.
+
+function RotatingGroup({ children }: { children: React.ReactNode }) {
+  const groupRef = useRef<THREE.Group>(null);
+  useFrame(() => {
+    if (!groupRef.current) return;
+    groupRef.current.rotation.y += 0.0015;
+  });
+  return <group ref={groupRef}>{children}</group>;
+}
+
+// ── Scene info panel (HTML overlay, top-right) ─────────────────────────────
 
 interface SceneInfoPanelProps {
   sceneObject: SceneObject;
@@ -119,32 +123,10 @@ function SceneInfoPanel({ sceneObject, tooltipText, onClose }: SceneInfoPanelPro
 
 export function CharacterScene({ character }: { character: Character }) {
   const { t } = useI18n();
-
-  const title    = t.characters[character.id].name;
-  const subtitle = t.characters[character.id].subtitle;
-  const level    = t.scene.level;
-
-  const titleBadgeRef    = useRef<HTMLDivElement>(null);
-  const subtitleBadgeRef = useRef<HTMLDivElement>(null);
-
   const [activeObjectId, setActiveObjectId] = useState<string | null>(null);
 
+  // Close info panel when switching characters
   useEffect(() => { setActiveObjectId(null); }, [character.id]);
-
-  useEffect(() => {
-    if (titleBadgeRef.current) {
-      gsap.fromTo(titleBadgeRef.current,
-        { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(2)', transformOrigin: 'center' },
-      );
-    }
-    if (subtitleBadgeRef.current) {
-      gsap.fromTo(subtitleBadgeRef.current,
-        { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.4, delay: 0.1, ease: 'back.out(1.7)', transformOrigin: 'center' },
-      );
-    }
-  }, [character.id]);
 
   const activeObject  = character.sceneObjects.find((o) => o.id === activeObjectId) ?? null;
   const activeTooltip = activeObject
@@ -153,6 +135,11 @@ export function CharacterScene({ character }: { character: Character }) {
 
   return (
     <div className="char-scene">
+      {/*
+       * Canvas sizing: do NOT override canvas CSS dimensions.
+       * r3f manages them via ResizeObserver; overriding causes buffer/display
+       * size divergence on layout reflows (e.g. DevTools open).
+       */}
       <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 4.5], fov: 50 }}>
         <SceneSetup />
         <CameraController />
@@ -161,51 +148,31 @@ export function CharacterScene({ character }: { character: Character }) {
         <pointLight position={[5, 8, 5]} intensity={1.2} />
         <pointLight position={[-5, -4, -3]} intensity={0.6} color="#4466aa" />
 
-        {/* 3D grid floor */}
         <Grid
           position={[1.2, -1.2, 0]}
           infiniteGrid
           cellSize={0.5}
           cellThickness={0.4}
-          cellColor="#1E3E60"
+          cellColor="#243830"
           sectionSize={2.5}
           sectionThickness={0.8}
-          sectionColor="#2A5888"
+          sectionColor="#3a5a4a"
           fadeDistance={18}
           fadeStrength={1.2}
         />
 
-        <CharacterMesh color={character.color} />
-
-        {character.sceneObjects.map((obj) => (
-          <InteractiveObject
-            key={obj.id}
-            sceneObject={obj}
-            isActive={activeObjectId === obj.id}
-            onActivate={setActiveObjectId}
-          />
-        ))}
+        <RotatingGroup>
+          <CharacterMesh color={character.color} />
+          {character.sceneObjects.map((obj) => (
+            <InteractiveObject
+              key={obj.id}
+              sceneObject={obj}
+              isActive={activeObjectId === obj.id}
+              onActivate={setActiveObjectId}
+            />
+          ))}
+        </RotatingGroup>
       </Canvas>
-
-      <div className="scene-overlay scene-overlay--title">
-        <div
-          ref={titleBadgeRef}
-          className="scene-overlay__badge scene-overlay__badge--title"
-          style={{ color: character.color }}
-        >
-          {title}
-        </div>
-      </div>
-
-      <div className="scene-overlay scene-overlay--subtitle">
-        <div ref={subtitleBadgeRef} className="scene-overlay__badge scene-overlay__badge--subtitle">
-          {subtitle}
-        </div>
-      </div>
-
-      <div className="scene-overlay scene-overlay--level">
-        <div className="scene-overlay__badge scene-overlay__badge--level">{level}</div>
-      </div>
 
       {activeObject && (
         <SceneInfoPanel

@@ -1,4 +1,4 @@
-/* ── Character Selection Page — 3-column floating layout ──────────────────── */
+/* ── Character Selection Page ─────────────────────────────────────────────── */
 
 .char-selection {
   flex: 1;
@@ -7,36 +7,39 @@
   grid-template-rows: 1fr;
   grid-template-areas: "sidebar scene info";
   min-height: 0;
-  padding: 20px;
-  gap: 16px;
-  background: transparent; /* dot texture comes from body */
-  align-items: start; /* let each column control its own vertical alignment */
+  padding: 16px;
+  gap: 100px;
+  align-items: start;
+  background: var(--bg-root);
 }
 
-/* ── Sidebar — character list (floating card, vertically centered) ─────────── */
+/* ── Sidebar — individual floating cards ─────────────────────────────────── */
 
 .char-list {
   grid-area: sidebar;
   align-self: center;
-  height: 80%;                  /* taller: most of the content area height */
-  max-height: calc(100% - 24px);
+  height: 85%;
+  max-height: calc(100% - 16px);
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding: 16px;
+  padding: 0;
   overflow-y: auto;
-  /* Floating card */
-  background: var(--bg-panel);
-  border-radius: var(--radius-lg);
-  border: var(--panel-border); /* thin 1.5px — see variables.css */
-  box-shadow: var(--panel-shadow);
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
-.char-list::-webkit-scrollbar { width: 4px; }
-.char-list::-webkit-scrollbar-track { background: transparent; }
+.char-list::-webkit-scrollbar {
+  width: 3px;
+}
+
+.char-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 .char-list::-webkit-scrollbar-thumb {
-  background: var(--border-strong);
-  border-radius: 2px;
+  background: var(--border);
 }
 
 /* ── Character card ───────────────────────────────────────────────────────── */
@@ -44,94 +47,62 @@
 .char-card {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 10px 10px 12px;
-  border-radius: var(--radius-md);
-  border: 2px solid transparent;
+  gap: 14px;
+  padding: 14px 16px 14px 16px;
+  min-height: 110px;
+  border: var(--panel-border);
   text-align: left;
-  background: transparent;
-  width: 100%;
+  width: 95%;
   position: relative;
-  overflow: hidden;
-  transition:
-    background var(--transition),
-    border-color var(--transition),
-    box-shadow var(--transition);
-}
-
-.char-card::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 20%;
-  bottom: 20%;
-  width: 3px;
-  background: var(--char-color, var(--accent));
-  border-radius: 0 2px 2px 0;
-  opacity: 0;
-  transition: opacity var(--transition);
+  background: var(--bg-panel);
+  box-shadow: var(--panel-shadow);
+  transition: background var(--transition), box-shadow var(--transition);
+  margin-bottom: 15px;
 }
 
 .char-card:hover {
   background: var(--bg-panel-hover);
-  border-color: var(--border-strong);
+  box-shadow: var(--shadow-panel-hover);
 }
-
-.char-card:hover::before { opacity: 0.4; }
 
 .char-card--selected {
-  background: var(--bg-selected);
-  border-color: color-mix(in srgb, var(--char-color, var(--accent)) 45%, transparent);
-  box-shadow: 0 2px 10px rgba(20, 50, 80, 0.08);
+  background: var(--selected-bg);
+  box-shadow: 6px 6px 0 var(--selected-shadow);
+  border-color: var(--selected-shadow);
 }
 
-.char-card--selected::before { opacity: 1; }
+/* ── Card icon (placeholder square with solid border) ───────────────────── */
 
-/* ── Portrait ─────────────────────────────────────────────────────────────── */
-
-.char-card__portrait {
-  position: relative;
-  width: 56px;
-  height: 56px;
-  border-radius: var(--radius-md);
-  overflow: hidden;
+.char-card__icon {
   flex-shrink: 0;
-  border: 2px solid var(--border-strong);
-  transition: border-color var(--transition), box-shadow var(--transition);
+  width: 52px;
+  height: 52px;
+  border: 2px solid var(--panel-border-color);
+  background: var(--bg-selected);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: background var(--transition);
 }
 
-.char-card__portrait-inner {
+.char-card--selected .char-card__icon {
+  background: var(--selected-bg);
+  border-color: var(--selected-shadow);
+}
+
+.char-card__icon img {
   width: 100%;
   height: 100%;
-  opacity: 0.85;
-  transition: opacity var(--transition);
+  object-fit: cover;
+  display: block;
 }
 
-.char-card__portrait::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 55%);
-  pointer-events: none;
-}
-
-.char-card--selected .char-card__portrait {
-  border-color: var(--char-color, var(--accent));
-  box-shadow: 0 0 8px color-mix(in srgb, var(--char-color, var(--accent)) 40%, transparent);
-}
-
-.char-card--selected .char-card__portrait-inner { opacity: 1; }
-
-.char-card__index {
-  position: absolute;
-  bottom: 3px;
-  right: 4px;
-  font-size: 9px;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.7);
+/* Placeholder when no image */
+.char-card__icon-placeholder {
+  font-size: 22px;
   line-height: 1;
-  letter-spacing: 0.05em;
+  color: var(--text-muted);
 }
 
 /* ── Card body ────────────────────────────────────────────────────────────── */
@@ -148,64 +119,30 @@
   font-family: var(--font-display);
   font-size: 15px;
   font-weight: 700;
-  color: var(--text-secondary);
-  transition: color var(--transition);
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.char-card:hover .char-card__name,
-.char-card--selected .char-card__name { color: var(--text-primary); }
-
 .char-card__role {
-  display: inline-block;
-  font-size: 9px;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 2px 6px;
-  border-radius: 4px;
-  background: color-mix(in srgb, var(--char-color, var(--accent)) 10%, transparent);
-  color: var(--char-color, var(--accent));
-  border: 1.5px solid color-mix(in srgb, var(--char-color, var(--accent)) 30%, transparent);
-  align-self: flex-start;
-}
-
-.char-card__power {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.char-card__power-label {
-  font-size: 9px;
-  font-family: var(--font-mono);
-  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
   letter-spacing: 0.06em;
-  flex-shrink: 0;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color var(--transition);
 }
 
-.char-card__power-track {
-  flex: 1;
-  height: 3px;
-  background: var(--border-strong);
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.char-card__power-fill {
-  height: 100%;
-  background: var(--char-color, var(--accent));
-  border-radius: 2px;
-  opacity: 0.7;
-  transition: width 400ms ease;
+.char-card--selected .char-card__role {
+  color: var(--text-secondary);
 }
 
 .char-card__chevron {
-  font-size: 16px;
-  color: var(--char-color, var(--accent));
+  font-size: 18px;
+  color: var(--text-primary);
   opacity: 0;
   flex-shrink: 0;
   transition: opacity var(--transition), transform var(--transition);
@@ -218,144 +155,74 @@
   transform: translateX(0);
 }
 
-/* ── 3D scene area (floating card) ───────────────────────────────────────── */
+/* ── 3D scene area ────────────────────────────────────────────────────────── */
 
 .char-selection__scene-area {
   grid-area: scene;
   position: relative;
-  align-self: stretch; /* fill the full grid row height */
-  border-radius: var(--radius-lg);
-  border: var(--panel-border); /* thin 1.5px — see variables.css */
+  align-self: stretch;
+  border: var(--panel-border);
   box-shadow: var(--panel-shadow);
-  overflow: hidden; /* clips canvas + overlays to card corners */
+  overflow: hidden;
 }
 
-/*
- * Canvas sizing: .char-scene fills the grid cell via position:absolute; inset:0.
- * Do NOT apply CSS width/height to the <canvas> element —
- * r3f manages those via ResizeObserver.
- */
 .char-scene {
   position: absolute;
   inset: 0;
   overflow: hidden;
 }
 
-/* ── Scene HTML overlays ──────────────────────────────────────────────────── */
-
-.scene-overlay {
-  position: absolute;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-}
-
-.scene-overlay--title {
-  top: 0;
-  padding: 16px 24px 0;
-  align-items: center;
-}
-
-.scene-overlay--subtitle {
-  bottom: 0;
-  padding: 0 24px 16px;
-  align-items: center;
-}
-
-.scene-overlay--level {
-  bottom: 0;
-  justify-content: flex-start;
-  padding: 0 0 14px 14px;
-  pointer-events: none;
-}
-
-/* ── Overlay badges — solid white containers, high contrast ──────────────── */
-
-.scene-overlay__badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 16px;
-  border-radius: var(--radius-md); /* less pill, more label */
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(8px);
-  border: 3px solid rgba(255, 255, 255, 0.70);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-}
-
-.scene-overlay__badge--title {
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  /* color is character.color, set via inline style — readable on white bg */
-}
-
-.scene-overlay__badge--subtitle {
-  font-size: 11px;
-  font-style: italic;
-  letter-spacing: 0.05em;
-  color: var(--text-secondary);  /* dark — readable on white background */
-}
-
-.scene-overlay__badge--level {
-  font-size: 10px;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--text-muted);
-  padding: 4px 10px;
-  background: rgba(255, 255, 255, 0.80);
-}
-
-/* ── Scene info panel (top-right, appears on object click) ───────────────── */
+/* ── Scene info panel (top-right overlay) ─────────────────────────────────── */
 
 .scene-info-panel {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 220px;
+  top: 14px;
+  right: 14px;
+  width: 210px;
   z-index: 20;
   background: var(--bg-panel);
-  border-radius: var(--radius-lg);
-  border: var(--panel-border); /* thin 1.5px — see variables.css */
+  border: var(--panel-border);
   box-shadow: var(--panel-shadow);
   overflow: hidden;
-  animation: panel-in 200ms ease;
+  animation: panel-in 180ms ease;
 }
 
 @keyframes panel-in {
-  from { opacity: 0; transform: scale(0.92) translateY(-6px); transform-origin: top right; }
-  to   { opacity: 1; transform: scale(1)    translateY(0);    transform-origin: top right; }
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .scene-info-panel__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 12px 10px 14px;
+  padding: 8px 10px 8px 12px;
   border-bottom: 1px solid var(--border);
   background: var(--bg-panel-hover);
 }
 
 .scene-info-panel__title {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
 
 .scene-info-panel__close {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--border-strong);
+  width: 20px;
+  height: 20px;
+  background: var(--border);
   color: var(--text-secondary);
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1;
   display: flex;
   align-items: center;
@@ -365,135 +232,161 @@
 }
 
 .scene-info-panel__close:hover {
-  background: var(--accent-border);
-  color: var(--accent);
+  background: var(--border-strong);
+  color: var(--text-primary);
 }
 
 .scene-info-panel__body {
-  padding: 14px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .scene-info-panel__text {
-  font-size: 12.5px;
+  font-size: 12px;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 .scene-info-panel__image {
   width: 100%;
-  border-radius: var(--radius-md);
-  border: 2px solid var(--border-strong);
+  border: 1px solid var(--border);
   display: block;
 }
 
-/* ── Info column — transparent container, two floating cards inside ────────── */
+/* ── Info panel — single scrollable card ─────────────────────────────────── */
 
 .info-panel {
   grid-area: info;
   align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* enough room so the 3D bottom-edge shadow of card 1 clears card 2 */
   overflow-y: auto;
   overflow-x: hidden;
-  background: transparent;
-  /* bottom padding keeps the last card's shadow from hitting the page edge */
-  padding-bottom: 8px;
+  background: var(--bg-panel);
+  border: var(--panel-border);
+  box-shadow: var(--panel-shadow);
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
 }
 
-.info-panel::-webkit-scrollbar { width: 4px; }
-.info-panel::-webkit-scrollbar-track { background: transparent; }
+.info-panel::-webkit-scrollbar {
+  width: 3px;
+}
+
+.info-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 .info-panel::-webkit-scrollbar-thumb {
-  background: var(--border-strong);
-  border-radius: 2px;
+  background: var(--border);
 }
 
 .info-panel--empty {
-  background: var(--bg-panel);
-  border-radius: var(--radius-lg);
-  border: var(--panel-border); /* thin 1.5px — see variables.css */
-  box-shadow: var(--panel-shadow);
-  flex: 1;
   align-items: center;
   justify-content: center;
 }
 
 .info-panel--empty p {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
   color: var(--text-muted);
-  font-size: 14px;
-  padding: 24px;
+  padding: 32px;
   text-align: center;
 }
 
-/* ── Card 1: character description ────────────────────────────────────────── */
+/* ── Profile header ───────────────────────────────────────────────────────── */
 
-.info-panel__header {
+.info-panel__profile {
+  padding: 24px 24px 20px;
+  border-bottom: 1px solid var(--border);
   flex-shrink: 0;
-  padding: 24px 22px 20px;
-  min-height: 140px;
-  background: var(--bg-panel);
-  border-radius: var(--radius-lg);
-  border: var(--panel-border); /* thin 1.5px — see variables.css */
-  box-shadow: var(--panel-shadow);
 }
 
-.info-panel__title {
-  font-family: var(--font-display);
-  font-size: 11px;
+.info-panel__class-label {
+  display: inline-block;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--char-color, var(--accent));
-  margin-bottom: 10px;
-}
-
-.info-panel__desc {
-  font-size: 13px;
   color: var(--text-secondary);
-  line-height: 1.7;
+  margin-bottom: 8px;
+  padding: 3px 8px;
+  background: var(--selected-bg);
+  border: 1.5px solid var(--selected-shadow);
 }
 
-/* ── Card 2: skill bars ────────────────────────────────────────────────────── */
+.info-panel__char-name {
+  font-family: var(--font-display);
+  font-size: 46px;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  line-height: 1.05;
+  margin-bottom: 6px;
+}
 
-.info-panel__categories {
+.info-panel__subtitle {
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ── Generic section ──────────────────────────────────────────────────────── */
+
+.info-panel__section {
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.info-panel__section:last-child {
+  border-bottom: none;
+}
+
+.info-panel__section-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+/* ── Skill bars ───────────────────────────────────────────────────────────── */
+
+.info-panel__skill-bars {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  min-height: 0;
-  background: var(--bg-panel);
-  border-radius: var(--radius-lg);
-  border: var(--panel-border); /* thin 1.5px — see variables.css */
-  box-shadow: var(--panel-shadow);
-  overflow: hidden;
 }
 
 .info-panel__category {
-  padding: 14px 22px;
-  border-bottom: 1px solid var(--border);
+  margin-bottom: 14px;
 }
 
-.info-panel__category:last-child { border-bottom: none; }
+.info-panel__category:last-child {
+  margin-bottom: 0;
+}
 
 .info-panel__category-title {
   font-size: 10px;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .info-panel__skills {
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 8px;
 }
-
-/* ── Skill bar ────────────────────────────────────────────────────────────── */
 
 .skill-bar {
   display: flex;
@@ -508,32 +401,137 @@
 }
 
 .skill-bar__name {
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 500;
   color: var(--text-secondary);
 }
 
 .skill-bar__level {
   font-size: 10px;
-  font-family: var(--font-mono);
+  font-weight: 600;
   color: var(--text-muted);
 }
 
 .skill-bar__track {
-  height: 6px;
-  background: var(--bg-primary);
-  border: 2px solid var(--border-strong);
-  border-radius: 3px;
+  height: 8px;
+  background: var(--bg-selected);
+  border: 2px solid var(--panel-border-color);
   overflow: hidden;
 }
 
 .skill-bar__fill {
   height: 100%;
-  background: color-mix(in srgb, var(--char-color, var(--accent)) 80%, var(--accent-green));
-  border-radius: 2px;
+  /*
+   * Green shade varies with value via the CSS custom property --bar-level (0–100).
+   * Low values → dark forest green; high values → lighter, more saturated green.
+   * We achieve this by mixing two anchor colours weighted by the level.
+   * Since we can't do math in pure CSS without @property, we use a linear-gradient
+   * that always spans full width and let clip-path reveal the correct portion —
+   * the left edge is always the "filled" colour for that bar's level.
+   *
+   * Level buckets are set via --bar-color inline in the component.
+   */
+  background: var(--bar-color, #166534);
   animation: bar-sweep var(--bar-duration, 500ms) var(--bar-delay, 0ms) ease forwards;
 }
 
 @keyframes bar-sweep {
-  from { clip-path: inset(0 100% 0 0); }
-  to   { clip-path: inset(0 0% 0 0); }
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0% 0 0);
+  }
+}
+
+/* ── Skill cards ──────────────────────────────────────────────────────────── */
+
+.info-panel__skill-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skill-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  background: var(--bg-panel-hover);
+  border: 1px solid var(--border);
+}
+
+.skill-card__icon {
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-selected);
+  border: 1px solid var(--border);
+}
+
+.skill-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.skill-card__title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.skill-card__desc {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ── Equipment list ───────────────────────────────────────────────────────── */
+
+.info-panel__equip-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.equip-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.equip-item__icon {
+  font-size: 16px;
+  width: 26px;
+  text-align: center;
+  flex-shrink: 0;
+  color: var(--text-secondary);
+}
+
+.equip-item__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+
+.equip-item__name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.equip-item__desc {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-muted);
 }

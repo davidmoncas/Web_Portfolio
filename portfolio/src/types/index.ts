@@ -19,10 +19,24 @@ export interface SceneObject {
   position: [number, number, number];
   color: string;
   size: [number, number, number];
-  /** Key into translations.sceneTooltips */
   tooltipKey: string;
-  /** Optional image shown in the scene info panel */
   imageUrl?: string;
+}
+
+/** Card shown below skill bars: an area of expertise */
+export interface SkillCard {
+  id: string;
+  icon: string;   // emoji placeholder — replace with SVG later
+  title: string;
+  description: string;
+}
+
+/** Item in the equipment/tools list */
+export interface ItemEntry {
+  id: string;
+  icon: string;   // emoji placeholder
+  name: string;   // bold short label
+  description: string;
 }
 
 export interface Character {
@@ -33,4 +47,6 @@ export interface Character {
   color: string;
   skillCategories: SkillCategory[];
   sceneObjects: SceneObject[];
+  skillCards: SkillCard[];
+  items: ItemEntry[];
 }
