@@ -1,0 +1,82 @@
+import type { Project } from '../types';
+
+export const projects: Project[] = [
+  {
+    id: 'cash-empire',
+    name: 'Cash Empire',
+    company: 'JustDice',
+    category: 'game',
+    year: 2023,
+    techStack: ['Unity', 'C#', 'Firebase', 'Android'],
+    role: 'Game Developer',
+    description:
+      'A mobile idle/casino-style game for Android. Responsible for core gameplay systems, UI implementation, economy balancing, and integration with backend services.',
+    otherInfo: 'Published on Google Play',
+    icon: '🎰',
+  },
+  {
+    id: 'amazing-plinko',
+    name: 'Amazing Plinko',
+    company: 'JustDice',
+    category: 'game',
+    year: 2022,
+    techStack: ['Unity', 'C#', 'Android'],
+    role: 'Game Developer',
+    description:
+      'A physics-based Plinko mobile game for Android. Developed the ball physics simulation, procedural board generation, and reward system.',
+    otherInfo: 'Published on Google Play',
+    icon: '🎱',
+  },
+  {
+    id: 'meshroom-tools',
+    name: 'Meshroom Python Tools',
+    company: 'University of Bremen',
+    category: 'code',
+    year: 2021,
+    techStack: ['Python', 'Meshroom', 'Photogrammetry'],
+    role: 'Research Developer',
+    description:
+      'A set of Python automation scripts for the Meshroom photogrammetry pipeline. The tools batch-process image datasets, manage node graph configurations, and export optimized 3D meshes for research use.',
+    otherInfo: 'Research tooling',
+    icon: '🔧',
+  },
+  {
+    id: 'rocklings-empire',
+    name: 'Rocklings Empire',
+    company: 'Company under NDA',
+    category: 'game',
+    year: 2023,
+    techStack: ['Unity', 'C#', 'Android'],
+    role: 'Game Developer',
+    description:
+      'An Android strategy and base-building mobile game. Worked on the core loop mechanics, resource management systems, and player progression architecture.',
+    otherInfo: 'NDA — details limited',
+    icon: '🪨',
+  },
+  {
+    id: 'chess-fire',
+    name: 'Chess Fire',
+    company: 'Company under NDA',
+    category: 'game',
+    year: 2022,
+    techStack: ['Unity', 'C#', 'Android'],
+    role: 'Game Developer',
+    description:
+      'A mobile chess-inspired game with action and fire mechanics for Android. Responsible for AI opponent logic, move validation systems, and special ability implementations.',
+    otherInfo: 'NDA — details limited',
+    icon: '♟️',
+  },
+  {
+    id: 'educational-video',
+    name: 'Educational Video',
+    company: 'Personal Project',
+    category: 'art',
+    year: 2024,
+    techStack: ['Blender', 'After Effects', 'Premiere Pro'],
+    role: 'Animator / Director',
+    description:
+      'A self-produced educational animation video. Covers 3D modeling, rigging, scene layout in Blender, and final compositing and motion graphics in After Effects.',
+    otherInfo: 'Personal / portfolio piece',
+    icon: '🎬',
+  },
+];

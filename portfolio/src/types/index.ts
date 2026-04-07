@@ -39,6 +39,30 @@ export interface ItemEntry {
   description: string;
 }
 
+export type ProjectCategory = 'game' | 'code' | 'art' | 'other';
+
+export interface ProjectLink {
+  type: 'youtube' | 'github' | 'itch' | 'web';
+  url: string;
+  label: string;
+}
+
+export interface Project {
+  id: string;
+  name: string;
+  company: string;
+  category: ProjectCategory;
+  year: number;
+  techStack: string[];
+  role: string;
+  description: string;
+  otherInfo?: string;
+  imageUrl?: string;
+  thumbnails?: string[];
+  links?: ProjectLink[];
+  icon: string;
+}
+
 export interface Character {
   id: CharacterId;
   nameKey: string;

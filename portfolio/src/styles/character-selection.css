@@ -13,13 +13,23 @@
   background: var(--bg-root);
 }
 
-/* ── Sidebar — individual floating cards ─────────────────────────────────── */
+/* ── Sidebar wrapper ─────────────────────────────────────────────────────── */
+
+.char-sidebar {
+  grid-area: sidebar;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ── Character list — individual floating cards ──────────────────────────── */
 
 .char-list {
-  grid-area: sidebar;
-  align-self: center;
-  height: 85%;
-  max-height: calc(100% - 16px);
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -534,4 +544,96 @@
   font-size: 11px;
   font-weight: 400;
   color: var(--text-muted);
+}
+
+/* ── Player profile panel ─────────────────────────────────────────────────── */
+
+.player-profile {
+  flex-shrink: 0;
+  width: 95%;
+  background: var(--bg-panel);
+  border: var(--panel-border);
+  box-shadow: var(--panel-shadow);
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.player-profile__avatar {
+  width: 38px;
+  height: 38px;
+  border: 2px solid var(--panel-border-color);
+  background: var(--bg-selected);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.player-profile__avatar-emoji {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.player-profile__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.player-profile__name {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-profile__bio {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-profile__links {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.player-profile__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.player-profile__link:hover {
+  background: var(--bg-panel-hover);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.player-profile__link-icon {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: inherit;
 }

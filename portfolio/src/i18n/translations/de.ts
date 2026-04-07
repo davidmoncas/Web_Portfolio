@@ -68,4 +68,59 @@ export const de: Translations = {
       comingSoon: 'Kontaktformular demnächst verfügbar.',
     },
   },
+  inventory: {
+    gridLabel: 'Projekte',
+    empty: 'Wähle ein Element, um Details zu sehen',
+    filters: {
+      all: 'Alle',
+      game: 'Spiele',
+      code: 'Code',
+      art: 'Kunst',
+      other: 'Sonstiges',
+    },
+    stats: {
+      year: 'Jahr',
+      techStack: 'Tech Stack',
+      role: 'Hauptrolle',
+      other: 'Sonstiges',
+    },
+    categories: {
+      game: 'Spiel',
+      code: 'Code',
+      art: 'Kunst',
+      other: 'Sonstiges',
+    },
+    projects: {
+      'cash-empire': {
+        description: 'Ein mobiles Idle/Casino-Spiel für Android. Verantwortlich für Kernspielsysteme, UI-Implementierung, Wirtschaftsbalancing und Backend-Integration.',
+        role: 'Spieleentwickler',
+        otherInfo: 'Im Google Play veröffentlicht',
+      },
+      'amazing-plinko': {
+        description: 'Ein physikbasiertes Plinko-Mobilspiel für Android. Entwickelt die Kugelphysiksimulation, prozedurale Spielfeldgenerierung und das Belohnungssystem.',
+        role: 'Spieleentwickler',
+        otherInfo: 'Im Google Play veröffentlicht',
+      },
+      'meshroom-tools': {
+        description: 'Python-Automatisierungsskripte für die Meshroom-Photogrammetrie-Pipeline. Die Tools verarbeiten Bilddatensätze in Batches, verwalten Knotengraphkonfigurationen und exportieren optimierte 3D-Netze.',
+        role: 'Forschungsentwickler',
+        otherInfo: 'Forschungswerkzeuge',
+      },
+      'rocklings-empire': {
+        description: 'Ein Android-Strategie- und Basisaufbauspiel. Arbeitete an den Kernschleifenmechaniken, Ressourcenmanagementsystemen und der Spielerfortschrittsarchitektur.',
+        role: 'Spieleentwickler',
+        otherInfo: 'NDA — Details begrenzt',
+      },
+      'chess-fire': {
+        description: 'Ein mobilem Schach-inspiriertes Spiel mit Aktions- und Feuermechaniken für Android. Verantwortlich für KI-Gegnerlogik, Zugvalidierungssysteme und Spezialfähigkeiten.',
+        role: 'Spieleentwickler',
+        otherInfo: 'NDA — Details begrenzt',
+      },
+      'educational-video': {
+        description: 'Ein selbst produziertes Bildungsanimationsvideo. Umfasst 3D-Modellierung, Rigging und Szenengestaltung in Blender sowie Compositing und Motion Graphics in After Effects.',
+        role: 'Animator / Regisseur',
+        otherInfo: 'Persönliches / Portfolio-Stück',
+      },
+    } as Record<string, { description: string; role: string; otherInfo: string }>,
+  },
 };

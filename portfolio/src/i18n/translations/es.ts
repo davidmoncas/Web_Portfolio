@@ -68,4 +68,59 @@ export const es: Translations = {
       comingSoon: 'Formulario de contacto próximamente.',
     },
   },
+  inventory: {
+    gridLabel: 'Proyectos',
+    empty: 'Selecciona un ítem para ver detalles',
+    filters: {
+      all: 'Todo',
+      game: 'Juegos',
+      code: 'Código',
+      art: 'Arte',
+      other: 'Otro',
+    },
+    stats: {
+      year: 'Año',
+      techStack: 'Tech Stack',
+      role: 'Rol Principal',
+      other: 'Otro',
+    },
+    categories: {
+      game: 'Juego',
+      code: 'Código',
+      art: 'Arte',
+      other: 'Otro',
+    },
+    projects: {
+      'cash-empire': {
+        description: 'Juego móvil idle/casino para Android. Responsable de los sistemas de juego, implementación de UI, balance de economía e integración con servicios backend.',
+        role: 'Desarrollador de Juegos',
+        otherInfo: 'Publicado en Google Play',
+      },
+      'amazing-plinko': {
+        description: 'Juego móvil de Plinko basado en física para Android. Desarrollé la simulación de física de bolas, generación procedural del tablero y sistema de recompensas.',
+        role: 'Desarrollador de Juegos',
+        otherInfo: 'Publicado en Google Play',
+      },
+      'meshroom-tools': {
+        description: 'Conjunto de scripts Python para el pipeline de fotogrametría Meshroom. Las herramientas procesan lotes de imágenes, gestionan configuraciones de nodos y exportan mallas 3D optimizadas.',
+        role: 'Desarrollador de Investigación',
+        otherInfo: 'Herramientas de investigación',
+      },
+      'rocklings-empire': {
+        description: 'Juego móvil de estrategia y construcción de bases para Android. Trabajé en la mecánica del bucle principal, sistemas de gestión de recursos y arquitectura de progresión del jugador.',
+        role: 'Desarrollador de Juegos',
+        otherInfo: 'NDA — detalles limitados',
+      },
+      'chess-fire': {
+        description: 'Juego móvil inspirado en el ajedrez con mecánicas de acción y fuego para Android. Responsable de la lógica del oponente IA, sistemas de validación de movimientos e implementación de habilidades especiales.',
+        role: 'Desarrollador de Juegos',
+        otherInfo: 'NDA — detalles limitados',
+      },
+      'educational-video': {
+        description: 'Vídeo educativo de animación autoproducido. Cubre modelado 3D, rigging y composición de escenas en Blender, y composición final y motion graphics en After Effects.',
+        role: 'Animador / Director',
+        otherInfo: 'Proyecto personal / portafolio',
+      },
+    } as Record<string, { description: string; role: string; otherInfo: string }>,
+  },
 };

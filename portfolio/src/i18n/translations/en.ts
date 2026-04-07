@@ -67,6 +67,61 @@ export const en = {
       comingSoon: 'Contact form coming soon.',
     },
   },
+  inventory: {
+    gridLabel: 'Projects',
+    empty: 'Select an item to view details',
+    filters: {
+      all: 'All',
+      game: 'Games',
+      code: 'Code',
+      art: 'Art',
+      other: 'Other',
+    },
+    stats: {
+      year: 'Year',
+      techStack: 'Tech Stack',
+      role: 'Primary Role',
+      other: 'Other',
+    },
+    categories: {
+      game: 'Game',
+      code: 'Code',
+      art: 'Art',
+      other: 'Other',
+    },
+    projects: {
+      'cash-empire': {
+        description: 'A mobile idle/casino-style game for Android. Responsible for core gameplay systems, UI implementation, economy balancing, and integration with backend services.',
+        role: 'Game Developer',
+        otherInfo: 'Published on Google Play',
+      },
+      'amazing-plinko': {
+        description: 'A physics-based Plinko mobile game for Android. Developed the ball physics simulation, procedural board generation, and reward system.',
+        role: 'Game Developer',
+        otherInfo: 'Published on Google Play',
+      },
+      'meshroom-tools': {
+        description: 'A set of Python automation scripts for the Meshroom photogrammetry pipeline. The tools batch-process image datasets, manage node graph configurations, and export optimized 3D meshes for research use.',
+        role: 'Research Developer',
+        otherInfo: 'Research tooling',
+      },
+      'rocklings-empire': {
+        description: 'An Android strategy and base-building mobile game. Worked on the core loop mechanics, resource management systems, and player progression architecture.',
+        role: 'Game Developer',
+        otherInfo: 'NDA — details limited',
+      },
+      'chess-fire': {
+        description: 'A mobile chess-inspired game with action and fire mechanics for Android. Responsible for AI opponent logic, move validation systems, and special ability implementations.',
+        role: 'Game Developer',
+        otherInfo: 'NDA — details limited',
+      },
+      'educational-video': {
+        description: 'A self-produced educational animation video. Covers 3D modeling, rigging, scene layout in Blender, and final compositing and motion graphics in After Effects.',
+        role: 'Animator / Director',
+        otherInfo: 'Personal / portfolio piece',
+      },
+    } as Record<string, { description: string; role: string; otherInfo: string }>,
+  },
 };
 
 export type Translations = typeof en;
