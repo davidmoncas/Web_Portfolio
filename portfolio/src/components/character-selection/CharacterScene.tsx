@@ -1,17 +1,19 @@
 import { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Grid } from '@react-three/drei';
+import { Grid, useGLTF, useAnimations } from '@react-three/drei';
 import type { ThreeEvent } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useI18n } from '../../i18n/I18nContext';
 import type { Character, SceneObject } from '../../types';
+
+const MODEL_URL = new URL('../../3d/sad_idle.glb', import.meta.url).href;
 
 // ── Scene background colour ────────────────────────────────────────────────
 
 function SceneSetup() {
   const { scene } = useThree();
   useEffect(() => {
-    scene.background = new THREE.Color('#1a2620');
+    scene.background = new THREE.Color('#FFFFFF');
   }, [scene]);
   return null;
 }
@@ -30,21 +32,22 @@ function CameraController() {
   return null;
 }
 
-// ── Main character mesh (bobs, no individual rotation) ────────────────────
+// ── Main character mesh — GLB model ───────────────────────────────────────
 
-function CharacterMesh({ color }: { color: string }) {
-  const meshRef = useRef<THREE.Mesh>(null);
-  useFrame((state) => {
-    if (!meshRef.current) return;
-    meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.8) * 0.18;
-  });
-  return (
-    <mesh ref={meshRef}>
-      <boxGeometry args={[1.6, 1.6, 1.6]} />
-      <meshStandardMaterial color={color} roughness={0.3} metalness={0.4} />
-    </mesh>
-  );
+function CharacterMesh(_props: { color: string }) {
+  const groupRef = useRef<THREE.Group>(null);
+  const { scene, animations } = useGLTF(MODEL_URL);
+  const { actions } = useAnimations(animations, groupRef);
+
+  useEffect(() => {
+    const first = Object.values(actions)[0];
+    if (first) first.play();
+  }, [actions]);
+
+  return <primitive ref={groupRef} object={scene} />;
 }
+
+useGLTF.preload(MODEL_URL);
 
 // ── Interactive scene object (no individual rotation) ─────────────────────
 //
@@ -85,7 +88,7 @@ function RotatingGroup({ children }: { children: React.ReactNode }) {
   const groupRef = useRef<THREE.Group>(null);
   useFrame(() => {
     if (!groupRef.current) return;
-    groupRef.current.rotation.y += 0.0015;
+    //groupRef.current.rotation.y += 0.0015;
   });
   return <group ref={groupRef}>{children}</group>;
 }
@@ -140,7 +143,7 @@ export function CharacterScene({ character }: { character: Character }) {
        * r3f manages them via ResizeObserver; overriding causes buffer/display
        * size divergence on layout reflows (e.g. DevTools open).
        */}
-      <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 4.5], fov: 50 }}>
+      <Canvas dpr={[1, 2]} camera={{ position: [0, 0.5, 2.5], fov: 60  , rotation:[8 * 3.1416/180,0,0]}}>
         <SceneSetup />
         <CameraController />
 
@@ -148,18 +151,6 @@ export function CharacterScene({ character }: { character: Character }) {
         <pointLight position={[5, 8, 5]} intensity={1.2} />
         <pointLight position={[-5, -4, -3]} intensity={0.6} color="#4466aa" />
 
-        <Grid
-          position={[1.2, -1.2, 0]}
-          infiniteGrid
-          cellSize={0.5}
-          cellThickness={0.4}
-          cellColor="#243830"
-          sectionSize={2.5}
-          sectionThickness={0.8}
-          sectionColor="#3a5a4a"
-          fadeDistance={18}
-          fadeStrength={1.2}
-        />
 
         <RotatingGroup>
           <CharacterMesh color={character.color} />
