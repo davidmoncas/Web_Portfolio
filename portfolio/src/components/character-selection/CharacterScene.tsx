@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Grid, useGLTF, useAnimations } from '@react-three/drei';
+import {  useGLTF, useAnimations } from '@react-three/drei';
 import type { ThreeEvent } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useI18n } from '../../i18n/I18nContext';
