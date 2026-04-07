@@ -66,6 +66,13 @@ export const es: Translations = {
     contact: {
       title: 'Contacto',
       comingSoon: 'Formulario de contacto próximamente.',
+      name: 'Tu Nombre',
+      email: 'Tu Correo',
+      message: 'Tu Mensaje',
+      submit: 'Enviar',
+      success: '¡Tu mensaje ha sido enviado!',
+      error: 'Algo salió mal. Por favor intenta de nuevo.',
+      emailError: 'Por favor introduce un correo electrónico válido.',
     },
   },
   inventory: {

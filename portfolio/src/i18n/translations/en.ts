@@ -65,6 +65,13 @@ export const en = {
     contact: {
       title: 'Contact',
       comingSoon: 'Contact form coming soon.',
+      name: 'Your Name',
+      email: 'Your Email',
+      message: 'Your Message',
+      submit: 'Submit',
+      success: 'Your message has been sent!',
+      error: 'Something went wrong. Please try again.',
+      emailError: 'Please enter a valid email address.',
     },
   },
   inventory: {

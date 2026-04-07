@@ -66,6 +66,13 @@ export const de: Translations = {
     contact: {
       title: 'Kontakt',
       comingSoon: 'Kontaktformular demnächst verfügbar.',
+      name: 'Dein Name',
+      email: 'Deine E-Mail',
+      message: 'Deine Nachricht',
+      submit: 'Senden',
+      success: 'Deine Nachricht wurde gesendet!',
+      error: 'Etwas ist schiefgelaufen. Bitte versuche es erneut.',
+      emailError: 'Bitte gib eine gültige E-Mail-Adresse ein.',
     },
   },
   inventory: {
