@@ -1,3 +1,4 @@
+import { useRef, useState, useEffect, useCallback } from 'react';
 import { useI18n } from '../../i18n/I18nContext';
 import { characters } from '../../data/characters';
 import type { CharacterId, SkillCard, ItemEntry } from '../../types';
@@ -77,11 +78,25 @@ function EquipmentItem({ item }: { item: ItemEntry }) {
 export function CharacterInfoPanel({ selectedId }: { selectedId: CharacterId | null }) {
   const { t } = useI18n();
   const character = characters.find((c) => c.id === selectedId) ?? null;
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [atBottom, setAtBottom] = useState(false);
+
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setAtBottom(el.scrollHeight - el.scrollTop <= el.clientHeight + 2);
+  }, []);
+
+  useEffect(() => {
+    checkScroll();
+  }, [selectedId, checkScroll]);
 
   if (!character) {
     return (
-      <div className="info-panel info-panel--empty">
-        <p>{t.infoPanel.selectCharacter}</p>
+      <div className="info-panel-wrapper">
+        <div className="info-panel info-panel--empty">
+          <p>{t.infoPanel.selectCharacter}</p>
+        </div>
       </div>
     );
   }
@@ -89,9 +104,12 @@ export function CharacterInfoPanel({ selectedId }: { selectedId: CharacterId | n
   let globalSkillIndex = 0;
 
   return (
+    <div className={`info-panel-wrapper${atBottom ? ' info-panel-wrapper--at-bottom' : ''}`}>
     <div
+      ref={scrollRef}
       className="info-panel"
       style={{ '--char-color': character.color } as React.CSSProperties}
+      onScroll={checkScroll}
     >
       {/* ── Profile header ── */}
       <div className="info-panel__profile">
@@ -148,6 +166,7 @@ export function CharacterInfoPanel({ selectedId }: { selectedId: CharacterId | n
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 }

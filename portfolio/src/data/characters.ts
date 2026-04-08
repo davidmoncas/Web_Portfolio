@@ -17,14 +17,6 @@ export const characters: Character[] = [
           { name: 'C++', level: 60 },
         ],
       },
-      {
-        labelKey: 'skillCategories.engineering',
-        skills: [
-          { name: 'Structural Analysis', level: 80 },
-          { name: 'AutoCAD', level: 75 },
-          { name: 'Project Management', level: 70 },
-        ],
-      },
     ],
     sceneObjects: [
       {
@@ -77,23 +69,6 @@ export const characters: Character[] = [
           { name: 'Python', level: 75 },
           { name: 'TypeScript', level: 70 },
           { name: 'GDScript', level: 80 },
-        ],
-      },
-      {
-        labelKey: 'skillCategories.engines',
-        skills: [
-          { name: 'Unity', level: 90 },
-          { name: 'Unreal Engine', level: 55 },
-          { name: 'Godot', level: 80 },
-          { name: 'React', level: 70 },
-        ],
-      },
-      {
-        labelKey: 'skillCategories.tools',
-        skills: [
-          { name: 'Git', level: 85 },
-          { name: 'Blender', level: 60 },
-          { name: 'VS Code', level: 90 },
         ],
       },
     ],

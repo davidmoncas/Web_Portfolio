@@ -69,7 +69,7 @@
   align-items: center;
   gap: 14px;
   padding: 14px 16px 14px 16px;
-  min-height: 110px;
+  min-height: 88px;
   border: var(--panel-border);
   text-align: left;
   width: 80%;
@@ -283,9 +283,33 @@
 
 /* ── Info panel — single scrollable card ─────────────────────────────────── */
 
-.info-panel {
+.info-panel-wrapper {
   grid-area: info;
-  align-self: center;
+  align-self: stretch;
+  position: relative;
+  min-height: 0;
+}
+
+.info-panel-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.85));
+  pointer-events: none;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 200ms ease;
+}
+
+.info-panel-wrapper--at-bottom::after {
+  opacity: 0;
+}
+
+.info-panel {
+  height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
   background: var(--bg-panel);
@@ -295,7 +319,6 @@
   flex-direction: column;
   padding-left: 20px;
   width: 100%;
-  max-height: 90%;
 }
 
 .info-panel::-webkit-scrollbar {
