@@ -45,6 +45,9 @@ export const de: Translations = {
     engineering: 'Ingenieurwesen',
     software: 'Software',
   },
+  charList: {
+    heading: 'Wähle deinen Charakter',
+  },
   infoPanel: {
     skillsTitle: 'Fähigkeiten & Technologien',
     selectCharacter: 'Wähle einen Charakter, um mehr zu erfahren.',

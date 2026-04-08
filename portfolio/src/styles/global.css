@@ -12,6 +12,21 @@ html, body {
 
 body {
   background: var(--bg-root);
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(44, 62, 58, 0.03) 2px,
+      rgba(44, 62, 58, 0.03) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(44, 62, 58, 0.03) 2px,
+      rgba(44, 62, 58, 0.03) 4px
+    );
   color: var(--text-secondary);
   font-family: var(--font-sans);
   font-size: 15px;

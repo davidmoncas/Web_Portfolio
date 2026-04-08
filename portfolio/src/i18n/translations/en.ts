@@ -43,6 +43,9 @@ export const en = {
     engineering: 'Engineering',
     software: 'Software',
   },
+  charList: {
+    heading: 'Select your Character',
+  },
   infoPanel: {
     skillsTitle: 'Skills & Technologies',
     selectCharacter: 'Select a character to learn more.',

@@ -45,6 +45,9 @@ export const es: Translations = {
     engineering: 'Ingeniería',
     software: 'Software',
   },
+  charList: {
+    heading: 'Selecciona tu Personaje',
+  },
   infoPanel: {
     skillsTitle: 'Habilidades y Tecnologías',
     selectCharacter: 'Selecciona un personaje para saber más.',

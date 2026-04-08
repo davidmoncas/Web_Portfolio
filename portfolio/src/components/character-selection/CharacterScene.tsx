@@ -13,7 +13,7 @@ const MODEL_URL = new URL('../../3d/sad_idle.glb', import.meta.url).href;
 function SceneSetup() {
   const { scene } = useThree();
   useEffect(() => {
-    scene.background = new THREE.Color('#FFFFFF');
+    scene.background = new THREE.Color('#f2f4f5');
   }, [scene]);
   return null;
 }

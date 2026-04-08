@@ -61,8 +61,10 @@ function CharacterCard({ character, selected, onSelect }: {
 }
 
 export function CharacterList({ selectedId, onSelect }: CharacterListProps) {
+  const { t } = useI18n();
   return (
     <aside className="char-list">
+      <p className="char-list__heading">{t.charList.heading}</p>
       {characters.map((char) => (
         <CharacterCard
           key={char.id}

@@ -8,8 +8,8 @@
   grid-template-areas: "sidebar scene info";
   min-height: 0;
   padding: 16px;
-  gap: 100px;
-  align-items: start;
+  gap: 40px;
+  align-items: center;
   background: var(--bg-root);
 }
 
@@ -32,12 +32,22 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 6px;
   padding: 0;
-  overflow-y: auto;
+  overflow-y: hidden;
   background: transparent;
   border: none;
   box-shadow: none;
+}
+
+.char-list__heading {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
 }
 
 .char-list::-webkit-scrollbar {
@@ -62,12 +72,16 @@
   min-height: 110px;
   border: var(--panel-border);
   text-align: left;
-  width: 95%;
+  width: 80%;
   position: relative;
   background: var(--bg-panel);
   box-shadow: var(--panel-shadow);
-  transition: background var(--transition), box-shadow var(--transition);
+  transition: background var(--transition), box-shadow var(--transition), width var(--transition);
   margin-bottom: 15px;
+}
+
+.char-card--selected {
+  width: 100%;
 }
 
 .char-card:hover {
@@ -75,11 +89,6 @@
   box-shadow: var(--shadow-panel-hover);
 }
 
-.char-card--selected {
-  background: var(--selected-bg);
-  box-shadow: 6px 6px 0 var(--selected-shadow);
-  border-color: var(--selected-shadow);
-}
 
 /* ── Card icon (placeholder square with solid border) ───────────────────── */
 
@@ -94,6 +103,12 @@
   justify-content: center;
   overflow: hidden;
   transition: background var(--transition);
+}
+
+.char-card--selected {
+  background: var(--selected-bg);
+  box-shadow: 6px 6px 0 var(--selected-shadow);
+  border-color: var(--selected-shadow);
 }
 
 .char-card--selected .char-card__icon {
@@ -171,9 +186,10 @@
   grid-area: scene;
   position: relative;
   align-self: stretch;
-  border: var(--panel-border);
-  box-shadow: var(--panel-shadow);
+  border: none;
+  box-shadow: none;
   overflow: hidden;
+  background: var(--bg-root);
 }
 
 .char-scene {
@@ -269,7 +285,7 @@
 
 .info-panel {
   grid-area: info;
-  align-self: stretch;
+  align-self: center;
   overflow-y: auto;
   overflow-x: hidden;
   background: var(--bg-panel);
@@ -278,6 +294,8 @@
   display: flex;
   flex-direction: column;
   padding-left: 20px;
+  width: 100%;
+  max-height: 90%;
 }
 
 .info-panel::-webkit-scrollbar {
