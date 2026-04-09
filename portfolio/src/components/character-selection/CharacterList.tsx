@@ -15,6 +15,7 @@ const ICONS: Record<string, string> = {
   developer: '💻',
   engineer:  '📐',
   hobbyist:  '🎲',
+  future:    '❓',
 };
 
 function CharacterCard({ character, selected, onSelect }: {

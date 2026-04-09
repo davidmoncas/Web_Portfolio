@@ -4,6 +4,7 @@ import {  useGLTF, useAnimations } from '@react-three/drei';
 import type { ThreeEvent } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useI18n } from '../../i18n/I18nContext';
+import { PlayerProfile } from './PlayerProfile';
 import type { Character, SceneObject } from '../../types';
 
 const MODEL_URL = new URL('../../3d/sad_idle.glb', import.meta.url).href;
@@ -81,14 +82,24 @@ function InteractiveObject({ sceneObject, isActive, onActivate }: InteractiveObj
   );
 }
 
-// ── Slowly rotating group — wraps all scene objects ───────────────────────
-// Speed is 0.0015/frame ≈ 20% of the original 0.008, i.e. ~80% slower.
+// ── Drag-to-rotate sensitivity ─────────────────────────────────────────────
+const H_SENSITIVITY = 0.005; // radians per pixel — horizontal (Y-axis)
+const V_SENSITIVITY = 0.003; // radians per pixel — vertical (X-axis)
+const V_CLAMP       = Math.PI / 3; // max vertical tilt (60°)
 
-function RotatingGroup({ children }: { children: React.ReactNode }) {
+// ── Rotating group — driven by external rotation ref ──────────────────────
+
+interface RotatingGroupProps {
+  children: React.ReactNode;
+  rotationRef: React.RefObject<{ x: number; y: number }>;
+}
+
+function RotatingGroup({ children, rotationRef }: RotatingGroupProps) {
   const groupRef = useRef<THREE.Group>(null);
   useFrame(() => {
     if (!groupRef.current) return;
-    //groupRef.current.rotation.y += 0.0015;
+    groupRef.current.rotation.y = rotationRef.current!.y;
+    groupRef.current.rotation.x = rotationRef.current!.x;
   });
   return <group ref={groupRef}>{children}</group>;
 }
@@ -128,6 +139,27 @@ export function CharacterScene({ character }: { character: Character }) {
   const { t } = useI18n();
   const [activeObjectId, setActiveObjectId] = useState<string | null>(null);
 
+  // Accumulated rotation driven by drag
+  const rotationRef = useRef({ x: 0, y: 0 });
+  const dragRef     = useRef({ active: false, lastX: 0, lastY: 0 });
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    dragRef.current = { active: true, lastX: e.clientX, lastY: e.clientY };
+  };
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!dragRef.current.active) return;
+    const dx = e.clientX - dragRef.current.lastX;
+    const dy = e.clientY - dragRef.current.lastY;
+    rotationRef.current.y += dx * H_SENSITIVITY;
+    rotationRef.current.x = Math.max(
+      -V_CLAMP,
+      Math.min(V_CLAMP, rotationRef.current.x + dy * V_SENSITIVITY),
+    );
+    dragRef.current.lastX = e.clientX;
+    dragRef.current.lastY = e.clientY;
+  };
+  const stopDrag = () => { dragRef.current.active = false; };
+
   // Close info panel when switching characters
   useEffect(() => { setActiveObjectId(null); }, [character.id]);
 
@@ -137,7 +169,14 @@ export function CharacterScene({ character }: { character: Character }) {
     : '';
 
   return (
-    <div className="char-scene">
+    <div
+      className="char-scene"
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={stopDrag}
+      onMouseLeave={stopDrag}
+      style={{ cursor: 'grab' }}
+    >
       {/*
        * Canvas sizing: do NOT override canvas CSS dimensions.
        * r3f manages them via ResizeObserver; overriding causes buffer/display
@@ -152,7 +191,7 @@ export function CharacterScene({ character }: { character: Character }) {
         <pointLight position={[-5, -4, -3]} intensity={0.6} color="#4466aa" />
 
 
-        <RotatingGroup>
+        <RotatingGroup rotationRef={rotationRef}>
           <CharacterMesh color={character.color} />
           {character.sceneObjects.map((obj) => (
             <InteractiveObject
@@ -172,6 +211,8 @@ export function CharacterScene({ character }: { character: Character }) {
           onClose={() => setActiveObjectId(null)}
         />
       )}
+
+      <PlayerProfile />
     </div>
   );
 }

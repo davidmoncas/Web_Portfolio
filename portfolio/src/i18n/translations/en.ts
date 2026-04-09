@@ -15,24 +15,29 @@ export const en = {
   },
   characters: {
     developer: {
-      name: 'Developer',
-      description: 'Game developer specializing in interactive experiences and simulations.',
+      name: 'The Coder',
+      description: 'Game developer with 5+ years building mobile games, simulations and interactive media.',
       subtitle: 'Building Worlds, One Frame at a Time',
     },
     engineer: {
-      name: 'Engineer',
-      description: 'Civil engineer with expertise in structural analysis and technical design.',
-      subtitle: 'Structure Is Everything',
+      name: 'The Explorer',
+      description: 'Lifelong learner who loves tutorials, books and trying new technologies. MSc in Media Informatics.',
+      subtitle: 'Always Learning, Always Growing',
     },
     hobbyist: {
-      name: 'Hobbyist',
-      description: 'Creative soul exploring 3D art, game jams, and music production.',
-      subtitle: 'Play. Create. Repeat.',
+      name: 'The Creator',
+      description: 'Creative at heart — making music, drawing, and finding wonder in everyday things.',
+      subtitle: 'Creating in Every Form',
     },
     basic: {
-      name: 'About Me',
-      description: 'A passionate developer and engineer building interactive worlds.',
+      name: 'David',
+      description: 'Colombian software developer based in Berlin, Germany. 5+ years of experience building videogames and interactive media products.',
       subtitle: 'Full Stack Human Being',
+    },
+    future: {
+      name: 'The Future',
+      description: "I'm looking for my next adventure — ideally in Germany or remote, building games or software that makes a difference.",
+      subtitle: 'Next Level Unlocked',
     },
   },
   skillCategories: {
@@ -42,6 +47,8 @@ export const en = {
     interests: 'Interests',
     engineering: 'Engineering',
     software: 'Software',
+    techStack: 'Tech Stack',
+    spokenLanguages: 'Spoken Languages',
   },
   charList: {
     heading: 'Select your Character',
@@ -59,6 +66,7 @@ export const en = {
     developer_cube1: '5+ years of game development',
     engineer_cube1: 'Civil Engineering degree',
     hobbyist_cube1: '50+ game jams entered',
+    future_cube1: 'Open to new opportunities',
   } as Record<string, string>,
   pages: {
     inventory: {

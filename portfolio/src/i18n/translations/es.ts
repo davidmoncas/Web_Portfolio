@@ -17,24 +17,29 @@ export const es: Translations = {
   },
   characters: {
     developer: {
-      name: 'Desarrollador',
-      description: 'Desarrollador de juegos especializado en experiencias interactivas y simulaciones.',
+      name: 'El Programador',
+      description: 'Desarrollador de juegos con más de 5 años creando juegos móviles, simulaciones y medios interactivos.',
       subtitle: 'Construyendo Mundos, Frame a Frame',
     },
     engineer: {
-      name: 'Ingeniero',
-      description: 'Ingeniero civil con experiencia en análisis estructural y diseño técnico.',
-      subtitle: 'La Estructura Lo Es Todo',
+      name: 'El Explorador',
+      description: 'Aprendiz de por vida que ama los tutoriales, los libros y explorar nuevas tecnologías. MSc en Informática de Medios.',
+      subtitle: 'Siempre Aprendiendo, Siempre Creciendo',
     },
     hobbyist: {
-      name: 'Aficionado',
-      description: 'Alma creativa explorando arte 3D, game jams y producción musical.',
-      subtitle: 'Jugar. Crear. Repetir.',
+      name: 'El Creador',
+      description: 'Creativo de corazón — haciendo música, dibujando y encontrando maravilla en las cosas cotidianas.',
+      subtitle: 'Creando en Todas las Formas',
     },
     basic: {
-      name: 'Sobre Mí',
-      description: 'Un apasionado desarrollador e ingeniero construyendo mundos interactivos.',
+      name: 'David',
+      description: 'Desarrollador colombiano de software basado en Berlín, Alemania. Más de 5 años de experiencia creando videojuegos y productos de medios interactivos.',
       subtitle: 'Ser Humano Full Stack',
+    },
+    future: {
+      name: 'El Futuro',
+      description: 'Estoy buscando mi próxima aventura — idealmente en Alemania o remoto, construyendo juegos o software que marque la diferencia.',
+      subtitle: 'Próximo Nivel Desbloqueado',
     },
   },
   skillCategories: {
@@ -44,6 +49,8 @@ export const es: Translations = {
     interests: 'Intereses',
     engineering: 'Ingeniería',
     software: 'Software',
+    techStack: 'Tech Stack',
+    spokenLanguages: 'Idiomas',
   },
   charList: {
     heading: 'Selecciona tu Personaje',
@@ -60,6 +67,7 @@ export const es: Translations = {
     developer_cube1: '5+ años de desarrollo de juegos',
     engineer_cube1: 'Título en Ingeniería Civil',
     hobbyist_cube1: '50+ game jams completados',
+    future_cube1: 'Abierto a nuevas oportunidades',
   },
   pages: {
     inventory: {

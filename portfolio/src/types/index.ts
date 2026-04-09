@@ -1,4 +1,4 @@
-export type CharacterId = 'developer' | 'engineer' | 'hobbyist' | 'basic';
+export type CharacterId = 'developer' | 'engineer' | 'hobbyist' | 'basic' | 'future';
 
 export type Language = 'en' | 'es' | 'de';
 

@@ -283,11 +283,57 @@
 
 /* ── Info panel — single scrollable card ─────────────────────────────────── */
 
+/* ── Panel slide animations ──────────────────────────────────────────────── */
+
+@keyframes panel-exit-right {
+  from {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(110%) rotate(6deg);
+    opacity: 0;
+  }
+}
+
+@keyframes panel-enter-right {
+  0% {
+    transform: translateX(110%) rotate(6deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  60% {
+    transform: translateX(-3%) rotate(-1.5deg);
+    opacity: 1;
+  }
+  78% {
+    transform: translateX(1.5%) rotate(0.4deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* ── Info panel wrapper ───────────────────────────────────────────────────── */
+
 .info-panel-wrapper {
   grid-area: info;
   align-self: stretch;
   position: relative;
   min-height: 0;
+  transform-origin: center bottom;
+}
+
+.info-panel-wrapper--exit {
+  animation: panel-exit-right 220ms ease-in forwards;
+  pointer-events: none;
+}
+
+.info-panel-wrapper--enter {
+  animation: panel-enter-right 480ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .info-panel-wrapper::after {
@@ -386,6 +432,14 @@
   font-weight: 400;
   color: var(--text-secondary);
   line-height: 1.5;
+}
+
+.info-panel__bio {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 10px;
 }
 
 /* ── Generic section ──────────────────────────────────────────────────────── */
@@ -590,37 +644,40 @@
 /* ── Player profile panel ─────────────────────────────────────────────────── */
 
 .player-profile {
-  flex-shrink: 0;
-  width: 95%;
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
   background: var(--bg-panel);
   border: var(--panel-border);
   box-shadow: var(--panel-shadow);
-  padding: 10px 14px;
+  padding: 10px 16px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  white-space: nowrap;
 }
 
 .player-profile__avatar {
-  width: 38px;
-  height: 38px;
+  width: 48px;
+  height: 48px;
   border: 2px solid var(--panel-border-color);
   background: var(--bg-selected);
+  border-radius: 50%;
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .player-profile__avatar-emoji {
-  font-size: 20px;
+  font-size: 24px;
   line-height: 1;
 }
 
 .player-profile__body {
-  flex: 1;
-  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -632,9 +689,6 @@
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--text-primary);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .player-profile__bio {
@@ -642,27 +696,24 @@
   font-weight: 500;
   letter-spacing: 0.04em;
   color: var(--text-muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .player-profile__links {
   display: flex;
   flex-direction: row;
-  gap: 4px;
-  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 
 .player-profile__link {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   color: var(--text-secondary);
   text-decoration: none;
-  border: 1px solid var(--border);
   transition: background var(--transition), color var(--transition), border-color var(--transition);
 }
 
@@ -673,8 +724,154 @@
 }
 
 .player-profile__link-icon {
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.04em;
   color: inherit;
+}
+
+.player-profile__link-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+}
+
+.player-profile__link:hover .player-profile__link-img {
+  opacity: 1;
+}
+
+/* ── Work experience list ──────────────────────────────────────────────────── */
+
+.work-exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  padding-left: 16px;
+  border-left: 2px solid var(--border);
+}
+
+.work-exp-item {
+  position: relative;
+  padding: 0 0 16px 16px;
+}
+
+.work-exp-item:last-child {
+  padding-bottom: 0;
+}
+
+.work-exp-item__dot {
+  position: absolute;
+  left: -21px;
+  top: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--selected-shadow);
+  border: 2px solid var(--bg-panel);
+}
+
+.work-exp-item__body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.work-exp-item__role {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.work-exp-item__company {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.work-exp-item__period {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+/* ── Future panel ─────────────────────────────────────────────────────────── */
+
+.future-panel__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.future-panel__card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  background: var(--bg-panel-hover);
+  border: 1px solid var(--border);
+}
+
+.future-panel__card-icon {
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-selected);
+  border: 1px solid var(--border);
+}
+
+.future-panel__card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.future-panel__card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.future-panel__card-desc {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.future-panel__cta-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.future-panel__contact-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  background: var(--selected-bg);
+  border: 2px solid var(--selected-shadow);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.future-panel__contact-btn:hover {
+  background: var(--selected-shadow);
+  color: var(--bg-root);
+  box-shadow: 4px 4px 0 var(--selected-shadow);
 }
