@@ -2,8 +2,11 @@ import profilePic from '../../images/david_profile_pic.jpg';
 import linkedinIcon from '../../images/LinkedIn_icon.svg.webp';
 import githubIcon from '../../images/github_logo.png';
 import mediumIcon from '../../images/Medium_logo_Monogram.svg.png';
+import { useI18n } from '../../i18n/I18nContext';
 
 export function PlayerProfile() {
+  const { t } = useI18n();
+
   return (
     <div className="player-profile">
       <div className="player-profile__avatar">
@@ -12,7 +15,7 @@ export function PlayerProfile() {
 
       <div className="player-profile__body">
         <p className="player-profile__name">David Montoya</p>
-        <p className="player-profile__bio">Software developer based in Berlin</p>
+        <p className="player-profile__bio">{t.playerProfile.bio}</p>
       </div>
 
       <div className="player-profile__links">

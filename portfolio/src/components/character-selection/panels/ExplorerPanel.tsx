@@ -13,13 +13,13 @@ export function ExplorerPanel({ character }: Props) {
   return (
     <>
       <PanelHeader
-        classLabel={character.id.toUpperCase()}
+        classLabel={ch.classLabel}
         name={ch.name}
         subtitle={ch.subtitle}
         bio={ch.description}
       />
 
-      <InfoSection title="Education">
+      <InfoSection title={t.panels.explorer.education}>
         <SkillCardGrid cards={character.skillCards} />
       </InfoSection>
 
@@ -30,7 +30,7 @@ export function ExplorerPanel({ character }: Props) {
         />
       </InfoSection>
 
-      <InfoSection title="Courses">
+      <InfoSection title={t.panels.explorer.courses}>
         <EquipmentList items={character.items} />
       </InfoSection>
     </>

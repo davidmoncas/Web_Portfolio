@@ -13,17 +13,17 @@ export function CreatorPanel({ character }: Props) {
   return (
     <>
       <PanelHeader
-        classLabel={character.id.toUpperCase()}
+        classLabel={ch.classLabel}
         name={ch.name}
         subtitle={ch.subtitle}
         bio={ch.description}
       />
 
-      <InfoSection title="Hobbies">
+      <InfoSection title={t.panels.creator.hobbies}>
         <SkillCardGrid cards={character.skillCards} />
       </InfoSection>
 
-      <InfoSection title="Activities & Interests">
+      <InfoSection title={t.panels.creator.activitiesInterests}>
         <EquipmentList items={character.items} />
       </InfoSection>
     </>

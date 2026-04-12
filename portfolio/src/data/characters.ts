@@ -1,12 +1,9 @@
 import type { Character } from '../types';
-
 export const characters: Character[] = [
   // ── David ────────────────────────────────────────────────────────────────
   {
     id: 'basic',
-    nameKey: 'characters.basic.name',
-    descriptionKey: 'characters.basic.description',
-    subtitleKey: 'characters.basic.subtitle',
+    icon: '👤',
     color: '#a855f7',
     skillCategories: [],
     sceneObjects: [
@@ -48,9 +45,7 @@ export const characters: Character[] = [
   // ── The Coder ─────────────────────────────────────────────────────────────
   {
     id: 'developer',
-    nameKey: 'characters.developer.name',
-    descriptionKey: 'characters.developer.description',
-    subtitleKey: 'characters.developer.subtitle',
+    icon: '💻',
     color: '#3b82f6',
     skillCategories: [
       {
@@ -99,14 +94,20 @@ export const characters: Character[] = [
       { id: 'github', icon: '🐙', name: 'GitHub', description: 'Version control and collaboration' },
       { id: 'vscode', icon: '🔵', name: 'VS Code', description: 'Daily driver editor' },
     ],
+    workExperience: [
+      { id: 'redi',         role: 'JavaScript Teacher (Volunteer)',                   company: 'ReDI School of Digital Integration', period: 'Feb 2026 – Present' },
+      { id: 'lumid',        role: 'Unity / C# Developer',                             company: 'Lumid Labs UG',                     period: 'May 2024 – May 2025' },
+      { id: 'justdice-dev', role: 'Unity / C# Developer',                             company: 'JustDice',                          period: 'Apr 2021 – May 2024' },
+      { id: 'justdice-qa',  role: 'Quality Assurance Working Student',                company: 'JustDice',                          period: 'Sep 2020 – Mar 2021' },
+      { id: 'quatio',       role: 'Junior Unity Developer',                           company: 'Quatio',                            period: 'Jun 2018 – Jul 2019' },
+      { id: 'gms',          role: 'Junior Civil Engineer (Hydraulics and Hydrology)', company: 'GMS Consulting Engineers',          period: 'Jan 2017 – Jan 2018' },
+    ],
   },
 
   // ── The Explorer ──────────────────────────────────────────────────────────
   {
     id: 'engineer',
-    nameKey: 'characters.engineer.name',
-    descriptionKey: 'characters.engineer.description',
-    subtitleKey: 'characters.engineer.subtitle',
+    icon: '📐',
     color: '#f97316',
     skillCategories: [
       {
@@ -152,9 +153,7 @@ export const characters: Character[] = [
   // ── The Creator ───────────────────────────────────────────────────────────
   {
     id: 'hobbyist',
-    nameKey: 'characters.hobbyist.name',
-    descriptionKey: 'characters.hobbyist.description',
-    subtitleKey: 'characters.hobbyist.subtitle',
+    icon: '🎲',
     color: '#22c55e',
     skillCategories: [],
     sceneObjects: [
@@ -206,9 +205,7 @@ export const characters: Character[] = [
   // ── The Future ────────────────────────────────────────────────────────────
   {
     id: 'future',
-    nameKey: 'characters.future.name',
-    descriptionKey: 'characters.future.description',
-    subtitleKey: 'characters.future.subtitle',
+    icon: '❓',
     color: '#f59e0b',
     skillCategories: [],
     sceneObjects: [

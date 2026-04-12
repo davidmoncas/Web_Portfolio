@@ -9,15 +9,6 @@ interface CharacterListProps {
   onSelect: (id: CharacterId) => void;
 }
 
-// Icon placeholders per character — swap for <img> tags when you have assets
-const ICONS: Record<string, string> = {
-  basic:     '👤',
-  developer: '💻',
-  engineer:  '📐',
-  hobbyist:  '🎲',
-  future:    '❓',
-};
-
 function CharacterCard({ character, selected, onSelect }: {
   character: Character;
   selected: boolean;
@@ -48,12 +39,12 @@ function CharacterCard({ character, selected, onSelect }: {
     >
       {/* Icon — solid bordered square, swap inner content for <img> when ready */}
       <div className="char-card__icon">
-        <span className="char-card__icon-placeholder">{ICONS[character.id] ?? '?'}</span>
+        <span className="char-card__icon-placeholder">{character.icon}</span>
       </div>
 
       <div className="char-card__body">
         <span className="char-card__name">{name}</span>
-        <span className="char-card__role">{character.id.toUpperCase()}</span>
+        <span className="char-card__role">{t.characters[character.id].classLabel}</span>
       </div>
 
       <span className="char-card__chevron" aria-hidden="true">›</span>

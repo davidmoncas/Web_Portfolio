@@ -5,8 +5,9 @@
  * each panel compose and arrange elements freely.
  */
 
-import type { SkillCategory, SkillCard, ItemEntry } from '../../../types';
+import type { SkillCategory, SkillCard, ItemEntry, WorkEntry } from '../../../types';
 import type { Translations } from '../../../i18n/translations/en';
+import { useI18n } from '../../../i18n/I18nContext';
 
 type SkillCategoryKey = keyof Translations['skillCategories'];
 
@@ -127,12 +128,14 @@ export function SkillCategories({ categories, skillCategoryLabels }: SkillCatego
 // ── Skill card ─────────────────────────────────────────────────────────────
 
 export function SkillCardItem({ card }: { card: SkillCard }) {
+  const { t } = useI18n();
+  const translated = t.characterSkillCards[card.id];
   return (
     <div className="skill-card">
       <div className="skill-card__icon">{card.icon}</div>
       <div className="skill-card__body">
-        <span className="skill-card__title">{card.title}</span>
-        <p className="skill-card__desc">{card.description}</p>
+        <span className="skill-card__title">{translated?.title ?? card.title}</span>
+        <p className="skill-card__desc">{translated?.description ?? card.description}</p>
       </div>
     </div>
   );
@@ -151,12 +154,14 @@ export function SkillCardGrid({ cards }: { cards: SkillCard[] }) {
 // ── Equipment item ─────────────────────────────────────────────────────────
 
 export function EquipmentItem({ item }: { item: ItemEntry }) {
+  const { t } = useI18n();
+  const translated = t.characterItems[item.id];
   return (
     <div className="equip-item">
       <span className="equip-item__icon">{item.icon}</span>
       <div className="equip-item__body">
-        <span className="equip-item__name">{item.name}</span>
-        <span className="equip-item__desc">{item.description}</span>
+        <span className="equip-item__name">{translated?.name ?? item.name}</span>
+        <span className="equip-item__desc">{translated?.description ?? item.description}</span>
       </div>
     </div>
   );
@@ -174,12 +179,7 @@ export function EquipmentList({ items }: { items: ItemEntry[] }) {
 
 // ── Work experience ────────────────────────────────────────────────────────
 
-export interface WorkEntry {
-  id: string;
-  role: string;
-  company: string;
-  period: string;
-}
+export type { WorkEntry } from '../../../types';
 
 export function WorkExperienceList({ entries }: { entries: WorkEntry[] }) {
   return (

@@ -14,44 +14,44 @@ export function FuturePanel({ character }: Props) {
   return (
     <>
       <PanelHeader
-        classLabel={character.id.toUpperCase()}
+        classLabel={ch.classLabel}
         name={ch.name}
         subtitle={ch.subtitle}
         bio={ch.description}
       />
 
-      <InfoSection title="Looking For">
+      <InfoSection title={t.panels.future.lookingFor}>
         <div className="future-panel__cards">
           <div className="future-panel__card">
             <span className="future-panel__card-icon">📍</span>
             <div className="future-panel__card-body">
-              <span className="future-panel__card-title">Location</span>
-              <p className="future-panel__card-desc">Germany (on-site or hybrid) or fully remote</p>
+              <span className="future-panel__card-title">{t.panels.future.locationTitle}</span>
+              <p className="future-panel__card-desc">{t.panels.future.locationDesc}</p>
             </div>
           </div>
           <div className="future-panel__card">
             <span className="future-panel__card-icon">🎮</span>
             <div className="future-panel__card-body">
-              <span className="future-panel__card-title">Role</span>
-              <p className="future-panel__card-desc">Game Developer or Software Developer</p>
+              <span className="future-panel__card-title">{t.panels.future.roleTitle}</span>
+              <p className="future-panel__card-desc">{t.panels.future.roleDesc}</p>
             </div>
           </div>
           <div className="future-panel__card">
             <span className="future-panel__card-icon">🌱</span>
             <div className="future-panel__card-body">
-              <span className="future-panel__card-title">Mission</span>
-              <p className="future-panel__card-desc">Projects with social impact in education, science, and the environment</p>
+              <span className="future-panel__card-title">{t.panels.future.missionTitle}</span>
+              <p className="future-panel__card-desc">{t.panels.future.missionDesc}</p>
             </div>
           </div>
         </div>
       </InfoSection>
 
-      <InfoSection title="Interested in working together?">
+      <InfoSection title={t.panels.future.ctaTitle}>
         <p className="future-panel__cta-text">
-          If you have a project or role that fits, I'd love to hear from you.
+          {t.panels.future.ctaText}
         </p>
         <Link to="/contact" className="future-panel__contact-btn">
-          Contact Me
+          {t.panels.future.contactBtn}
         </Link>
       </InfoSection>
     </>

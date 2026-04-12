@@ -13,17 +13,17 @@ export function DavidPanel({ character }: Props) {
   return (
     <>
       <PanelHeader
-        classLabel={character.id.toUpperCase()}
+        classLabel={ch.classLabel}
         name={ch.name}
         subtitle={ch.subtitle}
         bio={ch.description}
       />
 
-      <InfoSection title="Highlights">
+      <InfoSection title={t.panels.david.highlights}>
         <SkillCardGrid cards={character.skillCards} />
       </InfoSection>
 
-      <InfoSection title="My Setup">
+      <InfoSection title={t.panels.david.mySetup}>
         <EquipmentList items={character.items} />
       </InfoSection>
     </>

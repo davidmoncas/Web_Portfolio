@@ -39,6 +39,14 @@ export interface ItemEntry {
   description: string;
 }
 
+/** Work experience entry for timeline display */
+export interface WorkEntry {
+  id: string;
+  role: string;
+  company: string;
+  period: string;
+}
+
 export type ProjectCategory = 'game' | 'code' | 'art' | 'other';
 
 export interface ProjectLink {
@@ -65,12 +73,11 @@ export interface Project {
 
 export interface Character {
   id: CharacterId;
-  nameKey: string;
-  descriptionKey: string;
-  subtitleKey: string;
+  icon: string;
   color: string;
   skillCategories: SkillCategory[];
   sceneObjects: SceneObject[];
   skillCards: SkillCard[];
   items: ItemEntry[];
+  workExperience?: WorkEntry[];
 }
