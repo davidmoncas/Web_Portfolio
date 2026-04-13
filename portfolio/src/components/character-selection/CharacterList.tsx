@@ -4,6 +4,20 @@ import { useI18n } from '../../i18n/I18nContext';
 import { characters } from '../../data/characters';
 import type { CharacterId, Character } from '../../types';
 
+import iconBasic    from '../../images/icons/icon_basic.png';
+import iconCoder    from '../../images/icons/icon_coder.png';
+import iconMusic    from '../../images/icons/icon_music.png';
+import iconStudent  from '../../images/icons/icon_student.png';
+import iconQuestion from '../../images/icons/icon_question.png';
+
+const CHARACTER_ICONS: Record<string, string> = {
+  basic:     iconBasic,
+  developer: iconCoder,
+  hobbyist:  iconMusic,
+  engineer:  iconStudent,
+  future:    iconQuestion,
+};
+
 interface CharacterListProps {
   selectedId: CharacterId | null;
   onSelect: (id: CharacterId) => void;
@@ -37,9 +51,11 @@ function CharacterCard({ character, selected, onSelect }: {
       onClick={onSelect}
       aria-pressed={selected}
     >
-      {/* Icon — solid bordered square, swap inner content for <img> when ready */}
       <div className="char-card__icon">
-        <span className="char-card__icon-placeholder">{character.icon}</span>
+        {CHARACTER_ICONS[character.id]
+          ? <img src={CHARACTER_ICONS[character.id]} alt={character.id} />
+          : <span className="char-card__icon-placeholder">{character.icon}</span>
+        }
       </div>
 
       <div className="char-card__body">

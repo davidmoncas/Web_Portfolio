@@ -1,5 +1,5 @@
 import { useI18n } from '../../../i18n/I18nContext';
-import { PanelHeader, InfoSection, SkillCardGrid, EquipmentList } from './PanelShared';
+import { PanelHeader, InfoSection, SkillCardGrid, QuestList } from './PanelShared';
 import type { Character } from '../../../types';
 
 interface Props {
@@ -23,8 +23,8 @@ export function CreatorPanel({ character }: Props) {
         <SkillCardGrid cards={character.skillCards} />
       </InfoSection>
 
-      <InfoSection title={t.panels.creator.activitiesInterests}>
-        <EquipmentList items={character.items} />
+      <InfoSection title={t.panels.creator.quests}>
+        <QuestList items={character.items} />
       </InfoSection>
     </>
   );

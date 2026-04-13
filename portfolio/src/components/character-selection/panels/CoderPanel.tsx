@@ -1,5 +1,5 @@
 import { useI18n } from '../../../i18n/I18nContext';
-import { PanelHeader, InfoSection, SkillCategories, SkillCardGrid, EquipmentList, WorkExperienceList } from './PanelShared';
+import { PanelHeader, InfoSection, SkillCategories, SkillCardGrid, WorkExperienceList, ToolsGrid } from './PanelShared';
 import type { Character } from '../../../types';
 
 interface Props {
@@ -26,17 +26,19 @@ export function CoderPanel({ character }: Props) {
         />
       </InfoSection>
 
-      <InfoSection title={t.panels.coder.expertise}>
-        <SkillCardGrid cards={character.skillCards} />
-      </InfoSection>
-
       <InfoSection title={t.panels.coder.workExperience}>
         <WorkExperienceList entries={character.workExperience ?? []} />
       </InfoSection>
 
-      <InfoSection title={t.panels.coder.tools}>
-        <EquipmentList items={character.items} />
+      <InfoSection title={t.panels.coder.expertise}>
+        <SkillCardGrid cards={character.skillCards} />
       </InfoSection>
+
+      {character.toolEntries && character.toolEntries.length > 0 && (
+        <InfoSection title={t.panels.coder.tools}>
+          <ToolsGrid tools={character.toolEntries} />
+        </InfoSection>
+      )}
     </>
   );
 }

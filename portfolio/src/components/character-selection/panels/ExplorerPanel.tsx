@@ -23,12 +23,14 @@ export function ExplorerPanel({ character }: Props) {
         <SkillCardGrid cards={character.skillCards} />
       </InfoSection>
 
-      <InfoSection title={t.infoPanel.skillsTitle}>
-        <SkillCategories
-          categories={character.skillCategories}
-          skillCategoryLabels={t.skillCategories}
-        />
-      </InfoSection>
+      {character.skillCategories.length > 0 && (
+        <InfoSection title={t.infoPanel.skillsTitle}>
+          <SkillCategories
+            categories={character.skillCategories}
+            skillCategoryLabels={t.skillCategories}
+          />
+        </InfoSection>
+      )}
 
       <InfoSection title={t.panels.explorer.courses}>
         <EquipmentList items={character.items} />

@@ -80,7 +80,7 @@ export const de: Translations = {
     },
     creator: {
       hobbies: 'Hobbys',
-      activitiesInterests: 'Aktivitäten & Interessen',
+      quests: 'Quests',
     },
     future: {
       lookingFor: 'Ich suche',
@@ -99,7 +99,8 @@ export const de: Translations = {
     'colombian-dev':   { title: 'Kolumbianischer Entwickler in Berlin',  description: 'Mit Sitz in Berlin, Deutschland. Lateinamerikanische Kreativität und Leidenschaft für interaktive Medien in jedes Projekt einbringen.' },
     'game-dev-exp':    { title: '5+ Jahre in Videospielen',              description: 'Über fünf Jahre Entwicklung von Videospielen und interaktiven Medienprodukten — von mobilen Spielen bis zu Simulationen und Lerntools.' },
     'explore-more':    { title: 'Es gibt mehr zu entdecken',             description: 'Wähle einen Charakter, um meine Fähigkeiten, meinen Hintergrund und mein Studium zu erkunden. Besuche die Inventarseite, um meine Projekte zu sehen.' },
-    'game-development':{ title: 'Spieleentwicklung',                     description: '5+ Jahre Entwicklung von mobilen Spielen, Simulationen und interaktiven Erlebnissen mit Unity und Godot.' },
+    'creative-analytical': { title: 'Kreativ & Analytisch',                  description: 'Eine ungewöhnliche Mischung aus Bauingenieurwesen und Spieleentwicklung: strukturiertes Denken trifft auf Kreativität in jedem Projekt.' },
+    'game-development':{ title: 'Spieleentwicklung',                     description: '5+ Jahre Entwicklung von mobilen Spielen, Simulationen und interaktiven Erlebnissen mit Unity.' },
     'digital-art':     { title: 'Digitale Kunst & 3D',                   description: 'Erstellen von Spielassets, UI-Mockups und 3D-Modellen mit Photoshop, Blender und Figma.' },
     'js-teacher':      { title: 'JS / TS Instruktor',                    description: 'Unterrichten von JavaScript- und TypeScript-Grundlagen für angehende Entwickler.' },
     'msc-media':       { title: 'MSc Medieninformatik',                  description: 'Master in Medieninformatik, Universität Bremen, Deutschland — 2021.' },

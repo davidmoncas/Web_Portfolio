@@ -78,7 +78,7 @@ export const en = {
     },
     creator: {
       hobbies: 'Hobbies',
-      activitiesInterests: 'Activities & Interests',
+      quests: 'Quests',
     },
     future: {
       lookingFor: 'Looking For',
@@ -97,7 +97,8 @@ export const en = {
     'colombian-dev':   { title: 'Colombian Developer in Berlin',     description: 'Based in Berlin, Germany. Bringing Latin American creativity and a passion for interactive media to every project.' },
     'game-dev-exp':    { title: '5+ Years in Videogames',            description: 'Over five years building videogames and interactive media products — from mobile games to simulations and educational tools.' },
     'explore-more':    { title: "There's More to Discover",          description: 'Select a character to explore my skills, background, and studies. Visit the Inventory page to see my projects.' },
-    'game-development':{ title: 'Game Development',                  description: '5+ years building mobile games, simulations and interactive experiences with Unity and Godot.' },
+    'creative-analytical': { title: 'Creative & Analytical',              description: 'An unusual mix of civil engineering and game development: structured problem-solving meets creative thinking in every project.' },
+    'game-development':{ title: 'Game Development',                  description: '5+ years building mobile games, simulations and interactive experiences with Unity.' },
     'digital-art':     { title: 'Digital Art & 3D',                  description: 'Creating game assets, UI mockups and 3D models using Photoshop, Blender and Figma.' },
     'js-teacher':      { title: 'JS / TS Instructor',                description: 'Teaching JavaScript and TypeScript fundamentals to aspiring developers.' },
     'msc-media':       { title: 'MSc Media Informatics',             description: "Master's in Media Informatics, University of Bremen, Germany — 2021." },

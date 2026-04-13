@@ -80,7 +80,7 @@ export const es: Translations = {
     },
     creator: {
       hobbies: 'Pasatiempos',
-      activitiesInterests: 'Actividades e Intereses',
+      quests: 'Misiones',
     },
     future: {
       lookingFor: 'Buscando',
@@ -99,7 +99,8 @@ export const es: Translations = {
     'colombian-dev':   { title: 'Desarrollador Colombiano en Berlín',   description: 'Con base en Berlín, Alemania. Aportando creatividad latinoamericana y pasión por los medios interactivos a cada proyecto.' },
     'game-dev-exp':    { title: '5+ Años en Videojuegos',               description: 'Más de cinco años construyendo videojuegos y productos de medios interactivos — desde juegos móviles hasta simulaciones y herramientas educativas.' },
     'explore-more':    { title: 'Hay Más por Descubrir',                description: 'Selecciona un personaje para explorar mis habilidades, experiencia y estudios. Visita la página de Inventario para ver mis proyectos.' },
-    'game-development':{ title: 'Desarrollo de Juegos',                 description: '5+ años creando juegos móviles, simulaciones y experiencias interactivas con Unity y Godot.' },
+    'creative-analytical': { title: 'Creativo y Analítico',                description: 'Una mezcla inusual de ingeniería civil y desarrollo de juegos: pensamiento estructurado y creatividad en cada proyecto.' },
+    'game-development':{ title: 'Desarrollo de Juegos',                 description: '5+ años creando juegos móviles, simulaciones y experiencias interactivas con Unity.' },
     'digital-art':     { title: 'Arte Digital y 3D',                    description: 'Creando assets para juegos, maquetas de UI y modelos 3D con Photoshop, Blender y Figma.' },
     'js-teacher':      { title: 'Instructor de JS / TS',                description: 'Enseñando los fundamentos de JavaScript y TypeScript a desarrolladores aspirantes.' },
     'msc-media':       { title: 'MSc Informática de Medios',            description: 'Maestría en Informática de Medios, Universidad de Bremen, Alemania — 2021.' },

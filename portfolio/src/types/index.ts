@@ -29,6 +29,7 @@ export interface SkillCard {
   icon: string;   // emoji placeholder — replace with SVG later
   title: string;
   description: string;
+  imageUrl?: string; // optional logo/image shown in the card
 }
 
 /** Item in the equipment/tools list */
@@ -37,6 +38,16 @@ export interface ItemEntry {
   icon: string;   // emoji placeholder
   name: string;   // bold short label
   description: string;
+  category?: string; // optional category for grouped display
+  progress?: number; // quest progress (current)
+  max?: number;      // quest max (0 = infinite/ongoing)
+}
+
+/** Tool entry — logo-only display with tooltip */
+export interface ToolEntry {
+  id: string;
+  name: string;
+  logoUrl: string;
 }
 
 /** Work experience entry for timeline display */
@@ -80,4 +91,5 @@ export interface Character {
   skillCards: SkillCard[];
   items: ItemEntry[];
   workExperience?: WorkEntry[];
+  toolEntries?: ToolEntry[];
 }

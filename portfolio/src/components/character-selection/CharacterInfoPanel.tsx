@@ -63,32 +63,35 @@ export function CharacterInfoPanel({ selectedId }: { selectedId: CharacterId | n
 
   const character = characters.find((c) => c.id === displayedId) ?? null;
 
-  const wrapperClass = [
-    'info-panel-wrapper',
-    atBottom          ? 'info-panel-wrapper--at-bottom' : '',
+  const animClass = [
     phase === 'exiting'  ? 'info-panel-wrapper--exit'  : '',
     phase === 'entering' ? 'info-panel-wrapper--enter' : '',
+    atBottom             ? 'info-panel-wrapper--at-bottom' : '',
   ].filter(Boolean).join(' ');
 
   if (!character) {
     return (
-      <div className={wrapperClass}>
-        <div className="info-panel info-panel--empty">
-          <p>{t.infoPanel.selectCharacter}</p>
+      <div className="info-panel-outer">
+        <div className={`info-panel-wrapper ${animClass}`}>
+          <div className="info-panel info-panel--empty">
+            <p>{t.infoPanel.selectCharacter}</p>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className={wrapperClass}>
-      <div
-        ref={scrollRef}
-        className="info-panel"
-        style={{ '--char-color': character.color } as React.CSSProperties}
-        onScroll={checkScroll}
-      >
-        <PanelContent character={character} />
+    <div className="info-panel-outer">
+      <div className={`info-panel-wrapper ${animClass}`}>
+        <div
+          ref={scrollRef}
+          className="info-panel"
+          style={{ '--char-color': character.color } as React.CSSProperties}
+          onScroll={checkScroll}
+        >
+          <PanelContent character={character} />
+        </div>
       </div>
     </div>
   );

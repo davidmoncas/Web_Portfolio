@@ -35,7 +35,7 @@
   justify-content: center;
   gap: 6px;
   padding: 0;
-  overflow-y: hidden;
+  overflow: hidden;
   background: transparent;
   border: none;
   box-shadow: none;
@@ -117,9 +117,9 @@
 }
 
 .char-card__icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
   display: block;
 }
 
@@ -196,6 +196,15 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
+}
+
+/* Flat profile image — remove when 3D models replace this */
+.char-scene__profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top center;
+  display: block;
 }
 
 /* ── Scene info panel (top-right overlay) ─────────────────────────────────── */
@@ -317,23 +326,23 @@
   }
 }
 
-/* ── Info panel wrapper ───────────────────────────────────────────────────── */
+/* ── Info panel outer (non-animated, holds grid area + gradient overlay) ─── */
 
-.info-panel-wrapper {
+.info-panel-outer {
   grid-area: info;
   align-self: stretch;
   position: relative;
   min-height: 0;
+}
+
+
+/* ── Info panel wrapper (animated) ───────────────────────────────────────── */
+
+.info-panel-wrapper {
+  height: 100%;
+  position: relative;
+  min-height: 0;
   transform-origin: center bottom;
-}
-
-.info-panel-wrapper--exit {
-  animation: panel-exit-right 220ms ease-in forwards;
-  pointer-events: none;
-}
-
-.info-panel-wrapper--enter {
-  animation: panel-enter-right 480ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .info-panel-wrapper::after {
@@ -345,13 +354,22 @@
   height: 80px;
   background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.85));
   pointer-events: none;
-  z-index: 1;
+  z-index: 10;
   opacity: 1;
   transition: opacity 200ms ease;
 }
 
 .info-panel-wrapper--at-bottom::after {
   opacity: 0;
+}
+
+.info-panel-wrapper--exit {
+  animation: panel-exit-right 220ms ease-in forwards;
+  pointer-events: none;
+}
+
+.info-panel-wrapper--enter {
+  animation: panel-enter-right 480ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .info-panel {
@@ -367,17 +385,27 @@
   width: 100%;
 }
 
+.info-panel {
+  scrollbar-color: var(--border-strong) var(--bg-panel-hover);
+  scrollbar-width: thin;
+}
+
 .info-panel::-webkit-scrollbar {
-  width: 3px;
+  width: 6px;
 }
 
 .info-panel::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--bg-panel-hover);
 }
 
 .info-panel::-webkit-scrollbar-thumb {
-  background: var(--border);
+  background: var(--border-strong);
 }
+
+.info-panel::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
 
 .info-panel--empty {
   align-items: center;
@@ -874,4 +902,292 @@
   background: var(--selected-shadow);
   color: var(--bg-root);
   box-shadow: 4px 4px 0 var(--selected-shadow);
+}
+
+/* ── Skill card logo (university logos, etc.) ─────────────────────────────── */
+
+.skill-card__logo {
+  display: block;
+  height: 32px;
+  width: auto;
+  max-width: 120px;
+  margin-top: 8px;
+  object-fit: contain;
+  opacity: 0.85;
+  filter: brightness(1.1);
+}
+
+/* ── CTA card (outside info sections) ────────────────────────────────────── */
+
+.info-panel__cta-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin: 0 20px 20px;
+  padding: 16px 18px;
+  background: var(--selected-bg);
+  border: 2px solid var(--selected-shadow);
+  box-shadow: 4px 4px 0 var(--selected-shadow);
+}
+
+.info-panel__cta-card-icon {
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-panel__cta-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.info-panel__cta-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.info-panel__cta-card-desc {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ── Tools logo grid ──────────────────────────────────────────────────────── */
+
+.tools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.tools-grid__item {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+.tools-grid__item::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-panel-hover);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  padding: 3px 7px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms ease;
+  z-index: 20;
+}
+
+.tools-grid__item:hover::after {
+  opacity: 1;
+}
+
+.tools-grid__logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0.9) contrast(1.05);
+  transition: filter 150ms ease, transform 150ms ease;
+}
+
+.tools-grid__item:hover .tools-grid__logo {
+  filter: brightness(1.1) contrast(1.1);
+  transform: scale(1.12);
+}
+
+/* ── Activity category list (checkboxes) ──────────────────────────────────── */
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.activity-list__group-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.activity-list__items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.activity-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.activity-item__checkbox {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  margin-top: 2px;
+  border: 2px solid var(--border-strong);
+  background: var(--bg-selected);
+  display: block;
+  position: relative;
+}
+
+.activity-item__checkbox::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: var(--selected-shadow);
+  opacity: 0.5;
+}
+
+.activity-item__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.activity-item__name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.activity-item__desc {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* ── Quest cards ──────────────────────────────────────────────────────────── */
+
+.quest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quest-card {
+  padding: 11px 14px;
+  background: var(--bg-panel-hover);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.quest-card--complete {
+  border-color: var(--selected-shadow);
+}
+
+.quest-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.quest-card__left {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+.quest-card__icon {
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.quest-card__name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.quest-card__amount {
+  font-size: 10px;
+  font-weight: 700;
+  font-family: var(--font-display);
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.quest-card--complete .quest-card__amount {
+  color: var(--selected-shadow);
+}
+
+.quest-card__desc {
+  font-size: 11px;
+  font-style: italic;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.quest-card__bar-track {
+  height: 3px;
+  background: var(--bg-selected);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  margin-top: 2px;
+}
+
+.quest-card__bar-fill {
+  height: 100%;
+  background: var(--selected-shadow);
+  opacity: 0.6;
+  transition: width 500ms ease;
+}
+
+.quest-card--complete .quest-card__bar-fill {
+  opacity: 1;
+}
+
+/* ── Skill card with logo as icon ─────────────────────────────────────────── */
+
+.skill-card__icon--logo {
+  width: 52px;
+  height: 52px;
+  background: #fff;
+  border-color: var(--border);
+  padding: 5px;
+  flex-shrink: 0;
+}
+
+.skill-card__logo-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }

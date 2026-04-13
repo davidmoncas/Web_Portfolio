@@ -5,7 +5,7 @@
  * each panel compose and arrange elements freely.
  */
 
-import type { SkillCategory, SkillCard, ItemEntry, WorkEntry } from '../../../types';
+import type { SkillCategory, SkillCard, ItemEntry, WorkEntry, ToolEntry } from '../../../types';
 import type { Translations } from '../../../i18n/translations/en';
 import { useI18n } from '../../../i18n/I18nContext';
 
@@ -130,11 +130,18 @@ export function SkillCategories({ categories, skillCategoryLabels }: SkillCatego
 export function SkillCardItem({ card }: { card: SkillCard }) {
   const { t } = useI18n();
   const translated = t.characterSkillCards[card.id];
+  const label = translated?.title ?? card.title;
   return (
     <div className="skill-card">
-      <div className="skill-card__icon">{card.icon}</div>
+      {card.imageUrl ? (
+        <div className="skill-card__icon skill-card__icon--logo">
+          <img src={card.imageUrl} alt={label} className="skill-card__logo-icon" />
+        </div>
+      ) : (
+        <div className="skill-card__icon">{card.icon}</div>
+      )}
       <div className="skill-card__body">
-        <span className="skill-card__title">{translated?.title ?? card.title}</span>
+        <span className="skill-card__title">{label}</span>
         <p className="skill-card__desc">{translated?.description ?? card.description}</p>
       </div>
     </div>
@@ -172,6 +179,103 @@ export function EquipmentList({ items }: { items: ItemEntry[] }) {
     <div className="info-panel__equip-list">
       {items.map((item) => (
         <EquipmentItem key={item.id} item={item} />
+      ))}
+    </div>
+  );
+}
+
+// ── Activity category list (checkboxes, grouped by category) ──────────────
+
+const CATEGORY_ORDER = ['sports', 'creativity', 'knowledge'] as const;
+
+const CATEGORY_LABELS: Record<string, string> = {
+  sports:     'Sports',
+  creativity: 'Creativity',
+  knowledge:  'Knowledge',
+};
+
+export function ActivityCategoryList({ items }: { items: ItemEntry[] }) {
+  const { t } = useI18n();
+
+  const grouped = CATEGORY_ORDER.reduce<Record<string, ItemEntry[]>>((acc, cat) => {
+    acc[cat] = items.filter((item) => item.category === cat);
+    return acc;
+  }, {});
+
+  return (
+    <div className="activity-list">
+      {CATEGORY_ORDER.map((cat) => {
+        const group = grouped[cat];
+        if (!group || group.length === 0) return null;
+        return (
+          <div key={cat} className="activity-list__group">
+            <h4 className="activity-list__group-title">{CATEGORY_LABELS[cat]}</h4>
+            <div className="activity-list__items">
+              {group.map((item) => {
+                const translated = t.characterItems[item.id];
+                return (
+                  <div key={item.id} className="activity-item">
+                    <span className="activity-item__checkbox" aria-hidden="true" />
+                    <div className="activity-item__body">
+                      <span className="activity-item__name">{translated?.name ?? item.name}</span>
+                      <span className="activity-item__desc">{translated?.description ?? item.description}</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ── Quest list ─────────────────────────────────────────────────────────────
+
+export function QuestList({ items }: { items: ItemEntry[] }) {
+  const { t } = useI18n();
+  return (
+    <div className="quest-list">
+      {items.map((item) => {
+        const translated = t.characterItems[item.id];
+        const name = translated?.name ?? item.name;
+        const progress = item.progress ?? 0;
+        const max = item.max ?? 1;
+        const isInfinite = max === 0;
+        const isComplete = !isInfinite && progress >= max;
+        const pct = isInfinite ? 100 : Math.min(100, (progress / max) * 100);
+        const maxLabel = isInfinite ? '∞' : String(max);
+
+        return (
+          <div key={item.id} className={`quest-card${isComplete ? ' quest-card--complete' : ''}`}>
+            <div className="quest-card__header">
+              <div className="quest-card__left">
+                <span className="quest-card__icon">{item.icon}</span>
+                <span className="quest-card__name">{name}</span>
+              </div>
+              <span className="quest-card__amount">{progress} / {maxLabel}</span>
+            </div>
+            <p className="quest-card__desc">{item.description}</p>
+            <div className="quest-card__bar-track">
+              <div className="quest-card__bar-fill" style={{ width: `${pct}%` }} />
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ── Tools logo grid ────────────────────────────────────────────────────────
+
+export function ToolsGrid({ tools }: { tools: ToolEntry[] }) {
+  return (
+    <div className="tools-grid">
+      {tools.map((tool) => (
+        <div key={tool.id} className="tools-grid__item" data-tooltip={tool.name}>
+          <img src={tool.logoUrl} alt={tool.name} className="tools-grid__logo" />
+        </div>
       ))}
     </div>
   );
