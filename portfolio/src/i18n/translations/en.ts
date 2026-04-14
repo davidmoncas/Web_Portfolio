@@ -16,19 +16,19 @@ export const en = {
   characters: {
     developer: {
       name: 'The Coder',
-      classLabel: 'DEVELOPER',
+      classLabel: 'PROFESSION',
       description: 'Game developer with 5+ years building mobile games, simulations and interactive media.',
       subtitle: 'Building Worlds, One Frame at a Time',
     },
     engineer: {
       name: 'The Explorer',
-      classLabel: 'EXPLORER',
+      classLabel: 'EDUCATION',
       description: 'Lifelong learner who loves tutorials, books and trying new technologies. MSc in Media Informatics.',
       subtitle: 'Always Learning, Always Growing',
     },
     hobbyist: {
       name: 'The Creator',
-      classLabel: 'CREATOR',
+      classLabel: 'HOBBIES',
       description: 'Creative at heart — making music, drawing, and finding wonder in everyday things.',
       subtitle: 'Creating in Every Form',
     },
@@ -40,7 +40,7 @@ export const en = {
     },
     future: {
       name: 'The Future',
-      classLabel: 'FUTURE',
+      classLabel: 'PROSPECTS',
       description: "I'm looking for my next adventure — ideally in Germany or remote, building games or software that makes a difference.",
       subtitle: 'Next Level Unlocked',
     },
@@ -57,6 +57,7 @@ export const en = {
   },
   charList: {
     heading: 'Select your Character',
+    locked: 'LOCKED',
   },
   infoPanel: {
     skillsTitle: 'Skills & Technologies',

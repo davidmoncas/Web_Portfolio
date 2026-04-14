@@ -28,6 +28,7 @@
   --accent-light: #4a6460;
   --accent-glow: rgba(44, 62, 58, 0.06);
   --accent-border: rgba(44, 62, 58, 0.25);
+  --accent-shadow: #4d7c0f58;
 
   /* --- Selected state --- */
   --selected-bg: #f0fdf4;

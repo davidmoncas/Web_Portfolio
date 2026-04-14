@@ -22,7 +22,7 @@
   flex-direction: column;
   gap: 10px;
   min-height: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* ── Character list — individual floating cards ──────────────────────────── */
@@ -34,8 +34,8 @@
   flex-direction: column;
   justify-content: center;
   gap: 6px;
-  padding: 0;
-  overflow: hidden;
+  padding: 0 14px 10px 0;
+  overflow: visible;
   background: transparent;
   border: none;
   box-shadow: none;
@@ -75,18 +75,23 @@
   width: 80%;
   position: relative;
   background: var(--bg-panel);
-  box-shadow: var(--panel-shadow);
-  transition: background var(--transition), box-shadow var(--transition), width var(--transition);
+  filter: drop-shadow(6px 6px 0 rgba(44, 62, 58, 0.50));
+  transform: skewX(8deg);
+  transition: background var(--transition), filter var(--transition), width var(--transition), transform var(--transition);
   margin-bottom: 15px;
+}
+
+.char-card > * {
+  transform: skewX(-8deg);
 }
 
 .char-card--selected {
   width: 100%;
 }
 
-.char-card:hover {
-  background: var(--bg-panel-hover);
-  box-shadow: var(--shadow-panel-hover);
+.char-card:not(.char-card--selected):hover {
+  transform: skewX(8deg) translateY(-3px);
+  filter: drop-shadow(8px 8px 0 rgba(44, 62, 58, 0.65));
 }
 
 
@@ -107,13 +112,31 @@
 
 .char-card--selected {
   background: var(--selected-bg);
-  box-shadow: 6px 6px 0 var(--selected-shadow);
+  filter: drop-shadow(6px 6px 0 var(--selected-shadow));
   border-color: var(--selected-shadow);
+  transform: skewX(8deg);
 }
 
 .char-card--selected .char-card__icon {
   background: var(--selected-bg);
   border-color: var(--selected-shadow);
+}
+
+/* ── Future card — stays gray even when selected ─────────────────────────── */
+
+.char-card--future.char-card--selected {
+  background: var(--bg-panel);
+  filter: drop-shadow(6px 6px 0 rgba(44, 62, 58, 0.50));
+  border-color: var(--panel-border-color);
+}
+
+.char-card--future.char-card--selected .char-card__icon {
+  background: var(--bg-selected);
+  border-color: var(--panel-border-color);
+}
+
+.char-card--future.char-card--selected .char-card__role {
+  color: var(--text-muted);
 }
 
 .char-card__icon img {
@@ -178,6 +201,35 @@
 .char-card--selected .char-card__chevron {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* ── Locked stripe (Future character) ───────────────────────────────────── */
+
+.char-card__locked-stripe {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  bottom: 0;
+  width: 26px;
+  background: rgba(44, 62, 58, 0.10);
+  border-left: 1px solid rgba(44, 62, 58, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.char-card__locked-text {
+  font-family: var(--font-sans);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0.75;
+  transform: rotate(90deg);
+  white-space: nowrap;
 }
 
 /* ── 3D scene area ────────────────────────────────────────────────────────── */
@@ -352,7 +404,7 @@
   left: 0;
   right: 0;
   height: 80px;
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.85));
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.85));
   pointer-events: none;
   z-index: 10;
   opacity: 1;
@@ -378,7 +430,7 @@
   overflow-x: hidden;
   background: var(--bg-panel);
   border: var(--panel-border);
-  box-shadow: var(--panel-shadow);
+  filter: drop-shadow(6px 6px 0 rgba(44, 62, 58, 0.50));
   display: flex;
   flex-direction: column;
   padding-left: 20px;
@@ -452,6 +504,7 @@
   color: var(--text-primary);
   line-height: 1.05;
   margin-bottom: 6px;
+  text-shadow: 4px 4px 0 var(--accent-shadow);
 }
 
 .info-panel__subtitle {
@@ -923,7 +976,7 @@
   display: flex;
   gap: 14px;
   align-items: flex-start;
-  margin: 0 20px 20px;
+  margin: 20px 20px 20px;
   padding: 16px 18px;
   background: var(--selected-bg);
   border: 2px solid var(--selected-shadow);

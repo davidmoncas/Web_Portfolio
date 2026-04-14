@@ -18,19 +18,19 @@ export const es: Translations = {
   characters: {
     developer: {
       name: 'El Programador',
-      classLabel: 'PROGRAMADOR',
+      classLabel: 'PROFESIÓN',
       description: 'Desarrollador de juegos con más de 5 años creando juegos móviles, simulaciones y medios interactivos.',
       subtitle: 'Construyendo Mundos, Frame a Frame',
     },
     engineer: {
       name: 'El Explorador',
-      classLabel: 'EXPLORADOR',
+      classLabel: 'EDUCACIÓN',
       description: 'Aprendiz de por vida que ama los tutoriales, los libros y explorar nuevas tecnologías. MSc en Informática de Medios.',
       subtitle: 'Siempre Aprendiendo, Siempre Creciendo',
     },
     hobbyist: {
       name: 'El Creador',
-      classLabel: 'CREADOR',
+      classLabel: 'PASATIEMPOS',
       description: 'Creativo de corazón — haciendo música, dibujando y encontrando maravilla en las cosas cotidianas.',
       subtitle: 'Creando en Todas las Formas',
     },
@@ -42,7 +42,7 @@ export const es: Translations = {
     },
     future: {
       name: 'El Futuro',
-      classLabel: 'FUTURO',
+      classLabel: 'PERSPECTIVAS',
       description: 'Estoy buscando mi próxima aventura — idealmente en Alemania o remoto, construyendo juegos o software que marque la diferencia.',
       subtitle: 'Próximo Nivel Desbloqueado',
     },
@@ -59,6 +59,7 @@ export const es: Translations = {
   },
   charList: {
     heading: 'Selecciona tu Personaje',
+    locked: 'BLOQUEADO',
   },
   infoPanel: {
     skillsTitle: 'Habilidades y Tecnologías',

@@ -35,10 +35,14 @@ function CharacterCard({ character, selected, onSelect }: {
 
   useEffect(() => {
     if (selected && !prevSelected.current && cardRef.current) {
+      const el = cardRef.current;
       gsap.fromTo(
-        cardRef.current,
-        { scale: 0.96, rotation: -1 },
-        { scale: 1, rotation: 0, duration: 0.35, ease: 'back.out(2.5)' },
+        el,
+        { skewX: 8, scale: 0.96, rotation: -1 },
+        {
+          skewX: 8, scale: 1, rotation: 0, duration: 0.35, ease: 'back.out(2.5)',
+          onComplete: () => { gsap.set(el, { clearProps: 'transform' }); },
+        },
       );
     }
     prevSelected.current = selected;
@@ -47,7 +51,7 @@ function CharacterCard({ character, selected, onSelect }: {
   return (
     <button
       ref={cardRef}
-      className={`char-card${selected ? ' char-card--selected' : ''}`}
+      className={`char-card char-card--${character.id}${selected ? ' char-card--selected' : ''}`}
       onClick={onSelect}
       aria-pressed={selected}
     >
@@ -64,6 +68,12 @@ function CharacterCard({ character, selected, onSelect }: {
       </div>
 
       <span className="char-card__chevron" aria-hidden="true">›</span>
+
+      {character.id === 'future' && (
+        <div className="char-card__locked-stripe" aria-hidden="true">
+          <span className="char-card__locked-text">{t.charList.locked}</span>
+        </div>
+      )}
     </button>
   );
 }
