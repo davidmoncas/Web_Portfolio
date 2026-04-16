@@ -179,6 +179,7 @@ export const en = {
       techStack: 'Tech Stack',
       role: 'Primary Role',
       other: 'Other',
+      company: 'Company',
     },
     categories: {
       game: 'Game',
@@ -188,9 +189,9 @@ export const en = {
     },
     projects: {
       'cash-empire': {
-        description: 'A mobile idle/casino-style game for Android. Responsible for core gameplay systems, UI implementation, economy balancing, and integration with backend services.',
+        description: 'I worked as a game developer on Cash Empire, a mobile game released on Android and iOS that reached over 5 million downloads. The team was small and collaborative, consisting of two Unity developers, a game designer, an artist, and a QA tester, which meant everyone stayed closely involved in both development and decision-making.\n\nMy main focus was building and improving the core gameplay around the classic coin pusher mechanic, where players drop coins onto a moving platform to trigger physics-based interactions and rewards. I worked extensively in Unity, handling gameplay features, optimizing performance for mobile devices, and coordinating with design and art to make sure everything felt smooth, responsive, and visually consistent.',
         role: 'Game Developer',
-        otherInfo: 'Published on Google Play',
+        otherInfo: 'Mobile Hypercasual Game - Android / Iphone',
       },
       'amazing-plinko': {
         description: 'A physics-based Plinko mobile game for Android. Developed the ball physics simulation, procedural board generation, and reward system.',

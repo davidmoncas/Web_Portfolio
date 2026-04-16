@@ -1,18 +1,29 @@
 import type { Project } from '../types';
+import cashEmpireLogo    from '../images/projects/cash_empire/cash_empire_logo.png';
+import cashEmpireShot0   from '../images/projects/cash_empire/screenshot_0.png';
+import cashEmpireShot1   from '../images/projects/cash_empire/screenshot_1.jpg';
+import cashEmpireShot2   from '../images/projects/cash_empire/screenshot_2.jpg';
+import cashEmpireShot3   from '../images/projects/cash_empire/screenshot_3.jpg';
 
 export const projects: Project[] = [
   {
     id: 'cash-empire',
     name: 'Cash Empire',
-    company: 'JustDice',
+    company: 'JustDice GmbH',
     category: 'game',
     year: 2023,
-    techStack: ['Unity', 'C#', 'Firebase', 'Android'],
+    techStack: ['Unity', 'C#', 'Firebase', 'Android', 'iOS'],
     role: 'Game Developer',
     description:
-      'A mobile idle/casino-style game for Android. Responsible for core gameplay systems, UI implementation, economy balancing, and integration with backend services.',
-    otherInfo: 'Published on Google Play',
+      'A mobile idle/casino-style game for Android and iOS. Responsible for core gameplay systems, UI implementation, economy balancing, and integration with backend services.',
+    panelImageUrl: cashEmpireLogo,
+    thumbnails: [cashEmpireShot0, cashEmpireShot1, cashEmpireShot2, cashEmpireShot3],
     icon: '🎰',
+    completion: 100,
+    template: {
+      sections: ['header', 'stats', 'description', 'links', 'gallery'],
+      stats: ['year', 'techStack', 'role', 'company'],
+    },
   },
   {
     id: 'amazing-plinko',
@@ -25,6 +36,7 @@ export const projects: Project[] = [
     description:
       'A physics-based Plinko mobile game for Android. Developed the ball physics simulation, procedural board generation, and reward system.',
     otherInfo: 'Published on Google Play',
+    completion: 100,
     icon: '🎱',
   },
   {
@@ -38,6 +50,7 @@ export const projects: Project[] = [
     description:
       'A set of Python automation scripts for the Meshroom photogrammetry pipeline. The tools batch-process image datasets, manage node graph configurations, and export optimized 3D meshes for research use.',
     otherInfo: 'Research tooling',
+    completion: 85,
     icon: '🔧',
   },
   {
@@ -51,6 +64,7 @@ export const projects: Project[] = [
     description:
       'An Android strategy and base-building mobile game. Worked on the core loop mechanics, resource management systems, and player progression architecture.',
     otherInfo: 'NDA — details limited',
+    completion: 100,
     icon: '🪨',
   },
   {
@@ -64,6 +78,7 @@ export const projects: Project[] = [
     description:
       'A mobile chess-inspired game with action and fire mechanics for Android. Responsible for AI opponent logic, move validation systems, and special ability implementations.',
     otherInfo: 'NDA — details limited',
+    completion: 100,
     icon: '♟️',
   },
   {
@@ -77,6 +92,7 @@ export const projects: Project[] = [
     description:
       'A self-produced educational animation video. Covers 3D modeling, rigging, scene layout in Blender, and final compositing and motion graphics in After Effects.',
     otherInfo: 'Personal / portfolio piece',
+    completion: 70,
     icon: '🎬',
   },
 ];

@@ -180,6 +180,7 @@ export const de: Translations = {
       techStack: 'Tech Stack',
       role: 'Hauptrolle',
       other: 'Sonstiges',
+      company: 'Unternehmen',
     },
     categories: {
       game: 'Spiel',
@@ -189,9 +190,9 @@ export const de: Translations = {
     },
     projects: {
       'cash-empire': {
-        description: 'Ein mobiles Idle/Casino-Spiel für Android. Verantwortlich für Kernspielsysteme, UI-Implementierung, Wirtschaftsbalancing und Backend-Integration.',
+        description: 'Ich arbeitete als Spieleentwickler an Cash Empire, einem mobilen Spiel, das für Android und iOS veröffentlicht wurde und über 5 Millionen Downloads erreichte. Das Team war klein und kollaborativ, bestehend aus zwei Unity-Entwicklern, einem Spieldesigner, einem Künstler und einem QA-Tester, was bedeutete, dass alle eng in Entwicklung und Entscheidungsfindung eingebunden waren.\n\nMein Hauptfokus lag auf dem Aufbau und der Verbesserung des Kerngameplays rund um die klassische Coin-Pusher-Mechanik, bei der Spieler Münzen auf eine bewegliche Plattform werfen, um physikbasierte Interaktionen und Belohnungen auszulösen. Ich arbeitete intensiv in Unity, implementierte Gameplay-Features, optimierte die Performance für mobile Geräte und koordinierte mit Design und Art, um sicherzustellen, dass alles flüssig, reaktionsschnell und visuell konsistent wirkte.',
         role: 'Spieleentwickler',
-        otherInfo: 'Im Google Play veröffentlicht',
+        otherInfo: 'Mobile Hypercasual Game - Android / Iphone',
       },
       'amazing-plinko': {
         description: 'Ein physikbasiertes Plinko-Mobilspiel für Android. Entwickelt die Kugelphysiksimulation, prozedurale Spielfeldgenerierung und das Belohnungssystem.',

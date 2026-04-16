@@ -60,6 +60,14 @@ export interface WorkEntry {
 
 export type ProjectCategory = 'game' | 'code' | 'art' | 'other';
 
+export type ProjectSectionKey = 'header' | 'stats' | 'description' | 'links' | 'thumbnails' | 'gallery';
+export type ProjectStatKey    = 'year' | 'techStack' | 'role' | 'other' | 'company';
+
+export interface ProjectDisplayConfig {
+  sections: ProjectSectionKey[];
+  stats?: ProjectStatKey[];
+}
+
 export interface ProjectLink {
   type: 'youtube' | 'github' | 'itch' | 'web';
   url: string;
@@ -77,9 +85,14 @@ export interface Project {
   description: string;
   otherInfo?: string;
   imageUrl?: string;
+  panelImageUrl?: string;
   thumbnails?: string[];
   links?: ProjectLink[];
   icon: string;
+  /** Named template key or inline display config. Defaults to 'standard'. */
+  template?: string | ProjectDisplayConfig;
+  /** Completion percentage 0–100 shown as a bar in the header subpanel. */
+  completion?: number;
 }
 
 export interface Character {
