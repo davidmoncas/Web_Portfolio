@@ -3,7 +3,7 @@
 .inventory {
   flex: 1;
   display: grid;
-  grid-template-columns: 40% 51%;
+  grid-template-columns: 32% 59%;
   min-height: 0;
   padding: 16px;
   gap: 20px;
@@ -154,6 +154,7 @@
   box-shadow: var(--panel-shadow);
   overflow: hidden;
   height: 100%;
+  margin-left: 12px;
 }
 
 /* ── Category filter bar ──────────────────────────────────────────────────── */
@@ -247,7 +248,7 @@
 
 .proj-detail__category-tag {
   display: inline-block;
-  font-size: 11px;
+  font-size: 8px;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -264,7 +265,7 @@
 
 .proj-detail__name {
   font-family: var(--font-display);
-  font-size: 31px;
+  font-size: 22px;
   font-weight: 800;
   font-style: italic;
   text-transform: uppercase;
@@ -273,7 +274,7 @@
 }
 
 .proj-detail__subtitle {
-  font-size: 13px;
+  font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -365,7 +366,7 @@
 }
 
 .proj-stat__label {
-  font-size: 11px;
+  font-size: 8px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -373,7 +374,7 @@
 }
 
 .proj-stat__value {
-  font-size: 16px;
+  font-size: 11px;
   font-weight: 500;
   color: var(--text-secondary);
   line-height: 1.4;
@@ -547,4 +548,118 @@
 
 .proj-lightbox__close:hover {
   background: var(--bg-panel-hover);
+}
+
+/* ── Mobile (≤ 640px) ─────────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  /* Vertical two-pane stack filling the full page-content area */
+  .inventory {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: unset;
+    padding: 0;
+    gap: 0;
+    overflow: hidden;
+    align-items: unset;
+  }
+
+  /* ── Top pane: grid panel at 30% height ────────────────────────────────── */
+
+  .inv-grid-panel {
+    flex: 0 0 30%;
+    height: unset;
+    align-self: unset;
+    box-shadow: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid var(--panel-border-color);
+  }
+
+  /* 5 columns so all 20 slots fit in 4 rows */
+  .inv-grid {
+    grid-template-columns: repeat(5, 1fr);
+    padding: 6px;
+    gap: 4px;
+  }
+
+  /* Smaller slots: thinner border, compact icon */
+  .inv-slot {
+    border-width: 2px;
+  }
+
+  .inv-slot__badge {
+    font-size: 6px;
+    padding: 0 2px;
+    top: 1px;
+    right: 1px;
+  }
+
+  .inv-slot__icon {
+    font-size: 20px;
+  }
+
+  /* Category filter: tighter padding to fit 5 buttons */
+  .cat-filter__btn {
+    font-size: 9px;
+    padding: 8px 4px;
+    letter-spacing: 0.06em;
+  }
+
+  /* ── Bottom pane: detail panel fills the rest ──────────────────────────── */
+
+  .inventory__detail-col {
+    flex: 1;
+    min-height: 0;
+    height: unset;
+    box-shadow: none;
+    border: none;
+    overflow-y: auto;
+  }
+
+  /* Let the detail content flow naturally — parent col scrolls */
+  .proj-detail {
+    overflow-y: visible;
+    flex: none;
+  }
+
+  /* Tighten the project name for narrow screens */
+  .proj-detail__name {
+    font-size: 22px;
+  }
+
+  /* Shrink the header image box */
+  .proj-detail__image-box {
+    width: 90px;
+    height: 64px;
+    flex-shrink: 0;
+  }
+
+  /* Stats grid: single column on very narrow screens */
+  .proj-detail__stats {
+    grid-template-columns: 1fr 1fr;
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .proj-stat {
+    padding: 10px 14px;
+  }
+
+  /* Description text: slightly smaller */
+  .proj-detail__desc {
+    font-size: 14px;
+  }
+
+  /* Thumbnails: smaller height */
+  .proj-detail__thumb {
+    height: 60px;
+  }
+
+  /* Gallery thumbnails: smaller */
+  .proj-gallery__thumb-btn {
+    width: 80px;
+    height: 80px;
+  }
 }

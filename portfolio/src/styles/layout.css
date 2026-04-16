@@ -54,6 +54,11 @@
   background: var(--bg-selected);
 }
 
+/* Hidden on desktop, shown on mobile via media query */
+.topbar__burger {
+  display: none;
+}
+
 /* ── Tab Navigation — browser-style tabs ─────────────────────────────────── */
 
 .tab-nav {
@@ -134,4 +139,107 @@
   font-weight: 400;
   color: var(--text-muted);
   letter-spacing: 0.04em;
+}
+
+/* ── Mobile (≤ 640px) ─────────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  :root {
+    --char-bar-height: 110px;
+  }
+
+  .topbar {
+    padding: 0 16px;
+  }
+
+  /* Hide desktop language buttons */
+  .topbar__lang {
+    display: none;
+  }
+
+  /* Show burger in place of the language area */
+  .topbar__burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    color: var(--text-primary);
+    background: transparent;
+    border: 1px solid var(--border);
+    transition: background var(--transition), border-color var(--transition);
+    flex-shrink: 0;
+  }
+
+  .topbar__burger:hover {
+    background: var(--bg-panel-hover);
+    border-color: var(--border-strong);
+  }
+
+  /* Combined dropdown — tabs + language, anchored below topbar */
+  .topbar__mobile-menu {
+    position: fixed;
+    top: var(--topbar-height);
+    left: 0;
+    right: 0;
+    background: var(--bg-panel);
+    border-bottom: 2px solid var(--panel-border-color);
+    box-shadow: var(--shadow-md);
+    z-index: 95;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topbar__mobile-nav {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .topbar__mobile-tab {
+    padding: 14px 20px;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    display: block;
+    transition: background var(--transition), color var(--transition);
+  }
+
+  .topbar__mobile-tab:last-child {
+    border-bottom: none;
+  }
+
+  .topbar__mobile-tab:hover {
+    background: var(--bg-panel-hover);
+    color: var(--text-secondary);
+  }
+
+  .topbar__mobile-tab--active {
+    color: var(--text-primary);
+    font-weight: 700;
+    background: var(--bg-selected);
+  }
+
+  .topbar__mobile-lang {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    padding: 10px 16px;
+  }
+
+  /* Hide the entire second top bar */
+  .tab-nav {
+    display: none;
+  }
+
+  /* Page content: offset only by topbar (no tab-nav) */
+  .page-content {
+    margin-top: var(--topbar-height);
+  }
 }

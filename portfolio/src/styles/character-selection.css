@@ -1244,3 +1244,194 @@
   object-fit: contain;
   display: block;
 }
+
+/* Hidden on desktop, shown on mobile */
+.char-selection__mobile-profile {
+  display: none;
+}
+
+/* ── Mobile (≤ 640px) ─────────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  /* ── Fixed horizontal character bar (below topbar only — no tab-nav) ───── */
+
+  .char-sidebar {
+    position: fixed;
+    top: var(--topbar-height);
+    left: 0;
+    right: 0;
+    z-index: 80;
+    height: var(--char-bar-height);
+    background: var(--bg-panel);
+    border-bottom: 2px solid var(--panel-border-color);
+    box-shadow: var(--shadow-sm);
+    align-self: unset;
+    display: block;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  /* Horizontally centered list */
+  .char-list {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 100%;
+    padding: 8px 16px;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    scrollbar-width: none;
+  }
+
+  .char-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .char-list__heading {
+    display: none;
+  }
+
+  /* ── Cards: column layout with icon + name ─────────────────────────────── */
+
+  .char-card {
+    flex-direction: column;
+    width: 64px !important;
+    height: auto;
+    min-height: unset;
+    padding: 8px 4px 6px;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    transform: none !important;
+    filter: none !important;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    border-bottom: 3px solid transparent;
+  }
+
+  .char-card > * {
+    transform: none !important;
+  }
+
+  .char-card:not(.char-card--selected):hover {
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .char-card--selected {
+    transform: none !important;
+    filter: none !important;
+    width: 64px !important;
+    border-bottom-color: var(--selected-shadow);
+  }
+
+  .char-card--future.char-card--selected {
+    border-bottom-color: var(--border-strong);
+  }
+
+  .char-card__icon {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+  }
+
+  /* Show body (name only), hide role + chevron + locked stripe */
+  .char-card__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .char-card__name {
+    font-size: 10px;
+    text-align: center;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    line-height: 1.2;
+  }
+
+  .char-card__role,
+  .char-card__chevron,
+  .char-card__locked-stripe {
+    display: none;
+  }
+
+  /* ── Main layout: vertical scrollable stack ────────────────────────────── */
+
+  .char-selection {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+    padding-top: var(--char-bar-height);
+    overflow-y: auto;
+    overflow-x: hidden;
+    align-items: stretch;
+  }
+
+  .char-selection__scene-area {
+    grid-area: unset;
+    align-self: auto;
+    height: 65vw;
+    min-height: 240px;
+    max-height: 380px;
+    width: 100%;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── Info panel: auto height, no internal scroll ───────────────────────── */
+
+  .info-panel-outer {
+    grid-area: unset;
+    align-self: auto;
+    min-height: 0;
+    flex: none;
+  }
+
+  .info-panel-wrapper {
+    height: auto;
+  }
+
+  .info-panel-wrapper::after {
+    display: none;
+  }
+
+  .info-panel {
+    height: auto;
+    overflow-y: visible;
+    overflow-x: visible;
+    filter: none;
+  }
+
+  .info-panel__char-name {
+    font-size: 36px;
+  }
+
+  /* ── Scene profile: hide on mobile (replaced by in-flow version below) ───── */
+
+  .char-scene .player-profile {
+    display: none;
+  }
+
+  /* ── Mobile profile: in scroll flow, below info panel ─────────────────────  */
+
+  .char-selection__mobile-profile {
+    display: flex;
+    justify-content: center;
+    padding: 20px 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .char-selection__mobile-profile .player-profile {
+    position: static;
+    transform: none;
+    bottom: auto;
+    left: auto;
+  }
+}

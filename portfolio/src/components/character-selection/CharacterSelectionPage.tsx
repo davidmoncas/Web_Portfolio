@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { CharacterList } from './CharacterList';
 import { CharacterInfoPanel } from './CharacterInfoPanel';
 import { CharacterScene } from './CharacterScene';
+import { PlayerProfile } from './PlayerProfile';
 import { characters } from '../../data/characters';
 import type { CharacterId } from '../../types';
 
@@ -23,6 +24,11 @@ export function CharacterSelectionPage() {
       </div>
 
       <CharacterInfoPanel selectedId={selectedId} />
+
+      {/* Mobile only: profile card in scroll flow, below info panel */}
+      <div className="char-selection__mobile-profile">
+        <PlayerProfile />
+      </div>
     </div>
   );
 }
