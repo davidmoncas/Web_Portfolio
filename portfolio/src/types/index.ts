@@ -89,6 +89,8 @@ export interface Project {
   thumbnails?: string[];
   links?: ProjectLink[];
   icon: string;
+  /** URL to a GLB model rendered inside the inventory slot. */
+  scene3dUrl?: string;
   /** Named template key or inline display config. Defaults to 'standard'. */
   template?: string | ProjectDisplayConfig;
   /** Completion percentage 0–100 shown as a bar in the header subpanel. */

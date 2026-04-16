@@ -4,6 +4,7 @@ import cashEmpireShot0   from '../images/projects/cash_empire/screenshot_0.png';
 import cashEmpireShot1   from '../images/projects/cash_empire/screenshot_1.jpg';
 import cashEmpireShot2   from '../images/projects/cash_empire/screenshot_2.jpg';
 import cashEmpireShot3   from '../images/projects/cash_empire/screenshot_3.jpg';
+import dollarSignUrl     from '../3d/dollar_sign.glb?url';
 
 export const projects: Project[] = [
   {
@@ -19,6 +20,7 @@ export const projects: Project[] = [
     panelImageUrl: cashEmpireLogo,
     thumbnails: [cashEmpireShot0, cashEmpireShot1, cashEmpireShot2, cashEmpireShot3],
     icon: '🎰',
+    scene3dUrl: dollarSignUrl,
     completion: 100,
     template: {
       sections: ['header', 'stats', 'description', 'links', 'gallery'],

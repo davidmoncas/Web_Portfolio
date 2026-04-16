@@ -1,4 +1,5 @@
 import type { Project } from '../../types';
+import { SlotScene3D } from './SlotScene3D';
 
 const CATEGORY_LABEL: Record<string, string> = {
   game: 'G',
@@ -32,7 +33,10 @@ export function InventorySlot({ project, isSelected, isDimmed, onSelect }: Props
       <span className={`inv-slot__badge inv-slot__badge--${project.category}`}>
         {CATEGORY_LABEL[project.category]}
       </span>
-      <span className="inv-slot__icon">{project.icon}</span>
+      {project.scene3dUrl
+        ? <SlotScene3D url={project.scene3dUrl} />
+        : <span className="inv-slot__icon">{project.icon}</span>
+      }
     </button>
   );
 }
