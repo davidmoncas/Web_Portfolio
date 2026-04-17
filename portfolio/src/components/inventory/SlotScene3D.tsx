@@ -1,17 +1,27 @@
-import { Suspense } from 'react';
-import { Canvas } from '@react-three/fiber';
+import { Suspense, useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
+import type { Group } from 'three';
 
-function Model({ url }: { url: string }) {
+function Model({ url, isSelected }: { url: string; isSelected: boolean }) {
   const { scene } = useGLTF(url);
-  return <primitive object={scene} />;
+  const ref = useRef<Group>(null);
+
+  useFrame((_, delta) => {
+    if (ref.current && isSelected) {
+      ref.current.rotation.y += delta * 1.2;
+    }
+  });
+
+  return <primitive ref={ref} object={scene} />;
 }
 
 interface Props {
   url: string;
+  isSelected: boolean;
 }
 
-export function SlotScene3D({ url }: Props) {
+export function SlotScene3D({ url, isSelected }: Props) {
   return (
     <div className="inv-slot__scene3d">
       <Suspense fallback={null}>
@@ -21,7 +31,7 @@ export function SlotScene3D({ url }: Props) {
         >
           <ambientLight intensity={1.2} />
           <directionalLight position={[5, 5, 5]} intensity={1.5} />
-          <Model url={url} />
+          <Model url={url} isSelected={isSelected} />
         </Canvas>
       </Suspense>
     </div>

@@ -34,7 +34,7 @@ export function InventorySlot({ project, isSelected, isDimmed, onSelect }: Props
         {CATEGORY_LABEL[project.category]}
       </span>
       {project.scene3dUrl
-        ? <SlotScene3D url={project.scene3dUrl} />
+        ? <SlotScene3D url={project.scene3dUrl} isSelected={isSelected} />
         : <span className="inv-slot__icon">{project.icon}</span>
       }
     </button>

@@ -5,6 +5,19 @@ import cashEmpireShot1   from '../images/projects/cash_empire/screenshot_1.jpg';
 import cashEmpireShot2   from '../images/projects/cash_empire/screenshot_2.jpg';
 import cashEmpireShot3   from '../images/projects/cash_empire/screenshot_3.jpg';
 import dollarSignUrl     from '../3d/dollar_sign.glb?url';
+import chessPieceUrl     from '../3d/ChessPiece.glb?url';
+import plinkoUrl         from '../3d/plinko.glb?url';
+import chessFireIcon     from '../images/projects/chess_fire/icon.png';
+import chessFireShot1    from '../images/projects/chess_fire/screenshot_1.jpg';
+import chessFireShot2    from '../images/projects/chess_fire/screenshot_2.jpg';
+import chessFireShot3    from '../images/projects/chess_fire/screenshot_3.jpg';
+import chessFireShot5    from '../images/projects/chess_fire/screenshot_5.jpg';
+import plinkoIcon        from '../images/projects/amazing_plinko/icon.webp';
+import plinkoShot1       from '../images/projects/amazing_plinko/screenshot_1.jpg';
+import plinkoShot2       from '../images/projects/amazing_plinko/screenshot_2.jpg';
+import plinkoShot3       from '../images/projects/amazing_plinko/screenshot_3.jpg';
+import plinkoShot4       from '../images/projects/amazing_plinko/screenshot_4.jpg';
+import plinkoShot5       from '../images/projects/amazing_plinko/screenshot_5.jpg';
 
 export const projects: Project[] = [
   {
@@ -40,6 +53,13 @@ export const projects: Project[] = [
     otherInfo: 'Published on Google Play',
     completion: 100,
     icon: '🎱',
+    panelImageUrl: plinkoIcon,
+    thumbnails: [plinkoShot1, plinkoShot2, plinkoShot3, plinkoShot4, plinkoShot5],
+    scene3dUrl: plinkoUrl,
+    template: {
+      sections: ['header', 'stats', 'description', 'links', 'gallery'],
+      stats: ['year', 'techStack', 'role', 'company'],
+    },
   },
   {
     id: 'meshroom-tools',
@@ -82,6 +102,13 @@ export const projects: Project[] = [
     otherInfo: 'NDA — details limited',
     completion: 100,
     icon: '♟️',
+    panelImageUrl: chessFireIcon,
+    thumbnails: [chessFireShot1, chessFireShot2, chessFireShot3, chessFireShot5],
+    scene3dUrl: chessPieceUrl,
+    template: {
+      sections: ['header', 'stats', 'description', 'links', 'gallery'],
+      stats: ['year', 'techStack', 'role', 'company'],
+    },
   },
   {
     id: 'educational-video',
