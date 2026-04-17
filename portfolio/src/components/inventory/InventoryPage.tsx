@@ -6,8 +6,12 @@ import type { ProjectCategory } from '../../types';
 
 type FilterCategory = ProjectCategory | 'all';
 
-export function InventoryPage() {
-  const [selectedId, setSelectedId] = useState<string | null>(projects[0].id);
+interface InventoryPageProps {
+  selectedId: string | null;
+  onSelect: (id: string) => void;
+}
+
+export function InventoryPage({ selectedId, onSelect }: InventoryPageProps) {
   const [activeCategory, setActiveCategory] = useState<FilterCategory>('all');
 
   const selectedProject = projects.find((p) => p.id === selectedId) ?? null;
@@ -19,7 +23,7 @@ export function InventoryPage() {
         projects={projects}
         selectedId={selectedId}
         activeCategory={activeCategory}
-        onSelect={setSelectedId}
+        onSelect={onSelect}
         onCategoryChange={setActiveCategory}
       />
 

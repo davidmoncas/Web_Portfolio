@@ -63,7 +63,7 @@ export const es: Translations = {
   },
   infoPanel: {
     skillsTitle: 'Habilidades y Tecnologías',
-    selectCharacter: 'Selecciona un personaje para saber más.',
+    selectCharacter: '‹ Selecciona un personaje.',
   },
   panels: {
     david: {
@@ -167,7 +167,7 @@ export const es: Translations = {
   },
   inventory: {
     gridLabel: 'Proyectos',
-    empty: 'Selecciona un ítem para ver detalles',
+    empty: 'Por favor selecciona un objeto.',
     filters: {
       all: 'Todo',
       game: 'Juegos',

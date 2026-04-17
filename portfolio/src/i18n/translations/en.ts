@@ -61,7 +61,7 @@ export const en = {
   },
   infoPanel: {
     skillsTitle: 'Skills & Technologies',
-    selectCharacter: 'Select a character to learn more.',
+    selectCharacter: '‹ Select a character.',
   },
   panels: {
     david: {
@@ -166,7 +166,7 @@ export const en = {
   },
   inventory: {
     gridLabel: 'Projects',
-    empty: 'Select an item to view details',
+    empty: 'Please select an object.',
     filters: {
       all: 'All',
       game: 'Games',

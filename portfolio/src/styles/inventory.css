@@ -550,6 +550,32 @@
   background: var(--bg-panel-hover);
 }
 
+.proj-lightbox__nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 56px;
+  background: var(--bg-panel);
+  border: 2px solid var(--panel-border-color);
+  color: var(--text-primary);
+  font-size: 28px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+  z-index: 1001;
+}
+
+.proj-lightbox__nav--prev { left: 20px; }
+.proj-lightbox__nav--next { right: 20px; }
+
+.proj-lightbox__nav:hover {
+  background: var(--bg-panel-hover);
+}
+
 /* ── Mobile (≤ 640px) ─────────────────────────────────────────────────────── */
 
 @media (max-width: 640px) {

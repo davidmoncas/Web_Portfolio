@@ -16,7 +16,7 @@ const LINK_ICONS: Record<string, string> = {
 
 export function ProjectDetailPanel({ project }: Props) {
   const { t } = useI18n();
-  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   if (!project) {
     return (
@@ -119,7 +119,7 @@ export function ProjectDetailPanel({ project }: Props) {
             <button
               key={i}
               className="proj-gallery__thumb-btn"
-              onClick={() => setLightboxSrc(src)}
+              onClick={() => setLightboxIndex(i)}
               title={`${project.name} screenshot ${i + 1}`}
             >
               <img
@@ -147,21 +147,35 @@ export function ProjectDetailPanel({ project }: Props) {
       )}
 
       {/* ── Lightbox ── */}
-      {lightboxSrc && (
-        <div className="proj-lightbox" onClick={() => setLightboxSrc(null)}>
+      {lightboxIndex !== null && project.thumbnails && (
+        <div className="proj-lightbox" onClick={() => setLightboxIndex(null)}>
           <button
             className="proj-lightbox__close"
-            onClick={(e) => { e.stopPropagation(); setLightboxSrc(null); }}
+            onClick={(e) => { e.stopPropagation(); setLightboxIndex(null); }}
             aria-label="Close"
           >
             ✕
           </button>
+          <button
+            className="proj-lightbox__nav proj-lightbox__nav--prev"
+            onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex - 1 + project.thumbnails!.length) % project.thumbnails!.length); }}
+            aria-label="Previous"
+          >
+            ‹
+          </button>
           <img
-            src={lightboxSrc}
+            src={project.thumbnails[lightboxIndex]}
             alt="Preview"
             className="proj-lightbox__img"
             onClick={(e) => e.stopPropagation()}
           />
+          <button
+            className="proj-lightbox__nav proj-lightbox__nav--next"
+            onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex + 1) % project.thumbnails!.length); }}
+            aria-label="Next"
+          >
+            ›
+          </button>
         </div>
       )}
 
