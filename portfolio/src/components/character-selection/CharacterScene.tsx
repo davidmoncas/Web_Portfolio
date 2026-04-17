@@ -8,10 +8,10 @@ import type { Character, SceneObject } from '../../types';
 // TODO: Replace with 3D model imports when GLB models are ready.
 // Each character id maps to its flat profile image.
 
-import basicImg     from '../../images/temp_profiles/basic.jpg';
-import coderImg     from '../../images/temp_profiles/coder.jpg';
-import creatorImg   from '../../images/temp_profiles/creator.jpg';
-import studentImg   from '../../images/temp_profiles/student.jpg';
+import basicImg     from '../../images/temp_profiles/basic.png';
+import coderImg     from '../../images/temp_profiles/coder.png';
+import creatorImg   from '../../images/temp_profiles/creator.png';
+import studentImg   from '../../images/temp_profiles/student.png';
 import futureImg    from '../../images/temp_profiles/future.png';
 
 const CHARACTER_IMAGES: Record<string, string> = {

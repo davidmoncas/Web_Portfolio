@@ -331,8 +331,8 @@
 }
 
 .scene-info-panel__text {
-  font-size: 12px;
-  color: var(--text-secondary);
+  font-size: 14px;
+  color: var(--text-primary);
   line-height: 1.55;
 }
 
@@ -508,7 +508,7 @@
 }
 
 .info-panel__subtitle {
-  font-size: 13px;
+  font-size: 14px;
   font-style: italic;
   font-weight: 400;
   color: var(--text-secondary);
@@ -516,7 +516,7 @@
 }
 
 .info-panel__bio {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   color: var(--text-muted);
   line-height: 1.6;
@@ -536,7 +536,7 @@
 }
 
 .info-panel__section-title {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -560,7 +560,7 @@
 }
 
 .info-panel__category-title {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -669,13 +669,13 @@
 }
 
 .skill-card__title {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--text-primary);
 }
 
 .skill-card__desc {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   color: var(--text-secondary);
   line-height: 1.5;
@@ -717,7 +717,7 @@
 }
 
 .equip-item__desc {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   color: var(--text-muted);
 }
@@ -860,20 +860,20 @@
 }
 
 .work-exp-item__role {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.3;
 }
 
 .work-exp-item__company {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--text-secondary);
 }
 
 .work-exp-item__period {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   color: var(--text-muted);
   letter-spacing: 0.03em;
@@ -1002,14 +1002,14 @@
 }
 
 .info-panel__cta-card-title {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: 0.02em;
 }
 
 .info-panel__cta-card-desc {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   color: var(--text-secondary);
   line-height: 1.5;
@@ -1202,7 +1202,7 @@
 }
 
 .quest-card__desc {
-  font-size: 11px;
+  font-size: 13px;
   font-style: italic;
   color: var(--text-muted);
   line-height: 1.45;
