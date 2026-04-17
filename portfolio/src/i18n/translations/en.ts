@@ -125,9 +125,7 @@ export const en = {
     'boulder':             { name: 'Bouldering',                       description: 'Indoor climbing and problem solving on the wall' },
     'juggling':            { name: 'Juggling',                         description: '3-ball patterns and beyond' },
     'natural-sciences':    { name: 'Natural Sciences',                 description: 'Fascinated by biology, botany and physics' },
-    'serious-games':       { name: 'Serious Games',                    description: 'Games as tools for learning, therapy and social impact' },
     'plants':              { name: 'Plants',                           description: 'Amateur botanist and proud plant parent' },
-    'psychology':          { name: 'Psychology',                       description: 'Human cognition, behavior and player experience' },
     'books':               { name: 'Books',                            description: 'Avid reader across science, fiction and game design' },
   } as Record<string, { name: string; description: string }>,
   playerProfile: {
@@ -180,6 +178,8 @@ export const en = {
       role: 'Primary Role',
       other: 'Other',
       company: 'Company',
+      downloads: 'Downloads',
+      rating: 'Rating',
     },
     categories: {
       game: 'Game',
@@ -194,9 +194,9 @@ export const en = {
         otherInfo: 'Mobile Hypercasual Game - Android / Iphone',
       },
       'amazing-plinko': {
-        description: 'A physics-based Plinko mobile game for Android. Developed the ball physics simulation, procedural board generation, and reward system.',
+        description: 'I collaborated with a small cross-functional team to develop Amazing Plinko, a mobile game for Android and iOS built with Unity and designed around simple, rewarding gameplay. The core loop centers on dropping a ball through a peg board to land on prizes, with additional features like daily missions and a party mode to keep players engaged. The project focused on accessibility and retention, with ad-based monetization integrated to support a free-to-play model.\n\nMy contributions included implementing and integrating game assets, developing parts of the gameplay mechanics, building UI elements, and handling third-party SDK integrations, including ads. Working closely with the designer, artist, and QA tester, I helped ensure a smooth player experience and a polished final product across both platforms.',
         role: 'Game Developer',
-        otherInfo: 'Published on Google Play',
+        otherInfo: 'Mobile Hypercasual Game - Android / Iphone',
       },
       'meshroom-tools': {
         description: 'A set of Python automation scripts for the Meshroom photogrammetry pipeline. The tools batch-process image datasets, manage node graph configurations, and export optimized 3D meshes for research use.',
@@ -206,15 +206,15 @@ export const en = {
       'rocklings-empire': {
         description: 'An Android strategy and base-building mobile game. Worked on the core loop mechanics, resource management systems, and player progression architecture.',
         role: 'Game Developer',
-        otherInfo: 'NDA — details limited',
+        otherInfo: 'Mobile Idle Game - Android / Iphone',
       },
       'chess-fire': {
-        description: 'A mobile chess-inspired game with action and fire mechanics for Android. Responsible for AI opponent logic, move validation systems, and special ability implementations.',
+        description: 'I worked with a small team to build Chessfire, a mobile game that mixes classic chess rules with fast-paced action. You play as a single King armed with a shotgun, fighting against enemy pieces that move like they would on a real chessboard. The game leans on both strategy and quick reactions, with challenging levels, unlockable characters with different abilities and weapons, and extra systems like missions and leaderboards to keep players engaged. It\'s mainly monetized through in-app purchases, with ads as a secondary layer.\n\nI contributed to gameplay implementation, asset integration, and parts of the UI, while also helping with systems related to progression and monetization. We built the game in just a few months, working closely as a team to keep things tight, responsive, and fun to play.',
         role: 'Game Developer',
-        otherInfo: 'NDA — details limited',
+        otherInfo: 'Mobile casual Game - Android / Iphone',
       },
       'educational-video': {
-        description: 'A self-produced educational animation video. Covers 3D modeling, rigging, scene layout in Blender, and final compositing and motion graphics in After Effects.',
+        description: 'A few months ago, I worked on a personal project where I set out to explain why camera aperture creates the bokeh effect. I used Blender to build simple 3D animations that break down the optics in a clear, visual way, aiming to make the concept easy to grasp without oversimplifying it. The project came from my interest in science and explaining how things work, and it was a good way to combine that with my art skills to create something practical and informative.',
         role: 'Animator / Director',
         otherInfo: 'Personal / portfolio piece',
       },

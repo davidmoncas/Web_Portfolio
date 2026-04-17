@@ -400,11 +400,37 @@
   margin-top: 12px;
 }
 
+/* ── YouTube video embed ──────────────────────────────────────────────────── */
+
+.proj-detail__video {
+  padding: 12px 12px 4px;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.proj-detail__video-wrapper {
+  position: relative;
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+}
+
+.proj-detail__video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--panel-border-color);
+  display: block;
+}
+
 /* ── Links ────────────────────────────────────────────────────────────────── */
 
 .proj-detail__links {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
   padding: 14px 24px;
   border-bottom: 1px solid var(--border);
@@ -445,6 +471,8 @@
 .proj-link--github  { border-color: var(--panel-border-color); }
 .proj-link--itch    { border-color: #fa5c5c; color: #fa5c5c; }
 .proj-link--itch .proj-link__icon { opacity: 1; }
+.proj-link--playstore { border-color: #01875f; color: #01875f; }
+.proj-link--playstore .proj-link__icon { opacity: 1; }
 
 /* ── Thumbnails ───────────────────────────────────────────────────────────── */
 

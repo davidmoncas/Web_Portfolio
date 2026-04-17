@@ -6,6 +6,8 @@ import cashEmpireShot2   from '../images/projects/cash_empire/screenshot_2.jpg';
 import cashEmpireShot3   from '../images/projects/cash_empire/screenshot_3.jpg';
 import dollarSignUrl     from '../3d/dollar_sign.glb?url';
 import chessPieceUrl     from '../3d/ChessPiece.glb?url';
+import rocklingPieceUrl  from '../3d/rockling.glb?url';
+import automationUrl     from '../3d/clogs.glb?url';
 import plinkoUrl         from '../3d/plinko.glb?url';
 import chessFireIcon     from '../images/projects/chess_fire/icon.png';
 import chessFireShot1    from '../images/projects/chess_fire/screenshot_1.jpg';
@@ -25,7 +27,7 @@ export const projects: Project[] = [
     name: 'Cash Empire',
     company: 'JustDice GmbH',
     category: 'game',
-    year: 2023,
+    year: 2021,
     techStack: ['Unity', 'C#', 'Firebase', 'Android', 'iOS'],
     role: 'Game Developer',
     description:
@@ -66,13 +68,14 @@ export const projects: Project[] = [
     name: 'Meshroom Python Tools',
     company: 'University of Bremen',
     category: 'code',
-    year: 2021,
+    year: 2020,
     techStack: ['Python', 'Meshroom', 'Photogrammetry'],
     role: 'Research Developer',
     description:
       'A set of Python automation scripts for the Meshroom photogrammetry pipeline. The tools batch-process image datasets, manage node graph configurations, and export optimized 3D meshes for research use.',
     otherInfo: 'Research tooling',
     completion: 85,
+    scene3dUrl: automationUrl,
     icon: '🔧',
   },
   {
@@ -80,13 +83,14 @@ export const projects: Project[] = [
     name: 'Rocklings Empire',
     company: 'Company under NDA',
     category: 'game',
-    year: 2023,
+    year: 2024,
     techStack: ['Unity', 'C#', 'Android'],
     role: 'Game Developer',
     description:
       'An Android strategy and base-building mobile game. Worked on the core loop mechanics, resource management systems, and player progression architecture.',
     otherInfo: 'NDA — details limited',
     completion: 100,
+    scene3dUrl: rocklingPieceUrl,
     icon: '🪨',
   },
   {
@@ -94,20 +98,25 @@ export const projects: Project[] = [
     name: 'Chess Fire',
     company: 'Company under NDA',
     category: 'game',
-    year: 2022,
-    techStack: ['Unity', 'C#', 'Android'],
+    year: 2024,
+    techStack: ['Unity', 'C#', 'Android', 'iOS'],
     role: 'Game Developer',
     description:
       'A mobile chess-inspired game with action and fire mechanics for Android. Responsible for AI opponent logic, move validation systems, and special ability implementations.',
     otherInfo: 'NDA — details limited',
+    downloads: '>50k',
+    rating: '4.1 stars',
     completion: 100,
     icon: '♟️',
     panelImageUrl: chessFireIcon,
     thumbnails: [chessFireShot1, chessFireShot2, chessFireShot3, chessFireShot5],
     scene3dUrl: chessPieceUrl,
+    links: [
+      { type: 'playstore', url: 'https://play.google.com/store/apps/details?id=com.starryskygames.chessgunner', label: 'Google Play' },
+    ],
     template: {
       sections: ['header', 'stats', 'description', 'links', 'gallery'],
-      stats: ['year', 'techStack', 'role', 'company'],
+      stats: ['year', 'techStack', 'downloads', 'company'],
     },
   },
   {
@@ -123,5 +132,10 @@ export const projects: Project[] = [
     otherInfo: 'Personal / portfolio piece',
     completion: 70,
     icon: '🎬',
+    youtubeId: 'oizFACYTiOs',
+    template: {
+      sections: ['header', 'stats', 'description', 'video'],
+      stats: ['year', 'techStack'],
+    },
   },
 ];

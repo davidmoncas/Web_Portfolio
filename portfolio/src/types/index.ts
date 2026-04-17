@@ -60,8 +60,8 @@ export interface WorkEntry {
 
 export type ProjectCategory = 'game' | 'code' | 'art' | 'other';
 
-export type ProjectSectionKey = 'header' | 'stats' | 'description' | 'links' | 'thumbnails' | 'gallery';
-export type ProjectStatKey    = 'year' | 'techStack' | 'role' | 'other' | 'company';
+export type ProjectSectionKey = 'header' | 'stats' | 'description' | 'links' | 'thumbnails' | 'gallery' | 'video';
+export type ProjectStatKey    = 'year' | 'techStack' | 'role' | 'other' | 'company' | 'downloads' | 'rating';
 
 export interface ProjectDisplayConfig {
   sections: ProjectSectionKey[];
@@ -69,7 +69,7 @@ export interface ProjectDisplayConfig {
 }
 
 export interface ProjectLink {
-  type: 'youtube' | 'github' | 'itch' | 'web';
+  type: 'youtube' | 'github' | 'itch' | 'web' | 'playstore';
   url: string;
   label: string;
 }
@@ -84,6 +84,8 @@ export interface Project {
   role: string;
   description: string;
   otherInfo?: string;
+  downloads?: string;
+  rating?: string;
   imageUrl?: string;
   panelImageUrl?: string;
   thumbnails?: string[];
@@ -91,6 +93,8 @@ export interface Project {
   icon: string;
   /** URL to a GLB model rendered inside the inventory slot. */
   scene3dUrl?: string;
+  /** YouTube video ID for embedded video section. */
+  youtubeId?: string;
   /** Named template key or inline display config. Defaults to 'standard'. */
   template?: string | ProjectDisplayConfig;
   /** Completion percentage 0–100 shown as a bar in the header subpanel. */

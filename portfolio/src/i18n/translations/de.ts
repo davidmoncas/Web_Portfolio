@@ -127,9 +127,7 @@ export const de: Translations = {
     'boulder':             { name: 'Bouldern',                             description: 'Indoor-Klettern und Problemlösen an der Wand' },
     'juggling':            { name: 'Jonglieren',                           description: 'Drei-Ball-Muster und mehr' },
     'natural-sciences':    { name: 'Naturwissenschaften',                  description: 'Fasziniert von Biologie, Botanik und Physik' },
-    'serious-games':       { name: 'Serious Games',                        description: 'Spiele als Werkzeuge für Lernen, Therapie und sozialen Impact' },
     'plants':              { name: 'Pflanzen',                             description: 'Hobbybotaniker und stolzer Pflanzenbesitzer' },
-    'psychology':          { name: 'Psychologie',                          description: 'Menschliche Kognition, Verhalten und Spielerfahrung' },
     'books':               { name: 'Bücher',                               description: 'Begeisterter Leser in Wissenschaft, Fiktion und Spieldesign' },
   } as Record<string, { name: string; description: string }>,
   playerProfile: {
@@ -181,6 +179,8 @@ export const de: Translations = {
       role: 'Hauptrolle',
       other: 'Sonstiges',
       company: 'Unternehmen',
+      downloads: 'Downloads',
+      rating: 'Bewertung',
     },
     categories: {
       game: 'Spiel',
@@ -192,12 +192,12 @@ export const de: Translations = {
       'cash-empire': {
         description: 'Ich arbeitete als Spieleentwickler an Cash Empire, einem mobilen Spiel, das für Android und iOS veröffentlicht wurde und über 5 Millionen Downloads erreichte. Das Team war klein und kollaborativ, bestehend aus zwei Unity-Entwicklern, einem Spieldesigner, einem Künstler und einem QA-Tester, was bedeutete, dass alle eng in Entwicklung und Entscheidungsfindung eingebunden waren.\n\nMein Hauptfokus lag auf dem Aufbau und der Verbesserung des Kerngameplays rund um die klassische Coin-Pusher-Mechanik, bei der Spieler Münzen auf eine bewegliche Plattform werfen, um physikbasierte Interaktionen und Belohnungen auszulösen. Ich arbeitete intensiv in Unity, implementierte Gameplay-Features, optimierte die Performance für mobile Geräte und koordinierte mit Design und Art, um sicherzustellen, dass alles flüssig, reaktionsschnell und visuell konsistent wirkte.',
         role: 'Spieleentwickler',
-        otherInfo: 'Mobile Hypercasual Game - Android / Iphone',
+        otherInfo: 'Mobile Hypercasual Spiel - Android / Iphone',
       },
       'amazing-plinko': {
-        description: 'Ein physikbasiertes Plinko-Mobilspiel für Android. Entwickelt die Kugelphysiksimulation, prozedurale Spielfeldgenerierung und das Belohnungssystem.',
+        description: 'Ich arbeitete mit einem kleinen, funktionsübergreifenden Team zusammen, um Amazing Plinko zu entwickeln, ein Mobilspiel für Android und iOS, das mit Unity entwickelt und auf ein einfaches, befriedigendes Spielerlebnis ausgelegt ist. Das Kernprinzip besteht darin, eine Kugel durch ein Stiftbrett fallen zu lassen, um Preise zu gewinnen, mit zusätzlichen Funktionen wie täglichen Missionen und einem Party-Modus, um die Spieler bei Laune zu halten. Das Projekt legte Wert auf Zugänglichkeit und Retention, mit werbefinanzierter Monetarisierung für ein Free-to-Play-Modell.\n\nMeine Beiträge umfassten die Implementierung und Integration von Spielassets, die Entwicklung von Teilen der Spielmechaniken, den Aufbau von UI-Elementen sowie die Verwaltung von Drittanbieter-SDK-Integrationen, einschließlich Werbung. In enger Zusammenarbeit mit dem Designer, dem Künstler und dem QA-Tester trug ich dazu bei, ein flüssiges Spielerlebnis und ein ausgefeiltes Endprodukt auf beiden Plattformen sicherzustellen.',
         role: 'Spieleentwickler',
-        otherInfo: 'Im Google Play veröffentlicht',
+        otherInfo: 'Mobile Hypercasual Spiel - Android / Iphone',
       },
       'meshroom-tools': {
         description: 'Python-Automatisierungsskripte für die Meshroom-Photogrammetrie-Pipeline. Die Tools verarbeiten Bilddatensätze in Batches, verwalten Knotengraphkonfigurationen und exportieren optimierte 3D-Netze.',
@@ -210,12 +210,12 @@ export const de: Translations = {
         otherInfo: 'NDA — Details begrenzt',
       },
       'chess-fire': {
-        description: 'Ein mobilem Schach-inspiriertes Spiel mit Aktions- und Feuermechaniken für Android. Verantwortlich für KI-Gegnerlogik, Zugvalidierungssysteme und Spezialfähigkeiten.',
+        description: 'Ich arbeitete mit einem kleinen Team an Chessfire, einem Mobilspiel, das klassische Schachregeln mit rasanter Action verbindet. Man spielt als einzelner König mit einer Schrotflinte und kämpft gegen Gegnerfiguren, die sich wie auf einem echten Schachbrett bewegen. Das Spiel vereint Strategie und schnelle Reaktionen mit herausfordernden Levels, freischaltbaren Charakteren mit unterschiedlichen Fähigkeiten und Waffen sowie zusätzlichen Systemen wie Missionen und Bestenlisten. Die Monetarisierung erfolgt hauptsächlich durch In-App-Käufe, ergänzt durch Werbung.\n\nIch trug zur Gameplay-Implementierung, Asset-Integration und Teilen der UI bei und half außerdem bei Systemen rund um Progression und Monetarisierung. Wir bauten das Spiel in wenigen Monaten, arbeiteten eng als Team zusammen und hielten es reaktionsschnell und spaßig.',
         role: 'Spieleentwickler',
-        otherInfo: 'NDA — Details begrenzt',
+        otherInfo: 'Mobile casual Spiel - Android / Iphone',
       },
       'educational-video': {
-        description: 'Ein selbst produziertes Bildungsanimationsvideo. Umfasst 3D-Modellierung, Rigging und Szenengestaltung in Blender sowie Compositing und Motion Graphics in After Effects.',
+        description: 'Vor einigen Monaten arbeitete ich an einem persönlichen Projekt, bei dem ich erklären wollte, warum die Kamerablende den Bokeh-Effekt erzeugt. Ich nutzte Blender, um einfache 3D-Animationen zu erstellen, die die Optik klar und visuell aufschlüsseln – mit dem Ziel, das Konzept verständlich zu machen, ohne es zu sehr zu vereinfachen. Das Projekt entstand aus meinem Interesse an Wissenschaft und daran, wie Dinge funktionieren, und war eine gute Möglichkeit, das mit meinen künstlerischen Fähigkeiten zu verbinden und etwas Praktisches und Informatives zu schaffen.',
         role: 'Animator / Regisseur',
         otherInfo: 'Persönliches / Portfolio-Stück',
       },

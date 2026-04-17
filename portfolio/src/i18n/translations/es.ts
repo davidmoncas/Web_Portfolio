@@ -127,9 +127,7 @@ export const es: Translations = {
     'boulder':             { name: 'Bouldering',                            description: 'Escalada indoor y resolución de problemas en la pared' },
     'juggling':            { name: 'Malabares',                             description: 'Patrones de 3 pelotas y más' },
     'natural-sciences':    { name: 'Ciencias Naturales',                    description: 'Fascinado por la biología, botánica y física' },
-    'serious-games':       { name: 'Serious Games',                         description: 'Juegos como herramientas de aprendizaje, terapia e impacto social' },
     'plants':              { name: 'Plantas',                               description: 'Botánico aficionado y orgulloso padre de plantas' },
-    'psychology':          { name: 'Psicología',                            description: 'Cognición humana, comportamiento y experiencia del jugador' },
     'books':               { name: 'Libros',                                description: 'Lector ávido de ciencia, ficción y diseño de juegos' },
   } as Record<string, { name: string; description: string }>,
   playerProfile: {
@@ -181,6 +179,8 @@ export const es: Translations = {
       role: 'Rol Principal',
       other: 'Otro',
       company: 'Empresa',
+      downloads: 'Descargas',
+      rating: 'Valoración',
     },
     categories: {
       game: 'Juego',
@@ -192,12 +192,12 @@ export const es: Translations = {
       'cash-empire': {
         description: 'Trabajé como desarrollador de juegos en Cash Empire, un juego móvil lanzado en Android e iOS que alcanzó más de 5 millones de descargas. El equipo era pequeño y colaborativo, formado por dos desarrolladores de Unity, un diseñador de juegos, un artista y un tester de QA, lo que significaba que todos estábamos estrechamente involucrados tanto en el desarrollo como en la toma de decisiones.\n\nMi enfoque principal fue construir y mejorar el gameplay central alrededor de la mecánica clásica del coin pusher, donde los jugadores dejan caer monedas sobre una plataforma móvil para desencadenar interacciones físicas y recompensas. Trabajé extensamente en Unity, gestionando funcionalidades del juego, optimizando el rendimiento para dispositivos móviles y coordinando con diseño y arte para asegurar que todo se sintiera fluido, responsivo y visualmente consistente.',
         role: 'Desarrollador de Juegos',
-        otherInfo: 'Videojuego Móbil Hipercasual - Android / Iphone',
+        otherInfo: 'Videojuego Hipercasual - Android / Iphone',
       },
       'amazing-plinko': {
-        description: 'Juego móvil de Plinko basado en física para Android. Desarrollé la simulación de física de bolas, generación procedural del tablero y sistema de recompensas.',
+        description: 'Colaboré con un pequeño equipo multifuncional para desarrollar Amazing Plinko, un juego móvil para Android e iOS creado con Unity y diseñado en torno a una jugabilidad simple y gratificante. El bucle central consiste en dejar caer una bola por un tablero de clavijas para aterrizar en premios, con funciones adicionales como misiones diarias y un modo fiesta para mantener a los jugadores enganchados. El proyecto se centró en la accesibilidad y la retención, con monetización basada en anuncios integrada para apoyar un modelo free-to-play.\n\nMis contribuciones incluyeron la implementación e integración de assets del juego, el desarrollo de partes de las mecánicas de jugabilidad, la construcción de elementos de UI y la gestión de integraciones de SDK de terceros, incluidos los anuncios. Trabajando estrechamente con el diseñador, el artista y el tester de QA, ayudé a garantizar una experiencia de juego fluida y un producto final pulido en ambas plataformas.',
         role: 'Desarrollador de Juegos',
-        otherInfo: 'Publicado en Google Play',
+        otherInfo: 'Videojuego Hipercasual - Android / Iphone',
       },
       'meshroom-tools': {
         description: 'Conjunto de scripts Python para el pipeline de fotogrametría Meshroom. Las herramientas procesan lotes de imágenes, gestionan configuraciones de nodos y exportan mallas 3D optimizadas.',
@@ -207,15 +207,15 @@ export const es: Translations = {
       'rocklings-empire': {
         description: 'Juego móvil de estrategia y construcción de bases para Android. Trabajé en la mecánica del bucle principal, sistemas de gestión de recursos y arquitectura de progresión del jugador.',
         role: 'Desarrollador de Juegos',
-        otherInfo: 'NDA — detalles limitados',
+        otherInfo: 'Videojuego Idle - Android / Iphone',
       },
       'chess-fire': {
-        description: 'Juego móvil inspirado en el ajedrez con mecánicas de acción y fuego para Android. Responsable de la lógica del oponente IA, sistemas de validación de movimientos e implementación de habilidades especiales.',
+        description: 'Trabajé con un pequeño equipo para crear Chessfire, un juego móvil que mezcla las reglas clásicas del ajedrez con acción frenética. Juegas como un único Rey armado con una escopeta, luchando contra piezas enemigas que se mueven como lo harían en un tablero real. El juego combina estrategia y reflejos rápidos, con niveles desafiantes, personajes desbloqueables con diferentes habilidades y armas, y sistemas adicionales como misiones y tablas de clasificación para mantener a los jugadores enganchados. Se monetiza principalmente mediante compras dentro de la aplicación, con anuncios como capa secundaria.\n\nContribuí a la implementación del gameplay, la integración de assets y partes de la UI, además de ayudar con sistemas relacionados con la progresión y la monetización. Construimos el juego en pocos meses, trabajando estrechamente como equipo para mantenerlo ágil, responsivo y divertido.',
         role: 'Desarrollador de Juegos',
-        otherInfo: 'NDA — detalles limitados',
+        otherInfo: 'Videojuego Casual - Android / Iphone',
       },
       'educational-video': {
-        description: 'Vídeo educativo de animación autoproducido. Cubre modelado 3D, rigging y composición de escenas en Blender, y composición final y motion graphics en After Effects.',
+        description: 'Hace unos meses, trabajé en un proyecto personal en el que me propuse explicar por qué la apertura de la cámara crea el efecto bokeh. Usé Blender para construir animaciones 3D simples que desglosan la óptica de forma clara y visual, con el objetivo de hacer el concepto fácil de entender sin simplificarlo en exceso. El proyecto surgió de mi interés por la ciencia y por explicar cómo funcionan las cosas, y fue una buena manera de combinar eso con mis habilidades artísticas para crear algo práctico e informativo.',
         role: 'Animador / Director',
         otherInfo: 'Proyecto personal / portafolio',
       },

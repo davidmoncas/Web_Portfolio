@@ -12,6 +12,7 @@ const LINK_ICONS: Record<string, string> = {
   github: 'GH',
   itch: 'itch',
   web: 'WEB',
+  playstore: '▶',
 };
 
 export function ProjectDetailPanel({ project }: Props) {
@@ -109,6 +110,18 @@ export function ProjectDetailPanel({ project }: Props) {
               <span className="proj-stat__value">{proj?.otherInfo ?? project.otherInfo ?? '—'}</span>
             </div>
           )}
+          {stats.includes('downloads') && project.downloads && (
+            <div className="proj-stat">
+              <span className="proj-stat__label">{t.inventory.stats.downloads}</span>
+              <span className="proj-stat__value">{project.downloads}</span>
+            </div>
+          )}
+          {stats.includes('rating') && project.rating && (
+            <div className="proj-stat">
+              <span className="proj-stat__label">{t.inventory.stats.rating}</span>
+              <span className="proj-stat__value">{project.rating}</span>
+            </div>
+          )}
         </div>
       )}
 
@@ -185,6 +198,20 @@ export function ProjectDetailPanel({ project }: Props) {
           {(proj?.description ?? project.description).split('\n\n').map((para, i) => (
             <p key={i} className="proj-detail__desc">{para}</p>
           ))}
+        </div>
+      )}
+
+      {/* ── YouTube video embed ── */}
+      {has('video') && project.youtubeId && (
+        <div className="proj-detail__video">
+          <div className="proj-detail__video-wrapper">
+            <iframe
+              src={`https://www.youtube.com/embed/${project.youtubeId}`}
+              title={project.name}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
         </div>
       )}
 
