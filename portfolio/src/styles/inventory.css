@@ -93,6 +93,15 @@
   border: 4px solid var(--border);
 }
 
+.inv-slot__empty-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .inv-slot:not(.inv-slot--empty):hover {
   background: var(--bg-panel-hover);
   box-shadow: var(--shadow-sm);
@@ -126,7 +135,6 @@
 .inv-slot__badge--game  { background: #3b82f6; color: #fff; }
 .inv-slot__badge--code  { background: #16a34a; color: #fff; }
 .inv-slot__badge--art   { background: #ea580c; color: #fff; }
-.inv-slot__badge--other { background: #7c3aed; color: #fff; }
 
 /* ── Slot icon & name ─────────────────────────────────────────────────────── */
 
@@ -165,6 +173,10 @@
   flex-shrink: 0;
 }
 
+.cat-filter {
+  background: var(--bg-root);
+}
+
 .cat-filter__btn {
   flex: 1;
   padding: 10px 6px;
@@ -174,7 +186,7 @@
   letter-spacing: 0.10em;
   text-transform: uppercase;
   color: var(--text-secondary);
-  background: var(--bg-panel-hover);
+  background: var(--bg-root);
   border-right: 1px solid var(--border);
   transition: background var(--transition), color var(--transition);
 }
@@ -184,7 +196,7 @@
 }
 
 .cat-filter__btn:hover:not(.cat-filter__btn--active) {
-  background: var(--bg-selected);
+  background: var(--bg-panel);
   color: var(--text-primary);
 }
 
@@ -195,7 +207,6 @@
 .cat-filter__btn--game.cat-filter__btn--active  { background: #3b82f6; }
 .cat-filter__btn--code.cat-filter__btn--active  { background: #16a34a; }
 .cat-filter__btn--art.cat-filter__btn--active   { background: #ea580c; }
-.cat-filter__btn--other.cat-filter__btn--active { background: #7c3aed; }
 
 /* ── Project detail panel ─────────────────────────────────────────────────── */
 
@@ -261,7 +272,6 @@
 .proj-detail__category-tag--game  { background: #3b82f6; }
 .proj-detail__category-tag--code  { background: #16a34a; }
 .proj-detail__category-tag--art   { background: #ea580c; }
-.proj-detail__category-tag--other { background: #7c3aed; }
 
 .proj-detail__name {
   font-family: var(--font-display);
@@ -410,7 +420,7 @@
 
 .proj-detail__video-wrapper {
   position: relative;
-  max-width: 360px;
+  max-width: 480px;
   width: 100%;
   margin: 0 auto;
   aspect-ratio: 16 / 9;

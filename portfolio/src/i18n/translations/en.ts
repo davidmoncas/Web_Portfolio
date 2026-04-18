@@ -165,12 +165,12 @@ export const en = {
   inventory: {
     gridLabel: 'Projects',
     empty: 'Please select an object.',
+    emptySlot: '<empty>',
     filters: {
       all: 'All',
       game: 'Games',
       code: 'Code',
       art: 'Art',
-      other: 'Other',
     },
     stats: {
       year: 'Year',
@@ -185,7 +185,6 @@ export const en = {
       game: 'Game',
       code: 'Code',
       art: 'Art',
-      other: 'Other',
     },
     projects: {
       'cash-empire': {
@@ -199,7 +198,7 @@ export const en = {
         otherInfo: 'Mobile Hypercasual Game - Android / Iphone',
       },
       'meshroom-tools': {
-        description: 'A set of Python automation scripts for the Meshroom photogrammetry pipeline. The tools batch-process image datasets, manage node graph configurations, and export optimized 3D meshes for research use.',
+        description: "During my master's, I worked on a project focused on streamlining the process of generating 3D meshes through photogrammetry. We used a robot arm to control a camera and capture images of objects from multiple angles, which were then reconstructed into 3D models. One of the main challenges was that Meshroom didn't support automation out of the box, so moving from raw images to a usable mesh required a lot of manual steps.\n\nTo address this, I built a set of Python tools that allowed us to run Meshroom from the command line and automate much of the reconstruction pipeline. I also developed a small set of Blender tools to make post-processing easier, especially for cleaning up meshes and generating new textures. Together, these tools helped reduce manual work and made the overall workflow more consistent and efficient.",
         role: 'Research Developer',
         otherInfo: 'Research tooling',
       },

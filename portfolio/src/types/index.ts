@@ -58,7 +58,7 @@ export interface WorkEntry {
   period: string;
 }
 
-export type ProjectCategory = 'game' | 'code' | 'art' | 'other';
+export type ProjectCategory = 'game' | 'code' | 'art';
 
 export type ProjectSectionKey = 'header' | 'stats' | 'description' | 'links' | 'thumbnails' | 'gallery' | 'video';
 export type ProjectStatKey    = 'year' | 'techStack' | 'role' | 'other' | 'company' | 'downloads' | 'rating';

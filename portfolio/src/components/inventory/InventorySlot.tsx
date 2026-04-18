@@ -1,12 +1,6 @@
 import type { Project } from '../../types';
 import { SlotScene3D } from './SlotScene3D';
-
-const CATEGORY_LABEL: Record<string, string> = {
-  game: 'G',
-  code: 'C',
-  art:  'A',
-  other: 'O',
-};
+import { useI18n } from '../../i18n/I18nContext';
 
 interface Props {
   project: Project | null;
@@ -16,8 +10,14 @@ interface Props {
 }
 
 export function InventorySlot({ project, isSelected, isDimmed, onSelect }: Props) {
+  const { t } = useI18n();
+
   if (!project) {
-    return <div className="inv-slot inv-slot--empty" aria-hidden="true" />;
+    return (
+      <div className="inv-slot inv-slot--empty" aria-hidden="true">
+        <span className="inv-slot__empty-label">{t.inventory.emptySlot}</span>
+      </div>
+    );
   }
 
   return (
@@ -31,7 +31,7 @@ export function InventorySlot({ project, isSelected, isDimmed, onSelect }: Props
       title={project.name}
     >
       <span className={`inv-slot__badge inv-slot__badge--${project.category}`}>
-        {CATEGORY_LABEL[project.category]}
+        {t.inventory.categories[project.category]}
       </span>
       {project.scene3dUrl
         ? <SlotScene3D url={project.scene3dUrl} isSelected={isSelected} />

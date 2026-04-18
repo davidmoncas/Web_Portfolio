@@ -166,12 +166,12 @@ export const de: Translations = {
   inventory: {
     gridLabel: 'Projekte',
     empty: 'Bitte wähle ein Objekt.',
+    emptySlot: '<leer>',
     filters: {
       all: 'Alle',
       game: 'Spiele',
       code: 'Code',
       art: 'Kunst',
-      other: 'Sonstiges',
     },
     stats: {
       year: 'Jahr',
@@ -186,7 +186,6 @@ export const de: Translations = {
       game: 'Spiel',
       code: 'Code',
       art: 'Kunst',
-      other: 'Sonstiges',
     },
     projects: {
       'cash-empire': {
@@ -200,7 +199,7 @@ export const de: Translations = {
         otherInfo: 'Mobile Hypercasual Spiel - Android / Iphone',
       },
       'meshroom-tools': {
-        description: 'Python-Automatisierungsskripte für die Meshroom-Photogrammetrie-Pipeline. Die Tools verarbeiten Bilddatensätze in Batches, verwalten Knotengraphkonfigurationen und exportieren optimierte 3D-Netze.',
+        description: 'Während meines Masterstudiums arbeitete ich an einem Projekt, das darauf abzielte, den Prozess der Generierung von 3D-Netzen mittels Photogrammetrie zu optimieren. Wir nutzten einen Roboterarm, um eine Kamera zu steuern und Bilder von Objekten aus verschiedenen Winkeln aufzunehmen, die anschließend zu 3D-Modellen rekonstruiert wurden. Eine der größten Herausforderungen war, dass Meshroom keine Automatisierung von Haus aus unterstützte, sodass der Weg von den Rohbildern bis zu einem verwendbaren Netz viele manuelle Schritte erforderte.\n\nUm das zu lösen, entwickelte ich eine Reihe von Python-Werkzeugen, mit denen wir Meshroom über die Kommandozeile ausführen und einen Großteil der Rekonstruktionspipeline automatisieren konnten. Außerdem entwickelte ich eine kleine Sammlung von Blender-Werkzeugen, um die Nachbearbeitung zu erleichtern – insbesondere das Bereinigen von Netzen und das Generieren neuer Texturen. Zusammen halfen diese Werkzeuge, den manuellen Aufwand zu reduzieren und den gesamten Workflow konsistenter und effizienter zu gestalten.',
         role: 'Forschungsentwickler',
         otherInfo: 'Forschungswerkzeuge',
       },

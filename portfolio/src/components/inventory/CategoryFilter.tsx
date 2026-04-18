@@ -3,7 +3,7 @@ import type { ProjectCategory } from '../../types';
 
 type FilterCategory = ProjectCategory | 'all';
 
-const CATEGORY_IDS: FilterCategory[] = ['all', 'game', 'code', 'art', 'other'];
+const CATEGORY_IDS: FilterCategory[] = ['all', 'game', 'code', 'art'];
 
 interface Props {
   active: FilterCategory;

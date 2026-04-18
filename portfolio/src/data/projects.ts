@@ -9,6 +9,9 @@ import chessPieceUrl     from '../3d/ChessPiece.glb?url';
 import rocklingPieceUrl  from '../3d/rockling.glb?url';
 import automationUrl     from '../3d/clogs.glb?url';
 import plinkoUrl         from '../3d/plinko.glb?url';
+import cactusUrl         from '../3d/cactus.glb?url';
+import meshroomIcon      from '../images/projects/meshroom_tools/icon.png';
+import rocklingsIcon     from '../images/projects/rocklings_empire/icon.webp';
 import chessFireIcon     from '../images/projects/chess_fire/icon.png';
 import chessFireShot1    from '../images/projects/chess_fire/screenshot_1.jpg';
 import chessFireShot2    from '../images/projects/chess_fire/screenshot_2.jpg';
@@ -77,6 +80,14 @@ export const projects: Project[] = [
     completion: 85,
     scene3dUrl: automationUrl,
     icon: '🔧',
+    panelImageUrl: meshroomIcon,
+    links: [
+      { type: 'github', url: 'https://github.com/davidmoncas/meshroom_CLI', label: 'GitHub' },
+    ],
+    template: {
+      sections: ['header', 'stats', 'description', 'links'],
+      stats: ['year', 'techStack', 'role', 'company'],
+    },
   },
   {
     id: 'rocklings-empire',
@@ -92,6 +103,7 @@ export const projects: Project[] = [
     completion: 100,
     scene3dUrl: rocklingPieceUrl,
     icon: '🪨',
+    panelImageUrl: rocklingsIcon,
   },
   {
     id: 'chess-fire',
@@ -124,7 +136,7 @@ export const projects: Project[] = [
     name: 'Educational Video',
     company: 'Personal Project',
     category: 'art',
-    year: 2024,
+    year: 2025,
     techStack: ['Blender', 'After Effects', 'Premiere Pro'],
     role: 'Animator / Director',
     description:
@@ -133,6 +145,7 @@ export const projects: Project[] = [
     completion: 70,
     icon: '🎬',
     youtubeId: 'oizFACYTiOs',
+    scene3dUrl: cactusUrl,
     template: {
       sections: ['header', 'stats', 'description', 'video'],
       stats: ['year', 'techStack'],

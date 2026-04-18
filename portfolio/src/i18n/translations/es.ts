@@ -166,12 +166,12 @@ export const es: Translations = {
   inventory: {
     gridLabel: 'Proyectos',
     empty: 'Por favor selecciona un objeto.',
+    emptySlot: '<vacío>',
     filters: {
       all: 'Todo',
       game: 'Juegos',
       code: 'Código',
       art: 'Arte',
-      other: 'Otro',
     },
     stats: {
       year: 'Año',
@@ -186,7 +186,6 @@ export const es: Translations = {
       game: 'Juego',
       code: 'Código',
       art: 'Arte',
-      other: 'Otro',
     },
     projects: {
       'cash-empire': {
@@ -200,7 +199,7 @@ export const es: Translations = {
         otherInfo: 'Videojuego Hipercasual - Android / Iphone',
       },
       'meshroom-tools': {
-        description: 'Conjunto de scripts Python para el pipeline de fotogrametría Meshroom. Las herramientas procesan lotes de imágenes, gestionan configuraciones de nodos y exportan mallas 3D optimizadas.',
+        description: 'Durante mi máster, trabajé en un proyecto centrado en optimizar el proceso de generación de mallas 3D mediante fotogrametría. Utilizamos un brazo robótico para controlar una cámara y capturar imágenes de objetos desde múltiples ángulos, que luego se reconstruían en modelos 3D. Uno de los principales desafíos fue que Meshroom no admitía automatización de forma nativa, por lo que pasar de las imágenes en bruto a una malla utilizable requería muchos pasos manuales.\n\nPara solucionar esto, desarrollé un conjunto de herramientas Python que nos permitían ejecutar Meshroom desde la línea de comandos y automatizar gran parte del pipeline de reconstrucción. También desarrollé un pequeño conjunto de herramientas para Blender que facilitaban el postprocesamiento, especialmente para limpiar mallas y generar nuevas texturas. En conjunto, estas herramientas ayudaron a reducir el trabajo manual e hicieron que el flujo de trabajo general fuera más consistente y eficiente.',
         role: 'Desarrollador de Investigación',
         otherInfo: 'Herramientas de investigación',
       },
