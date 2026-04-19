@@ -10,8 +10,21 @@ import rocklingPieceUrl  from '../3d/rockling.glb?url';
 import automationUrl     from '../3d/clogs.glb?url';
 import plinkoUrl         from '../3d/plinko.glb?url';
 import cactusUrl         from '../3d/cactus.glb?url';
+import truckUrl          from '../3d/truck.glb?url';
+import idleRebellionIcon  from '../images/Projects/Idle_rebellion/icon.png';
+import idleRebellionShot1 from '../images/Projects/Idle_rebellion/screenshot_1.png';
+import idleRebellionShot2 from '../images/Projects/Idle_rebellion/screenshot_2.png';
+import idleRebellionShot3 from '../images/Projects/Idle_rebellion/screenshot_3.jpg';
+import idleRebellionShot4 from '../images/Projects/Idle_rebellion/screenshot_4.jpg';
+import idleRebellionShot5 from '../images/Projects/Idle_rebellion/screenshot_5.jpg';
+import idleRebellionShot6 from '../images/Projects/Idle_rebellion/screenshot_6.jpg';
 import meshroomIcon      from '../images/projects/meshroom_tools/icon.png';
 import rocklingsIcon     from '../images/projects/rocklings_empire/icon.webp';
+import rocklingsShot1    from '../images/projects/rocklings_empire/screenshot_1.png';
+import rocklingsShot2    from '../images/projects/rocklings_empire/screenshot_2.jpeg';
+import rocklingsShot3    from '../images/projects/rocklings_empire/screenshot_3.webp';
+import rocklingsShot4    from '../images/projects/rocklings_empire/screenshot_4.jpg';
+import educationalIcon   from '../images/projects/educational_video/icon_2.png';
 import chessFireIcon     from '../images/projects/chess_fire/icon.png';
 import chessFireShot1    from '../images/projects/chess_fire/screenshot_1.jpg';
 import chessFireShot2    from '../images/projects/chess_fire/screenshot_2.jpg';
@@ -104,6 +117,11 @@ export const projects: Project[] = [
     scene3dUrl: rocklingPieceUrl,
     icon: '🪨',
     panelImageUrl: rocklingsIcon,
+    thumbnails: [rocklingsShot1, rocklingsShot2, rocklingsShot3, rocklingsShot4],
+    template: {
+      sections: ['header', 'stats', 'description', 'links', 'gallery'],
+      stats: ['year', 'techStack', 'role', 'company'],
+    },
   },
   {
     id: 'chess-fire',
@@ -132,6 +150,31 @@ export const projects: Project[] = [
     },
   },
   {
+    id: 'idle-rebellion',
+    name: 'Idle Rebellion',
+    company: 'Company under NDA',
+    category: 'game',
+    year: 2025,
+    techStack: ['Unity', 'C#', 'Android'],
+    role: 'Game Developer',
+    description:
+      'A mobile casual game combining idle resource management with an auto-battle system, tied together by a progression loop where players balance supporting a dictatorship while secretly funding a rebellion.',
+    otherInfo: 'Mobile casual Game - Android / Iphone',
+    downloads: '>100k',
+    completion: 100,
+    icon: '✊',
+    panelImageUrl: idleRebellionIcon,
+    thumbnails: [idleRebellionShot1, idleRebellionShot2, idleRebellionShot3, idleRebellionShot4, idleRebellionShot5, idleRebellionShot6],
+    scene3dUrl: truckUrl,
+    links: [
+      { type: 'playstore', url: 'https://play.google.com/store/apps/details?id=com.nightskygames.idlerebellion', label: 'Google Play' },
+    ],
+    template: {
+      sections: ['header', 'stats', 'description', 'links', 'gallery'],
+      stats: ['year', 'techStack', 'downloads', 'company'],
+    },
+  },
+  {
     id: 'educational-video',
     name: 'Educational Video',
     company: 'Personal Project',
@@ -144,6 +187,7 @@ export const projects: Project[] = [
     otherInfo: 'Personal / portfolio piece',
     completion: 70,
     icon: '🎬',
+    panelImageUrl: educationalIcon,
     youtubeId: 'oizFACYTiOs',
     scene3dUrl: cactusUrl,
     template: {

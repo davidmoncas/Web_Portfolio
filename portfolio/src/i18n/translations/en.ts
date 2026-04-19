@@ -203,12 +203,17 @@ export const en = {
         otherInfo: 'Research tooling',
       },
       'rocklings-empire': {
-        description: 'An Android strategy and base-building mobile game. Worked on the core loop mechanics, resource management systems, and player progression architecture.',
+        description: 'I worked as a game developer on Rocklings Empire, an incremental idle game built by a small team of three developers, one artist, and a game designer. The game revolves around growing a resource-based economy by crushing rocks, unlocking buildings, and gradually automating production, with a strong focus on progression and long-term engagement.\n\nMy work covered a mix of feature development and polish. I implemented new characters, added sound and visual effects, and worked on engagement systems like daily and weekly quests to keep players coming back. I also built several UI screens, supported monetization features such as in-app purchases and ads, and handled general bug fixing to keep the experience stable and responsive.',
         role: 'Game Developer',
         otherInfo: 'Mobile Idle Game - Android / Iphone',
       },
       'chess-fire': {
         description: 'I worked with a small team to build Chessfire, a mobile game that mixes classic chess rules with fast-paced action. You play as a single King armed with a shotgun, fighting against enemy pieces that move like they would on a real chessboard. The game leans on both strategy and quick reactions, with challenging levels, unlockable characters with different abilities and weapons, and extra systems like missions and leaderboards to keep players engaged. It\'s mainly monetized through in-app purchases, with ads as a secondary layer.\n\nI contributed to gameplay implementation, asset integration, and parts of the UI, while also helping with systems related to progression and monetization. We built the game in just a few months, working closely as a team to keep things tight, responsive, and fun to play.',
+        role: 'Game Developer',
+        otherInfo: 'Mobile casual Game - Android / Iphone',
+      },
+      'idle-rebellion': {
+        description: 'I worked as a game developer on Idle Rebellion, alongside the same small team of two developers, one artist, and a game designer. The game combines two core loops: an idle resource management system and an auto-battle component, both tied together by a progression system where players balance supporting a dictatorship while secretly funding a rebellion.\n\nMy role focused on implementing gameplay features across both sides of the experience. I contributed to progression systems, added new content and mechanics to support long-term engagement, and worked on UI and overall game feel. I also helped integrate monetization features, improve stability through bug fixing, and collaborated closely with the team to keep both gameplay loops cohesive and rewarding.',
         role: 'Game Developer',
         otherInfo: 'Mobile casual Game - Android / Iphone',
       },

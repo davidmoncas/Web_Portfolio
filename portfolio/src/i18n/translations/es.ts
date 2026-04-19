@@ -204,12 +204,17 @@ export const es: Translations = {
         otherInfo: 'Herramientas de investigación',
       },
       'rocklings-empire': {
-        description: 'Juego móvil de estrategia y construcción de bases para Android. Trabajé en la mecánica del bucle principal, sistemas de gestión de recursos y arquitectura de progresión del jugador.',
+        description: 'Trabajé como desarrollador de juegos en Rocklings Empire, un juego idle incremental desarrollado por un equipo pequeño de tres programadores, un artista y un diseñador de juegos. El juego gira en torno al crecimiento de una economía basada en recursos: aplastando rocas, desbloqueando edificios y automatizando gradualmente la producción, con un fuerte enfoque en la progresión y el engagement a largo plazo.\n\nMi trabajo abarcó una combinación de desarrollo de funcionalidades y pulido. Implementé nuevos personajes, añadí efectos de sonido y visuales, y trabajé en sistemas de engagement como misiones diarias y semanales para que los jugadores siguieran volviendo. También construí varias pantallas de UI, apoyé funcionalidades de monetización como compras dentro de la aplicación y anuncios, y me encargué de la corrección general de errores para mantener la experiencia estable y responsiva.',
         role: 'Desarrollador de Juegos',
-        otherInfo: 'Videojuego Idle - Android / Iphone',
+        otherInfo: 'Videojuego Idle - Android / iPhone',
       },
       'chess-fire': {
         description: 'Trabajé con un pequeño equipo para crear Chessfire, un juego móvil que mezcla las reglas clásicas del ajedrez con acción frenética. Juegas como un único Rey armado con una escopeta, luchando contra piezas enemigas que se mueven como lo harían en un tablero real. El juego combina estrategia y reflejos rápidos, con niveles desafiantes, personajes desbloqueables con diferentes habilidades y armas, y sistemas adicionales como misiones y tablas de clasificación para mantener a los jugadores enganchados. Se monetiza principalmente mediante compras dentro de la aplicación, con anuncios como capa secundaria.\n\nContribuí a la implementación del gameplay, la integración de assets y partes de la UI, además de ayudar con sistemas relacionados con la progresión y la monetización. Construimos el juego en pocos meses, trabajando estrechamente como equipo para mantenerlo ágil, responsivo y divertido.',
+        role: 'Desarrollador de Juegos',
+        otherInfo: 'Videojuego Casual - Android / Iphone',
+      },
+      'idle-rebellion': {
+        description: 'Trabajé como desarrollador de juegos en Idle Rebellion, junto al mismo pequeño equipo de dos desarrolladores, un artista y un diseñador de juegos. El juego combina dos bucles principales: un sistema de gestión de recursos idle y un componente de combate automático, unidos por un sistema de progresión en el que los jugadores equilibran el apoyo a una dictadura mientras financian en secreto una rebelión.\n\nMi rol se centró en implementar funcionalidades de gameplay en ambas partes de la experiencia. Contribuí a los sistemas de progresión, añadí nuevo contenido y mecánicas para fomentar el engagement a largo plazo, y trabajé en la UI y en la sensación general del juego. También ayudé a integrar funcionalidades de monetización, mejoré la estabilidad mediante la corrección de errores y colaboré estrechamente con el equipo para mantener ambos bucles de gameplay cohesivos y satisfactorios.',
         role: 'Desarrollador de Juegos',
         otherInfo: 'Videojuego Casual - Android / Iphone',
       },

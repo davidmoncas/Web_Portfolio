@@ -204,14 +204,19 @@ export const de: Translations = {
         otherInfo: 'Forschungswerkzeuge',
       },
       'rocklings-empire': {
-        description: 'Ein Android-Strategie- und Basisaufbauspiel. Arbeitete an den Kernschleifenmechaniken, Ressourcenmanagementsystemen und der Spielerfortschrittsarchitektur.',
+        description: 'Ich arbeitete als Spieleentwickler an Rocklings Empire, einem inkrementellen Idle-Game, das von einem kleinen Team aus drei Entwicklern, einem Künstler und einem Game Designer entwickelt wurde. Das Spiel dreht sich darum, eine ressourcenbasierte Wirtschaft aufzubauen, indem man Steine zerstört, Gebäude freischaltet und die Produktion schrittweise automatisiert – mit einem starken Fokus auf Progression und langfristiges Engagement.\n\nMeine Arbeit umfasste eine Mischung aus Feature-Entwicklung und Feinschliff. Ich implementierte neue Charaktere, fügte Sound- und visuelle Effekte hinzu und arbeitete an Engagement-Systemen wie täglichen und wöchentlichen Quests, um Spieler zum Wiederkommen zu bewegen. Außerdem baute ich mehrere UI-Bildschirme, unterstützte Monetarisierungsfeatures wie In-App-Käufe und Werbung und kümmerte mich um allgemeine Fehlerbehebungen, um das Erlebnis stabil und reaktionsschnell zu halten.',
         role: 'Spieleentwickler',
-        otherInfo: 'NDA — Details begrenzt',
+        otherInfo: 'Mobile Idle-Spiel - Android / iPhone',
       },
       'chess-fire': {
         description: 'Ich arbeitete mit einem kleinen Team an Chessfire, einem Mobilspiel, das klassische Schachregeln mit rasanter Action verbindet. Man spielt als einzelner König mit einer Schrotflinte und kämpft gegen Gegnerfiguren, die sich wie auf einem echten Schachbrett bewegen. Das Spiel vereint Strategie und schnelle Reaktionen mit herausfordernden Levels, freischaltbaren Charakteren mit unterschiedlichen Fähigkeiten und Waffen sowie zusätzlichen Systemen wie Missionen und Bestenlisten. Die Monetarisierung erfolgt hauptsächlich durch In-App-Käufe, ergänzt durch Werbung.\n\nIch trug zur Gameplay-Implementierung, Asset-Integration und Teilen der UI bei und half außerdem bei Systemen rund um Progression und Monetarisierung. Wir bauten das Spiel in wenigen Monaten, arbeiteten eng als Team zusammen und hielten es reaktionsschnell und spaßig.',
         role: 'Spieleentwickler',
         otherInfo: 'Mobile casual Spiel - Android / Iphone',
+      },
+      'idle-rebellion': {
+        description: 'Ich arbeitete als Spieleentwickler an Idle Rebellion, zusammen mit demselben kleinen Team aus zwei Entwicklern, einem Künstler und einem Game Designer. Das Spiel kombiniert zwei Kernschleifen: ein passives Ressourcenmanagementsystem und eine Auto-Battle-Komponente, die durch ein Progressionssystem verbunden sind, bei dem die Spieler eine Balance finden müssen zwischen der Unterstützung einer Diktatur und der heimlichen Finanzierung einer Rebellion.\n\nMeine Rolle konzentrierte sich auf die Implementierung von Gameplay-Features in beiden Teilen des Spiels. Ich trug zu Progressionssystemen bei, ergänzte neue Inhalte und Mechaniken für langfristiges Engagement und arbeitete an der UI sowie am allgemeinen Spielgefühl. Außerdem half ich bei der Integration von Monetarisierungsfeatures, verbesserte die Stabilität durch Fehlerbehebungen und arbeitete eng mit dem Team zusammen, um beide Gameplay-Schleifen kohärent und befriedigend zu halten.',
+        role: 'Spieleentwickler',
+        otherInfo: 'Mobile Casual-Spiel - Android / Iphone',
       },
       'educational-video': {
         description: 'Vor einigen Monaten arbeitete ich an einem persönlichen Projekt, bei dem ich erklären wollte, warum die Kamerablende den Bokeh-Effekt erzeugt. Ich nutzte Blender, um einfache 3D-Animationen zu erstellen, die die Optik klar und visuell aufschlüsseln – mit dem Ziel, das Konzept verständlich zu machen, ohne es zu sehr zu vereinfachen. Das Projekt entstand aus meinem Interesse an Wissenschaft und daran, wie Dinge funktionieren, und war eine gute Möglichkeit, das mit meinen künstlerischen Fähigkeiten zu verbinden und etwas Praktisches und Informatives zu schaffen.',
