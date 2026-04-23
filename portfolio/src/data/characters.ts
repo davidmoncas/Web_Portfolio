@@ -13,15 +13,6 @@ export const characters: Character[] = [
     icon: '👤',
     color: '#a855f7',
     skillCategories: [],
-    sceneObjects: [
-      {
-        id: 'basic_cube1',
-        position: [2.4, 0, 0],
-        color: '#e879f9',
-        size: [0.6, 0.6, 0.6],
-        tooltipKey: 'basic_cube1',
-      },
-    ],
     skillCards: [
       {
         id: 'colombian-dev',
@@ -66,15 +57,6 @@ export const characters: Character[] = [
           { name: 'Python', level: 30 },
           { name: 'Git', level: 70 },
         ],
-      },
-    ],
-    sceneObjects: [
-      {
-        id: 'developer_cube1',
-        position: [2.4, 0, 0],
-        color: '#22d3ee',
-        size: [0.6, 0.6, 0.6],
-        tooltipKey: 'developer_cube1',
       },
     ],
     skillCards: [
@@ -134,15 +116,6 @@ export const characters: Character[] = [
         ],
       },
     ],
-    sceneObjects: [
-      {
-        id: 'engineer_cube1',
-        position: [2.4, 0, 0],
-        color: '#fbbf24',
-        size: [0.6, 0.6, 0.6],
-        tooltipKey: 'engineer_cube1',
-      },
-    ],
     skillCards: [
       {
         id: 'msc-media',
@@ -173,15 +146,6 @@ export const characters: Character[] = [
     icon: '🎲',
     color: '#22c55e',
     skillCategories: [],
-    sceneObjects: [
-      {
-        id: 'hobbyist_cube1',
-        position: [2.4, 0, 0],
-        color: '#f472b6',
-        size: [0.6, 0.6, 0.6],
-        tooltipKey: 'hobbyist_cube1',
-      },
-    ],
     skillCards: [
       {
         id: 'guitar',
@@ -227,15 +191,6 @@ export const characters: Character[] = [
     icon: '❓',
     color: '#f59e0b',
     skillCategories: [],
-    sceneObjects: [
-      {
-        id: 'future_cube1',
-        position: [2.4, 0, 0],
-        color: '#f59e0b',
-        size: [0.6, 0.6, 0.6],
-        tooltipKey: 'future_cube1',
-      },
-    ],
     skillCards: [],
     items: [],
   },

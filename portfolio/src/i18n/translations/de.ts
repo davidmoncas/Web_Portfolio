@@ -68,7 +68,6 @@ export const de: Translations = {
   panels: {
     david: {
       highlights: 'Highlights',
-      mySetup: 'Mein Setup',
     },
     coder: {
       expertise: 'Fachkenntnisse',
@@ -112,13 +111,6 @@ export const de: Translations = {
     'photography':     { title: 'Fotografie',                            description: 'Urban-, Natur- und Reisefotografie.' },
   } as Record<string, { title: string; description: string }>,
   characterItems: {
-    'macbook':             { name: 'MacBook Pro',                          description: 'Haupt-Entwicklungsrechner' },
-    'notion':              { name: 'Notion',                               description: 'Projektmanagement und Notizen' },
-    'headphones':          { name: 'Kopfhörer',                            description: 'Tiefer Fokus-Modus' },
-    'unity':               { name: 'Unity',                                description: 'Haupt-Engine für 3D/Mobile-Projekte' },
-    'godot':               { name: 'Godot',                                description: 'Erste Wahl für 2D und schnelles Prototyping' },
-    'github':              { name: 'GitHub',                               description: 'Versionskontrolle und Zusammenarbeit' },
-    'vscode':              { name: 'VS Code',                              description: 'Täglicher Haupteditor' },
     'data-science':        { name: 'Einführung in Data Science',           description: 'IBM — Coursera' },
     'game-design-course':  { name: 'Grundlagen des Spieldesigns',          description: 'Michigan State University — Coursera' },
     'ml-course':           { name: 'Machine Learning',                     description: 'Coursera' },
@@ -136,24 +128,9 @@ export const de: Translations = {
   footer: {
     copyright: 'Alle Rechte vorbehalten.',
   },
-  scene: {
-    level: 'LVL 33',
-  },
-  sceneTooltips: {
-    basic_cube1: 'Offen für neue Möglichkeiten',
-    developer_cube1: '5+ Jahre Spieleentwicklung',
-    engineer_cube1: 'Abschluss in Bauingenieurwesen',
-    hobbyist_cube1: '50+ Game Jams absolviert',
-    future_cube1: 'Offen für neue Möglichkeiten',
-  },
   pages: {
-    inventory: {
-      title: 'Inventar',
-      comingSoon: 'Projekte demnächst verfügbar.',
-    },
     contact: {
       title: 'Kontakt',
-      comingSoon: 'Kontaktformular demnächst verfügbar.',
       name: 'Dein Name',
       email: 'Deine E-Mail',
       message: 'Deine Nachricht',

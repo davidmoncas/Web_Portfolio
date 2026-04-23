@@ -184,53 +184,6 @@ export function EquipmentList({ items }: { items: ItemEntry[] }) {
   );
 }
 
-// ── Activity category list (checkboxes, grouped by category) ──────────────
-
-const CATEGORY_ORDER = ['sports', 'creativity', 'knowledge'] as const;
-
-const CATEGORY_LABELS: Record<string, string> = {
-  sports:     'Sports',
-  creativity: 'Creativity',
-  knowledge:  'Knowledge',
-};
-
-export function ActivityCategoryList({ items }: { items: ItemEntry[] }) {
-  const { t } = useI18n();
-
-  const grouped = CATEGORY_ORDER.reduce<Record<string, ItemEntry[]>>((acc, cat) => {
-    acc[cat] = items.filter((item) => item.category === cat);
-    return acc;
-  }, {});
-
-  return (
-    <div className="activity-list">
-      {CATEGORY_ORDER.map((cat) => {
-        const group = grouped[cat];
-        if (!group || group.length === 0) return null;
-        return (
-          <div key={cat} className="activity-list__group">
-            <h4 className="activity-list__group-title">{CATEGORY_LABELS[cat]}</h4>
-            <div className="activity-list__items">
-              {group.map((item) => {
-                const translated = t.characterItems[item.id];
-                return (
-                  <div key={item.id} className="activity-item">
-                    <span className="activity-item__checkbox" aria-hidden="true" />
-                    <div className="activity-item__body">
-                      <span className="activity-item__name">{translated?.name ?? item.name}</span>
-                      <span className="activity-item__desc">{translated?.description ?? item.description}</span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
 // ── Quest list ─────────────────────────────────────────────────────────────
 
 export function QuestList({ items }: { items: ItemEntry[] }) {
@@ -282,8 +235,6 @@ export function ToolsGrid({ tools }: { tools: ToolEntry[] }) {
 }
 
 // ── Work experience ────────────────────────────────────────────────────────
-
-export type { WorkEntry } from '../../../types';
 
 export function WorkExperienceList({ entries }: { entries: WorkEntry[] }) {
   return (

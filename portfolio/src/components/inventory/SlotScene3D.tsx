@@ -27,6 +27,8 @@ export function SlotScene3D({ url, isSelected }: Props) {
       <Suspense fallback={null}>
         <Canvas
           camera={{ position: [0, 0, 2], fov: 45 }}
+          frameloop={isSelected ? 'always' : 'demand'}
+          gl={{ antialias: true }}
           style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
         >
           <ambientLight intensity={1.2} />

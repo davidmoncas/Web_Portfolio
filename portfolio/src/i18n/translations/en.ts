@@ -66,7 +66,6 @@ export const en = {
   panels: {
     david: {
       highlights: 'Highlights',
-      mySetup: 'My Setup',
     },
     coder: {
       expertise: 'Expertise',
@@ -110,13 +109,6 @@ export const en = {
     'photography':     { title: 'Photography',                       description: 'Urban, nature and travel photography.' },
   } as Record<string, { title: string; description: string }>,
   characterItems: {
-    'macbook':             { name: 'MacBook Pro',                      description: 'Primary development machine' },
-    'notion':              { name: 'Notion',                           description: 'Project management and notes' },
-    'headphones':          { name: 'Headphones',                       description: 'Deep focus mode' },
-    'unity':               { name: 'Unity',                            description: 'Primary engine for 3D / mobile projects' },
-    'godot':               { name: 'Godot',                            description: 'Go-to for 2D and rapid prototyping' },
-    'github':              { name: 'GitHub',                           description: 'Version control and collaboration' },
-    'vscode':              { name: 'VS Code',                          description: 'Daily driver editor' },
     'data-science':        { name: 'Introduction to Data Science',     description: 'IBM — Coursera' },
     'game-design-course':  { name: 'Principles of Game Design',        description: 'Michigan State University — Coursera' },
     'ml-course':           { name: 'Machine Learning',                 description: 'Coursera' },
@@ -134,25 +126,9 @@ export const en = {
   footer: {
     copyright: 'All rights reserved.',
   },
-  scene: {
-    level: 'LVL 33',
-  },
-  /** Keys must match SceneObject.tooltipKey in characters.ts */
-  sceneTooltips: {
-    basic_cube1: 'Open to new opportunities',
-    developer_cube1: '5+ years of game development',
-    engineer_cube1: 'Civil Engineering degree',
-    hobbyist_cube1: '50+ game jams entered',
-    future_cube1: 'Open to new opportunities',
-  } as Record<string, string>,
   pages: {
-    inventory: {
-      title: 'Inventory',
-      comingSoon: 'Projects coming soon.',
-    },
     contact: {
       title: 'Contact',
-      comingSoon: 'Contact form coming soon.',
       name: 'Your Name',
       email: 'Your Email',
       message: 'Your Message',

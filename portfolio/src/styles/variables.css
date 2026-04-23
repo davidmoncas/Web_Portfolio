@@ -7,10 +7,8 @@
 :root {
   /* --- Core palette --- */
   --bg-root: #f2f4f5;
-  --bg-primary: #f2f4f5;
   --bg-panel: #ffffff;
   --bg-panel-hover: #f7f9f9;
-  --shadow-panel-hover: 6px 6px 0 rgba(0, 0, 0, 0.8);
   --bg-selected: #e8edec;
 
   /* --- Text --- */
@@ -20,8 +18,6 @@
   /* body, descriptions */
   --text-muted: #6f7e7d;
   /* labels, placeholders */
-  --text-accent: #2c3e3a;
-  /* same as primary — no separate accent color */
 
   /* --- Accent --- */
   --accent: #2c3e3a;
@@ -52,21 +48,9 @@
   --sidebar-width: 330px;
   --info-width: 528px;
 
-  /* --- Shape: all squared --- */
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-xl: 0px;
-
   /* --- Typography: Outfit for everything --- */
   --font-display: 'Outfit', system-ui, sans-serif;
   --font-sans: 'Outfit', system-ui, sans-serif;
-  --font-mono: 'Outfit', ui-monospace, monospace;
-
-  /* --- Scene overlay text (over dark canvas) --- */
-  --scene-text-primary: #ffffff;
-  --scene-text-secondary: rgba(255, 255, 255, 0.65);
-  --scene-text-muted: rgba(255, 255, 255, 0.38);
 
   /* --- Transition --- */
   --transition: 140ms ease;

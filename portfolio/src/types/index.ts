@@ -14,15 +14,6 @@ export interface SkillCategory {
   skills: Skill[];
 }
 
-export interface SceneObject {
-  id: string;
-  position: [number, number, number];
-  color: string;
-  size: [number, number, number];
-  tooltipKey: string;
-  imageUrl?: string;
-}
-
 /** Card shown below skill bars: an area of expertise */
 export interface SkillCard {
   id: string;
@@ -106,7 +97,6 @@ export interface Character {
   icon: string;
   color: string;
   skillCategories: SkillCategory[];
-  sceneObjects: SceneObject[];
   skillCards: SkillCard[];
   items: ItemEntry[];
   workExperience?: WorkEntry[];

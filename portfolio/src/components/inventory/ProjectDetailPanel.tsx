@@ -139,6 +139,7 @@ export function ProjectDetailPanel({ project }: Props) {
                 src={src}
                 alt={`${project.name} screenshot ${i + 1}`}
                 className="proj-gallery__thumb"
+                loading="lazy"
               />
             </button>
           ))}

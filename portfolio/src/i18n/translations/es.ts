@@ -68,7 +68,6 @@ export const es: Translations = {
   panels: {
     david: {
       highlights: 'Destacados',
-      mySetup: 'Mi Setup',
     },
     coder: {
       expertise: 'Experiencia Técnica',
@@ -112,13 +111,6 @@ export const es: Translations = {
     'photography':     { title: 'Fotografía',                           description: 'Fotografía urbana, de naturaleza y de viajes.' },
   } as Record<string, { title: string; description: string }>,
   characterItems: {
-    'macbook':             { name: 'MacBook Pro',                           description: 'Máquina principal de desarrollo' },
-    'notion':              { name: 'Notion',                                description: 'Gestión de proyectos y notas' },
-    'headphones':          { name: 'Auriculares',                           description: 'Modo de concentración profunda' },
-    'unity':               { name: 'Unity',                                 description: 'Motor principal para proyectos 3D / móviles' },
-    'godot':               { name: 'Godot',                                 description: 'Opción principal para 2D y prototipado rápido' },
-    'github':              { name: 'GitHub',                                description: 'Control de versiones y colaboración' },
-    'vscode':              { name: 'VS Code',                               description: 'Editor de uso diario' },
     'data-science':        { name: 'Introducción a la Ciencia de Datos',    description: 'IBM — Coursera' },
     'game-design-course':  { name: 'Principios del Diseño de Juegos',       description: 'Michigan State University — Coursera' },
     'ml-course':           { name: 'Machine Learning',                      description: 'Coursera' },
@@ -136,24 +128,9 @@ export const es: Translations = {
   footer: {
     copyright: 'Todos los derechos reservados.',
   },
-  scene: {
-    level: 'NVL 33',
-  },
-  sceneTooltips: {
-    basic_cube1: 'Abierto a nuevas oportunidades',
-    developer_cube1: '5+ años de desarrollo de juegos',
-    engineer_cube1: 'Título en Ingeniería Civil',
-    hobbyist_cube1: '50+ game jams completados',
-    future_cube1: 'Abierto a nuevas oportunidades',
-  },
   pages: {
-    inventory: {
-      title: 'Inventario',
-      comingSoon: 'Proyectos próximamente.',
-    },
     contact: {
       title: 'Contacto',
-      comingSoon: 'Formulario de contacto próximamente.',
       name: 'Tu Nombre',
       email: 'Tu Correo',
       message: 'Tu Mensaje',
