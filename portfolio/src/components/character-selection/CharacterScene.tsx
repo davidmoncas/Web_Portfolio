@@ -4,22 +4,19 @@ import { PlayerProfile } from './PlayerProfile';
 import type { Character, SceneObject } from '../../types';
 
 // ── Character image map ────────────────────────────────────────────────────
-//
-// TODO: Replace with 3D model imports when GLB models are ready.
-// Each character id maps to its flat profile image.
 
-import basicImg     from '../../images/temp_profiles/basic.png';
-import coderImg     from '../../images/temp_profiles/coder.png';
-import creatorImg   from '../../images/temp_profiles/creator.png';
-import studentImg   from '../../images/temp_profiles/student.png';
-import futureImg    from '../../images/temp_profiles/future.png';
+import basicImg      from '../../images/avatars/basic.png';
+import programmerImg  from '../../images/avatars/programmer.png';
+import creatorImg     from '../../images/avatars/creator.png';
+import studentImg     from '../../images/avatars/student.png';
+import lockedImg      from '../../images/avatars/locked.png';
 
 const CHARACTER_IMAGES: Record<string, string> = {
   basic:     basicImg,
-  developer: coderImg,
+  developer: programmerImg,
   engineer:  studentImg,
   hobbyist:  creatorImg,
-  future:    futureImg,
+  future:    lockedImg,
 };
 
 // ── Scene info panel (HTML overlay, top-right) ─────────────────────────────

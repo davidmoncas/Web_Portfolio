@@ -4,7 +4,6 @@ import bremenLogo from '../images/university_bremen_logo.png';
 import iconGuitar      from '../images/icons/icon_guitar.png';
 import iconPiano      from '../images/icons/icon_piano.png';
 import iconPencil      from '../images/icons/icon_pencil.png';
-import iconMusic       from '../images/icons/icon_music.png';
 import iconCamera      from '../images/icons/icon_camera.png';
 
 export const characters: Character[] = [
