@@ -1,6 +1,6 @@
 export const en = {
   topBar: {
-    name: 'David Montoya Castano',
+    name: 'David Montoya Castano ',
   },
   nav: {
     characters: 'Select Character',
