@@ -138,6 +138,10 @@ export const de: Translations = {
       success: 'Deine Nachricht wurde gesendet!',
       error: 'Etwas ist schiefgelaufen. Bitte versuche es erneut.',
       emailError: 'Bitte gib eine gültige E-Mail-Adresse ein.',
+      introMessage: 'Hallo, möchtest du mir etwas mitteilen?',
+      yes: 'Ja',
+      continue: 'Weiter',
+      submittedMessage: 'Vielen Dank für deine Nachricht, ich melde mich so bald wie möglich.',
     },
   },
   inventory: {

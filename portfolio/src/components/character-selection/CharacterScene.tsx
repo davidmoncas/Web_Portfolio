@@ -22,6 +22,7 @@ export function CharacterScene({ character }: { character: Character }) {
     <div className="char-scene">
       {/* Flat character image — swap this block for a <Canvas> when 3D models are ready */}
       <img
+        key={character.id}
         src={imageSrc}
         alt={character.id}
         className="char-scene__profile-image"

@@ -23,6 +23,7 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-primary);
+  text-shadow: 3px 3px 0 var(--accent-shadow);
 }
 
 .topbar__lang {
@@ -71,7 +72,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  background: var(--bg-root);
+  background: var(--panel-border-color);
   border-bottom: 1px solid var(--panel-border-color);
   padding: 0 20px;
   gap: 4px;
@@ -86,27 +87,30 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-secondary);
+  background: #c2d0cb;
+  text-decoration: none;
   display: flex;
   align-items: center;
   border: 1px solid transparent;
   border-bottom: none;
+  border-radius: 5px 5px 0 0;
   transition: color var(--transition), background var(--transition), border-color var(--transition);
 }
 
 .tab-nav__tab:hover {
-  color: var(--text-secondary);
-  background: rgba(44, 62, 58, 0.04);
-  border-color: var(--border);
+  color:#4d7c0f;
+  border-color: rgba(77, 124, 15, 0.55);
 }
 
-/* Active: white fill, border on top+sides, bottom matches panel bg to "break" the nav line */
+/* Active: 10% taller, page-bg fill, borders on top+sides only */
 .tab-nav__tab--active {
+  height: 42px;
   color: var(--text-primary);
   font-weight: 700;
-  background: var(--bg-panel);
+  background: var(--bg-root);
   border-color: var(--panel-border-color);
-  border-bottom: 1px solid var(--bg-panel);
+  border-bottom: none;
 }
 
 /* ── Page content wrapper ─────────────────────────────────────────────────── */

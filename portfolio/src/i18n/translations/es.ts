@@ -138,6 +138,10 @@ export const es: Translations = {
       success: '¡Tu mensaje ha sido enviado!',
       error: 'Algo salió mal. Por favor intenta de nuevo.',
       emailError: 'Por favor introduce un correo electrónico válido.',
+      introMessage: 'Hola, ¿quieres contarme algo?',
+      yes: 'Sí',
+      continue: 'Continuar',
+      submittedMessage: 'Muchas gracias por tu mensaje, te responderé lo antes posible.',
     },
   },
   inventory: {

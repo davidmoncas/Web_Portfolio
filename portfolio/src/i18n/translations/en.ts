@@ -136,6 +136,10 @@ export const en = {
       success: 'Your message has been sent!',
       error: 'Something went wrong. Please try again.',
       emailError: 'Please enter a valid email address.',
+      introMessage: 'Hello, do you want to tell me something?',
+      yes: 'Yes',
+      continue: 'Continue',
+      submittedMessage: 'Thank you very much for your message, I\'ll get back to you as soon as possible.',
     },
   },
   inventory: {
